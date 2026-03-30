@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 DATABRICKS_HOST = os.getenv("DATABRICKS_HOST", "")
 DATABRICKS_TOKEN = os.getenv("DATABRICKS_TOKEN", "")
 DATABRICKS_WAREHOUSE_ID = os.getenv("DATABRICKS_WAREHOUSE_ID", "")
-DATABRICKS_CATALOG = os.getenv("DATABRICKS_CATALOG", "hive_metastore")
+DATABRICKS_CATALOG = os.getenv("DATABRICKS_CATALOG", "workspace")
 DATABRICKS_SCHEMA = os.getenv("DATABRICKS_SCHEMA", "default")
 
 
@@ -27,11 +27,11 @@ def _get_connection():
     from databricks import sql as databricks_sql
 
     return databricks_sql.connect(
-        server_hostname=DATABRICKS_HOST,
-        http_path=f"/sql/1.0/warehouses/{DATABRICKS_WAREHOUSE_ID}",
-        access_token=DATABRICKS_TOKEN,
-        catalog=DATABRICKS_CATALOG,
-        schema=DATABRICKS_SCHEMA,
+        server_hostname=os.getenv("DATABRICKS_HOST", ""),
+        http_path=f"/sql/1.0/warehouses/{os.getenv('DATABRICKS_WAREHOUSE_ID', '')}",
+        access_token=os.getenv("DATABRICKS_TOKEN", ""),
+        catalog=os.getenv("DATABRICKS_CATALOG", "workspace"),
+        schema=os.getenv("DATABRICKS_SCHEMA", "default"),
     )
 
 
