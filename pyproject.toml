@@ -1,0 +1,24 @@
+[project]
+name = "devradar"
+version = "0.1.0"
+description = "Pipeline de insights sobre comunidades tech do Reddit — Medallion Architecture"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["airflow/scripts", "app", "lambda"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
