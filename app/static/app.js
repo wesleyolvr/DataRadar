@@ -42,6 +42,17 @@ function renderPipelineCounts() {
   document.getElementById("bronze-records").textContent = layers[0].records.toLocaleString() + " registros";
   document.getElementById("silver-records").textContent = layers[1].records.toLocaleString() + " registros";
   document.getElementById("gold-records").textContent = layers[2].records.toLocaleString() + " registros";
+
+  const silverBadge = document.getElementById("silver-badge");
+  const goldBadge = document.getElementById("gold-badge");
+  if (layers[1].status === "active" && silverBadge) {
+    silverBadge.textContent = "ATIVO";
+    silverBadge.className = "node-status badge-active";
+  }
+  if (layers[2].status === "active" && goldBadge) {
+    goldBadge.textContent = "ATIVO";
+    goldBadge.className = "node-status badge-active";
+  }
 }
 
 document.querySelectorAll(".pipeline-node[data-layer]").forEach((node) => {
