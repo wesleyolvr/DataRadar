@@ -12,26 +12,26 @@
 > Escopo: zero features novas — só organização, segurança e qualidade.
 
 ### Git + GitHub
-- [ ] Inicializar repo Git só em `devradar/` (repo independente)
-- [ ] Branch strategy: `main` + feature branches (GitHub Flow), PRs para histórico
-- [ ] Licença MIT
-- [ ] `.gitignore` completo (adicionar `.venv/`, `.pytest_cache/`, `.mypy_cache/`, `.ruff_cache/`, `.vscode/`, `.idea/`, `dist/`, `*.egg-info`)
-- [ ] Mover `test_s3_upload.py` e `trigger_dag.py` para `scripts/`, limpar `load_dotenv` hardcoded
-- [ ] README enxuto (~100-150 linhas) com diagrama Mermaid de arquitetura + detalhes em `docs/`
+- [x] Inicializar repo Git só em `devradar/` (repo independente)
+- [x] Branch strategy: `main` + feature branches (GitHub Flow), PRs para histórico
+- [x] Licença MIT
+- [x] `.gitignore` completo (adicionar `.venv/`, `.pytest_cache/`, `.mypy_cache/`, `.ruff_cache/`, `.vscode/`, `.idea/`, `dist/`, `*.egg-info`)
+- [x] Mover `test_s3_upload.py` e `trigger_dag.py` para `scripts/`, limpar `load_dotenv` hardcoded
+- [x] README enxuto (~100-150 linhas) com diagrama Mermaid de arquitetura + detalhes em `docs/`
 
 ### Segurança de Credenciais
-- [ ] Rotacionar chave AWS antes de publicar no GitHub
-- [ ] Criar `.env.example` na raiz com placeholders (manter `airflow/.env.example` separado)
-- [ ] Lambda: manter env vars no console por agora; documentar migração para SSM Parameter Store como próximo passo
+- [x] Rotacionar chave AWS antes de publicar no GitHub
+- [x] Criar `.env.example` na raiz com placeholders (manter `airflow/.env.example` separado)
+- [x] Lambda: manter env vars no console por agora; documentar migração para SSM Parameter Store como próximo passo
 
 ### Testes Automatizados
-- [ ] Framework: pytest, `tests/` na raiz, estrutura flat com `conftest.py`
-- [ ] Testar funções puras (sem mocks HTTP): `extract_reddit.py`, `mock_layers.py`, `lambda/handler.py`, `bronze_reader.py`
-- [ ] `bronze_reader.py`: testes com `tmp_path` e JSONs fake para deduplicação/paginação
+- [x] Framework: pytest, `tests/` na raiz, estrutura flat com `conftest.py`
+- [x] Testar funções puras (sem mocks HTTP): `extract_reddit.py`, `mock_layers.py`, `lambda/handler.py`, `bronze_reader.py`
+- [x] `bronze_reader.py`: testes com `tmp_path` e JSONs fake para deduplicação/paginação
 
 ### CI/CD
-- [ ] GitHub Actions: lint (ruff) + testes (pytest) a cada push/PR
-- [ ] Badge de "tests passing" no README
+- [x] GitHub Actions: lint (ruff) + testes (pytest) a cada push/PR
+- [x] Badge de "tests passing" no README
 
 ---
 

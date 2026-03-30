@@ -2,7 +2,7 @@
 
 Pipeline de insights sobre comunidades tech do Reddit — da ingestão à visualização, seguindo a **Medallion Architecture** (Bronze → Silver → Gold).
 
-[![CI](https://github.com/SEU_USUARIO/dataradar/actions/workflows/ci.yml/badge.svg)](https://github.com/SEU_USUARIO/dataradar/actions/workflows/ci.yml)
+[![CI](https://github.com/wesleyolvr/DataRadar/actions/workflows/ci.yml/badge.svg)](https://github.com/wesleyolvr/DataRadar/actions/workflows/ci.yml)
 
 ## O que faz
 
@@ -54,7 +54,7 @@ flowchart LR
 
 ```bash
 # 1. Clone o repo
-git clone https://github.com/SEU_USUARIO/dataradar.git
+git clone https://github.com/wesleyolvr/DataRadar.git
 cd dataradar
 
 # 2. Crie e configure o .env
