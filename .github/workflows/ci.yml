@@ -18,7 +18,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install pytest ruff
+        run: pip install pytest ruff requests fastapi httpx
 
       - name: Lint with ruff
         run: ruff check .
