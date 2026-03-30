@@ -60,7 +60,8 @@ services:
           --lastname DevRadar \
           --role Admin \
           --email admin@devradar.local \
-          --password admin
+          --password admin || true
+        airflow pools set reddit_api 2 "Limita concorrencia de requests a API publica do Reddit" || true
     depends_on:
       <<: *airflow-common-depends-on
     restart: "no"

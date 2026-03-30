@@ -73,7 +73,7 @@ def get_subreddits() -> list[str]:
     return subs
 
 
-@task(max_active_tis_per_dag=2)
+@task(pool="reddit_api", max_active_tis_per_dag=2)
 def extract(sub: str, **context) -> dict:
     """Extrai posts de um subreddit."""
     from extract_reddit import extract_subreddit
@@ -217,7 +217,7 @@ def save_local(result: dict, **context) -> dict:
     }
 
 
-@task
+@task(pool="reddit_api", max_active_tis_per_dag=1)
 def extract_and_save_comments(save_result: dict, **context) -> dict:
     """Extrai comentários com cache e salva snapshot."""
     from extract_reddit import extract_comments_for_posts

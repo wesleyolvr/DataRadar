@@ -25,13 +25,18 @@ HEADERS = {
 }
 
 REQUEST_TIMEOUT = 15
-RATE_LIMIT_SLEEP = 2.0
-MAX_RETRIES = 3
+RATE_LIMIT_SLEEP = 3.0
+MAX_RETRIES = 6
 RETRY_BACKOFF = 5
+MIN_429_WAIT = 10
 
 
 def _get_with_retry(url: str, params: dict, retries: int = MAX_RETRIES) -> dict | None:
-    """GET com retry exponencial e tratamento de rate-limit (429)."""
+    """GET com retry exponencial e tratamento de rate-limit (429).
+
+    Respeita o header ``Retry-After`` quando presente; caso contrário usa
+    backoff exponencial com piso de MIN_429_WAIT segundos para 429s.
+    """
     for attempt in range(1, retries + 1):
         try:
             resp = requests.get(
@@ -39,8 +44,15 @@ def _get_with_retry(url: str, params: dict, retries: int = MAX_RETRIES) -> dict 
             )
 
             if resp.status_code == 429:
-                wait = RETRY_BACKOFF * attempt
-                logger.warning("Rate-limited (429). Aguardando %ss…", wait)
+                retry_after = resp.headers.get("Retry-After")
+                if retry_after:
+                    wait = max(int(retry_after), MIN_429_WAIT)
+                else:
+                    wait = max(RETRY_BACKOFF * (2 ** (attempt - 1)), MIN_429_WAIT)
+                logger.warning(
+                    "Rate-limited (429). Tentativa %d/%d — aguardando %ds…",
+                    attempt, retries, wait,
+                )
                 time.sleep(wait)
                 continue
 
@@ -55,6 +67,7 @@ def _get_with_retry(url: str, params: dict, retries: int = MAX_RETRIES) -> dict 
             if attempt < retries:
                 time.sleep(RETRY_BACKOFF * attempt)
 
+    logger.error("Todas as %d tentativas falharam para %s", retries, url)
     return None
 
 
@@ -323,7 +336,8 @@ def extract_comments_for_posts(
         else:
             stats["failed"] += 1
 
-        time.sleep(RATE_LIMIT_SLEEP)
+        # Pausa mais longa entre posts para evitar 429 em cascata
+        time.sleep(RATE_LIMIT_SLEEP * 2)
 
     logger.info(
         "Extração de comentários concluída: %d elegíveis, %d pulados (cache), "

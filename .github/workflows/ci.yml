@@ -49,3 +49,6 @@ jobs:
             --function-name devradar-s3-trigger \
             --zip-file fileb://lambda/handler.zip \
             --publish
+          aws lambda update-function-configuration \
+            --function-name devradar-s3-trigger \
+            --handler handler.lambda_handler
