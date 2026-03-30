@@ -1,4 +1,4 @@
-# DevRadar — Melhorias Pendentes no Pipeline
+# DataRadar — Melhorias Pendentes no Pipeline
 
 > Anotações de débitos técnicos, otimizações e features futuras.
 > Atualizado em: 2026-03-30
@@ -73,7 +73,7 @@
 ### Infraestrutura
 
 - [ ] **Terraform/IaC**: hoje tudo foi criado pelo Console AWS. Migrar Lambda, IAM policies e S3 event notifications para Terraform para reprodutibilidade
-- [ ] **Ambiente de staging**: hoje tudo roda no mesmo bucket e tabelas. Separar `devradar-raw-dev` e `devradar-raw-prod`
+- [ ] **Ambiente de staging**: hoje tudo roda no mesmo bucket e tabelas. Separar `dataradar-raw-dev` e `dataradar-raw-prod`
 
 ### Performance / Custo
 

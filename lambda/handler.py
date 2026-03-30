@@ -1,5 +1,5 @@
 """
-AWS Lambda — Trigger Databricks Job quando novos arquivos chegam no S3.
+DataRadar — AWS Lambda — Trigger Databricks Job quando novos arquivos chegam no S3.
 
 Acionado por S3 Event Notification (ObjectCreated) no bucket devradar-raw.
 Filtra apenas arquivos raw_*.json (posts) para evitar execuções duplicadas.

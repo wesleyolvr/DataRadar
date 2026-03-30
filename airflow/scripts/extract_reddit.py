@@ -1,5 +1,5 @@
 """
-DevRadar — Módulo de extração da API pública do Reddit.
+DataRadar — Módulo de extração da API pública do Reddit.
 
 Extrai posts e comentários. Retorna dados em memória (lista de dicts)
 para que o caller decida onde persistir (S3, disco, etc.).
@@ -19,8 +19,8 @@ logger = logging.getLogger(__name__)
 
 HEADERS = {
     "User-Agent": (
-        "DevRadar/1.0 (data-pipeline; "
-        "https://github.com/devradar; contact@devradar.local)"
+        "DataRadar/1.0 (data-pipeline; "
+        "https://github.com/dataradar; contact@dataradar.local)"
     ),
 }
 

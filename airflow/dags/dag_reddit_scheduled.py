@@ -1,5 +1,5 @@
 """
-DevRadar — DAG agendada de ingestão do Reddit (a cada hora).
+DataRadar — DAG agendada de ingestão do Reddit (a cada hora).
 
 Lê a lista de subreddits da Airflow Variable `devradar_subreddits`
 (JSON array) e executa o pipeline completo: extração → validação →

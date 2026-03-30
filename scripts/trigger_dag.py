@@ -1,5 +1,5 @@
 """
-Trigger rápido da DAG local do DevRadar via API REST do Airflow.
+Trigger rápido da DAG local do DataRadar via API REST do Airflow.
 
 Uso:
   python trigger_dag.py rust golang devops
@@ -79,7 +79,7 @@ def trigger(
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Trigger da DAG DevRadar")
+    parser = argparse.ArgumentParser(description="Trigger da DAG DataRadar")
     parser.add_argument(
         "subreddits",
         nargs="*",

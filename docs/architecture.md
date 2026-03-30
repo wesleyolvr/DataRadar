@@ -1,8 +1,8 @@
-# DevRadar — Arquitetura
+# DataRadar — Arquitetura
 
 ## Visão Geral
 
-O DevRadar implementa a Medallion Architecture para processar dados de comunidades tech do Reddit:
+O DataRadar implementa a Medallion Architecture para processar dados de comunidades tech do Reddit:
 
 ### Bronze (Ingestão)
 - **Airflow** orquestra a extração via API pública do Reddit

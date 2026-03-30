@@ -1,5 +1,5 @@
 """
-DevRadar — DAG de ingestão diária do Reddit → S3 (camada Bronze / Raw).
+DataRadar — DAG de ingestão diária do Reddit → S3 (camada Bronze / Raw).
 
 Fluxo por subreddit:
   1. extract_<sub>  — chama extract_reddit.extract_subreddit()

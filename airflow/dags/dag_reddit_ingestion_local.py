@@ -1,5 +1,5 @@
 """
-DevRadar — DAG parametrizada de ingestão do Reddit.
+DataRadar — DAG parametrizada de ingestão do Reddit.
 
 Salva no disco local e, opcionalmente, faz upload para o S3 (Bronze).
 Trigger manual com parâmetros configuráveis.

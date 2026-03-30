@@ -1,4 +1,4 @@
-# DevRadar — Setup Completo
+# DataRadar — Setup Completo
 
 ## 1. Variáveis de Ambiente
 

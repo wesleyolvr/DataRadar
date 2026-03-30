@@ -1,12 +1,12 @@
-# DevRadar
+# DataRadar
 
 Pipeline de insights sobre comunidades tech do Reddit — da ingestão à visualização, seguindo a **Medallion Architecture** (Bronze → Silver → Gold).
 
-[![CI](https://github.com/SEU_USUARIO/devradar/actions/workflows/ci.yml/badge.svg)](https://github.com/SEU_USUARIO/devradar/actions/workflows/ci.yml)
+[![CI](https://github.com/SEU_USUARIO/dataradar/actions/workflows/ci.yml/badge.svg)](https://github.com/SEU_USUARIO/dataradar/actions/workflows/ci.yml)
 
 ## O que faz
 
-O DevRadar extrai posts e comentários de subreddits de tecnologia, processa e armazena os dados em camadas, e expõe uma API + dashboard para explorar os resultados.
+O DataRadar extrai posts e comentários de subreddits de tecnologia, processa e armazena os dados em camadas, e expõe uma API + dashboard para explorar os resultados.
 
 ## Arquitetura
 
@@ -54,8 +54,8 @@ flowchart LR
 
 ```bash
 # 1. Clone o repo
-git clone https://github.com/SEU_USUARIO/devradar.git
-cd devradar
+git clone https://github.com/SEU_USUARIO/dataradar.git
+cd dataradar
 
 # 2. Crie e configure o .env
 cp .env.example .env
@@ -80,7 +80,7 @@ uvicorn main:app --reload
 ## Estrutura do Projeto
 
 ```
-devradar/
+dataradar/
 ├── airflow/            # DAGs, scripts de extração, Docker Compose
 │   ├── dags/           # DAGs do Airflow
 │   ├── scripts/        # Módulo de extração do Reddit

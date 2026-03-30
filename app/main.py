@@ -1,4 +1,4 @@
-"""DevRadar — FastAPI app principal."""
+"""DataRadar — FastAPI app principal."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ from routers.ingest import router as ingest_router
 from routers.pipeline import router as pipeline_router
 
 app = FastAPI(
-    title="DevRadar API",
+    title="DataRadar API",
     description="Insights de comunidades tech do Reddit — Pipeline Medallion",
     version="0.1.0",
 )
@@ -34,7 +34,7 @@ app.include_router(pipeline_router)
 
 @app.get("/api/health")
 def health():
-    return {"status": "ok", "service": "devradar"}
+    return {"status": "ok", "service": "dataradar"}
 
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"

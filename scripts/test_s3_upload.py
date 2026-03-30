@@ -36,7 +36,7 @@ except Exception as e:
 # 2) Testar upload de um arquivo pequeno
 print("\n[2] Testando upload de arquivo de teste...")
 test_key = "reddit/_test/ping.json"
-test_body = b'{"test": true, "msg": "DevRadar S3 test"}'
+test_body = b'{"test": true, "msg": "DataRadar S3 test"}'
 try:
     s3.put_object(Bucket=BUCKET, Key=test_key, Body=test_body, ContentType="application/json")
     print(f"  -> Upload OK: s3://{BUCKET}/{test_key}")
