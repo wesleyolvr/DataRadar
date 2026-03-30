@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevRadar — Pipeline de Insights Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1><span class="accent">&lt;</span>DevRadar<span class="accent">/&gt;</span></h1>
+    <p class="subtitle">Pipeline de Insights das Comunidades Tech do Reddit</p>
+  </div>
+</header>
+
+<nav id="nav">
+  <button class="nav-btn active" data-section="pipeline">Pipeline</button>
+  <button class="nav-btn" data-section="ingest">Nova Extração</button>
+  <button class="nav-btn" data-section="scheduled">Agendamento</button>
+  <button class="nav-btn" data-section="explorer">Bronze Explorer</button>
+  <button class="nav-btn" data-section="layers">Silver &amp; Gold</button>
+</nav>
+
+<!-- ============ PIPELINE VIEW ============ -->
+<section id="section-pipeline" class="section active">
+  <div class="pipeline-flow" id="pipeline-flow">
+    <div class="pipeline-node source-node">
+      <div class="node-icon">📡</div>
+      <div class="node-label">Reddit API</div>
+      <div class="node-sub">API pública .json</div>
+    </div>
+    <div class="pipeline-arrow">→</div>
+    <div class="pipeline-node" id="node-bronze" data-layer="0">
+      <div class="node-status badge-active">ATIVO</div>
+      <div class="node-icon">🥉</div>
+      <div class="node-label">Bronze</div>
+      <div class="node-sub">Raw JSON</div>
+      <div class="node-records" id="bronze-records">—</div>
+    </div>
+    <div class="pipeline-arrow">→</div>
+    <div class="pipeline-node" id="node-silver" data-layer="1">
+      <div class="node-status badge-mock">MOCK</div>
+      <div class="node-icon">🥈</div>
+      <div class="node-label">Silver</div>
+      <div class="node-sub">Clean + NLP</div>
+      <div class="node-records" id="silver-records">—</div>
+    </div>
+    <div class="pipeline-arrow">→</div>
+    <div class="pipeline-node" id="node-gold" data-layer="2">
+      <div class="node-status badge-mock">MOCK</div>
+      <div class="node-icon">🥇</div>
+      <div class="node-label">Gold</div>
+      <div class="node-sub">Business Metrics</div>
+      <div class="node-records" id="gold-records">—</div>
+    </div>
+  </div>
+
+  <div class="layer-detail" id="layer-detail">
+    <p class="hint">Clique em uma camada acima para ver detalhes e um exemplo de registro.</p>
+  </div>
+</section>
+
+<!-- ============ NOVA EXTRAÇÃO ============ -->
+<section id="section-ingest" class="section">
+  <div class="ingest-card">
+    <h2>Extrair novo subreddit</h2>
+    <p class="layer-info">Digite o nome de um ou mais subreddits para disparar o pipeline de ingestão via Airflow.</p>
+
+    <div class="ingest-form">
+      <div class="control-group" style="flex:1">
+        <label for="ingest-subs">Subreddits (separados por vírgula)</label>
+        <input type="text" id="ingest-subs" placeholder="ex: rust, golang, devops" autocomplete="off">
+      </div>
+      <div class="control-group">
+        <label for="ingest-sort">Ordenação</label>
+        <select id="ingest-sort">
+          <option value="hot">Hot</option>
+          <option value="new">New</option>
+          <option value="top">Top</option>
+          <option value="rising">Rising</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="ingest-pages">Páginas</label>
+        <select id="ingest-pages">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="ingest-s3"> Enviar para S3
+        </label>
+      </div>
+      <button class="btn-primary" id="btn-ingest">Extrair</button>
+    </div>
+
+    <div id="progress-tracker"></div>
+
+    <div id="ingest-status" class="ingest-status"></div>
+
+    <div id="airflow-status" class="airflow-badge"></div>
+  </div>
+</section>
+
+<!-- ============ AGENDAMENTO ============ -->
+<section id="section-scheduled" class="section">
+  <div class="sched-card">
+    <div class="sched-header">
+      <div>
+        <h2>Extração Agendada</h2>
+        <p class="layer-info">A DAG roda automaticamente a cada hora, extraindo posts e comentários dos subreddits cadastrados e enviando para o S3.</p>
+      </div>
+      <div class="sched-toggle-area">
+        <span class="sched-status-label" id="sched-status-label">Carregando...</span>
+        <button class="btn-toggle" id="btn-toggle-sched">—</button>
+      </div>
+    </div>
+
+    <div class="sched-body">
+      <div class="sched-subs-section">
+        <h3>Subreddits Cadastrados</h3>
+        <div class="sched-subs-list" id="sched-subs-list"></div>
+        <div class="sched-add-form">
+          <input type="text" id="sched-new-sub" placeholder="Adicionar subreddit (ex: rust)" autocomplete="off">
+          <button class="btn-primary btn-sm" id="btn-add-sub">Adicionar</button>
+        </div>
+      </div>
+
+      <div class="sched-runs-section">
+        <h3>Últimas Execuções</h3>
+        <div id="sched-runs-list" class="sched-runs-list"></div>
+      </div>
+    </div>
+
+    <div id="sched-msg" class="ingest-status"></div>
+  </div>
+</section>
+
+<!-- ============ BRONZE EXPLORER ============ -->
+<section id="section-explorer" class="section">
+  <div class="explorer-controls">
+    <div class="control-group">
+      <label for="sub-select">Subreddit</label>
+      <select id="sub-select"><option value="">Carregando...</option></select>
+    </div>
+    <div class="control-group">
+      <label for="date-select">Data</label>
+      <select id="date-select"><option value="">—</option></select>
+    </div>
+    <div class="control-group">
+      <label for="sort-select">Ordenar por</label>
+      <select id="sort-select">
+        <option value="score">Score</option>
+        <option value="comments">Comentários</option>
+        <option value="date">Data</option>
+      </select>
+    </div>
+    <button class="btn-primary" id="btn-load">Carregar</button>
+  </div>
+
+  <div class="stats-row" id="stats-row"></div>
+
+  <div class="table-wrap">
+    <table id="posts-table">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Autor</th>
+          <th>Score</th>
+          <th>Comentários</th>
+          <th>Flair</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody id="posts-body"></tbody>
+    </table>
+  </div>
+
+  <div class="pagination" id="pagination"></div>
+</section>
+
+<!-- ============ SILVER & GOLD PREVIEW ============ -->
+<section id="section-layers" class="section">
+  <div class="layer-tabs">
+    <button class="layer-tab active" data-tab="silver">Silver — Dados Limpos</button>
+    <button class="layer-tab" data-tab="gold">Gold — Métricas de Negócio</button>
+  </div>
+
+  <div id="tab-silver" class="tab-content active">
+    <p class="layer-info">Preview da camada Silver: posts limpos com extração automática de ferramentas mencionadas.</p>
+    <div class="table-wrap">
+      <table id="silver-table">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Subreddit</th>
+            <th>Score</th>
+            <th>Ferramentas Detectadas</th>
+            <th>Flair</th>
+          </tr>
+        </thead>
+        <tbody id="silver-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="tab-gold" class="tab-content">
+    <div class="gold-grid" id="gold-grid"></div>
+  </div>
+</section>
+
+<footer>
+  <p>DevRadar v0.1 — Data Pipeline em construção</p>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>
