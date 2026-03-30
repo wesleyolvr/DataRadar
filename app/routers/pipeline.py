@@ -2,23 +2,75 @@
 
 from __future__ import annotations
 
+import logging
+
 from fastapi import APIRouter
 from services.bronze_reader import get_all_posts_flat, list_subreddits
+from services.databricks_client import (
+    fetch_gold_subreddit_week,
+    fetch_gold_summary,
+    fetch_gold_top_commenters,
+    fetch_silver_posts,
+    is_configured,
+)
 from services.mock_layers import aggregate_to_gold, transform_to_silver
 
+logger = logging.getLogger(__name__)
+
 router = APIRouter(prefix="/api/v1/pipeline", tags=["pipeline"])
+
+
+def _get_silver_gold_from_databricks() -> tuple[list, dict] | None:
+    if not is_configured():
+        return None
+    try:
+        silver_posts = fetch_silver_posts(limit=30)
+        if not silver_posts:
+            return None
+
+        subreddit_week = fetch_gold_subreddit_week()
+        top_commenters = fetch_gold_top_commenters()
+        summary = fetch_gold_summary()
+
+        gold = {
+            "subreddit_week": subreddit_week,
+            "top_commenters": top_commenters,
+            "summary": summary,
+        }
+        return silver_posts, gold
+    except Exception as e:
+        logger.warning("Databricks indisponivel, usando fallback mock: %s", e)
+        return None
 
 
 @router.get("/status")
 def pipeline_status():
     subs = list_subreddits()
     bronze_total = sum(s["total_posts"] for s in subs)
-
     bronze_posts = get_all_posts_flat(limit=500)
-    silver_posts = transform_to_silver(bronze_posts)
-    gold = aggregate_to_gold(silver_posts)
-
     sample_bronze = bronze_posts[0] if bronze_posts else None
+
+    db_result = _get_silver_gold_from_databricks()
+
+    if db_result:
+        silver_posts, gold = db_result
+        silver_status = "active"
+        gold_status = "active"
+        silver_tech = "Databricks + PySpark + Delta Lake"
+        gold_tech = "Databricks SQL Warehouse (Serverless)"
+    else:
+        silver_posts = transform_to_silver(bronze_posts)
+        gold_mock = aggregate_to_gold(silver_posts)
+        gold = {
+            "subreddit_week": gold_mock.get("subreddit_rankings", []),
+            "top_commenters": [],
+            "summary": gold_mock.get("summary", {}),
+        }
+        silver_status = "mock"
+        gold_status = "mock"
+        silver_tech = "Mock local (regex sobre Bronze)"
+        gold_tech = "Mock local (agregacao sobre Silver)"
+
     sample_silver = silver_posts[0] if silver_posts else None
 
     return {
@@ -26,31 +78,30 @@ def pipeline_status():
             {
                 "name": "Bronze",
                 "status": "active",
-                "description": "Dados brutos extraídos da API pública do Reddit",
-                "tech": "Airflow + Python requests → JSON local",
+                "description": "Dados brutos extraidos da API publica do Reddit",
+                "tech": "Airflow + Python requests -> JSON local + S3",
                 "records": bronze_total,
                 "subreddits": len(subs),
                 "sample": sample_bronze,
             },
             {
                 "name": "Silver",
-                "status": "mock",
-                "description": "Dados limpos com extração de ferramentas via NLP",
-                "tech": "Databricks + PySpark → Delta Tables (planejado)",
+                "status": silver_status,
+                "description": "Posts e comentarios limpos, deduplicados",
+                "tech": silver_tech,
                 "records": len(silver_posts),
-                "tools_detected": gold["summary"].get("unique_tools", 0),
                 "sample": sample_silver,
             },
             {
                 "name": "Gold",
-                "status": "mock",
-                "description": "Métricas de negócio: rankings, tendências, agregações",
-                "tech": "dbt → Tabelas de negócio (planejado)",
-                "records": gold["summary"].get("total_posts", 0),
+                "status": gold_status,
+                "description": "Metricas por subreddit/semana, top commenters",
+                "tech": gold_tech,
+                "records": gold.get("summary", {}).get("total_posts", 0),
                 "sample": {
-                    "top_tool": gold["tool_rankings"][0] if gold["tool_rankings"] else None,
-                    "top_subreddit": gold["subreddit_rankings"][0] if gold["subreddit_rankings"] else None,
-                    "summary": gold["summary"],
+                    "top_subreddit": gold["subreddit_week"][0] if gold.get("subreddit_week") else None,
+                    "top_commenter": gold["top_commenters"][0] if gold.get("top_commenters") else None,
+                    "summary": gold.get("summary", {}),
                 },
             },
         ],
