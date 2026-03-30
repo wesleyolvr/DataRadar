@@ -18,7 +18,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install pytest ruff requests fastapi httpx
+        run: pip install pytest ruff requests fastapi httpx databricks-sql-connector
 
       - name: Lint with ruff
         run: ruff check .
