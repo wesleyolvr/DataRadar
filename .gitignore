@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+
+# Testes e linting
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dados locais (não versionados)
+airflow/logs/
+airflow/plugins/
+airflow/data/
+
+# Secrets
+.env
+airflow/.env
+
+# OS
+.DS_Store
+Thumbs.db
