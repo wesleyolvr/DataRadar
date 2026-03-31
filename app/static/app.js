@@ -29,12 +29,18 @@ async function loadPipeline() {
   try {
     const res = await fetch(API + "/api/v1/pipeline/status");
     pipelineData = await res.json();
-    renderPipelineCounts();
-    renderSilverTable(pipelineData.silver_posts);
-    renderGold(pipelineData.gold);
-  } catch (e) {
-    console.error("Erro ao carregar pipeline:", e);
+  } catch {
+    try {
+      const fallback = await fetch("/data.json");
+      pipelineData = await fallback.json();
+    } catch (e2) {
+      console.error("Erro ao carregar pipeline:", e2);
+      return;
+    }
   }
+  renderPipelineCounts();
+  renderSilverTable(pipelineData.silver_posts);
+  renderGold(pipelineData.gold);
 }
 
 function renderPipelineCounts() {
@@ -198,14 +204,20 @@ function renderPagination(current, total) {
 function renderSilverTable(posts) {
   document.getElementById("silver-body").innerHTML = posts
     .map(
-      (p) => `
+      (p) => {
+        const tools = p.tools_mentioned || [];
+        const toolsCell = tools.length
+          ? tools.map((t) => `<span class="tool-tag">${escapeHtml(t)}</span>`).join(" ")
+          : '<span style="color:var(--text-dim)">—</span>';
+        return `
     <tr>
       <td title="${escapeHtml(p.title)}">${escapeHtml(truncate(p.title, 55))}</td>
       <td>${escapeHtml(p.subreddit || "—")}</td>
       <td>${p.score}</td>
-      <td>${p.tools_mentioned.length ? p.tools_mentioned.map((t) => `<span class="tool-tag">${escapeHtml(t)}</span>`).join(" ") : '<span style="color:var(--text-dim)">—</span>'}</td>
+      <td>${toolsCell}</td>
       <td>${p.flair ? `<span class="flair-tag">${escapeHtml(p.flair)}</span>` : "—"}</td>
-    </tr>`
+    </tr>`;
+      }
     )
     .join("");
 }
@@ -213,50 +225,69 @@ function renderSilverTable(posts) {
 /* ===== GOLD ===== */
 function renderGold(gold) {
   const grid = document.getElementById("gold-grid");
+  const s = gold.summary || {};
+
+  const summaryItems = [
+    { value: (s.total_posts || 0).toLocaleString(), label: "Posts analisados" },
+    { value: (s.unique_subreddits || 0).toLocaleString(), label: "Subreddits" },
+    { value: s.avg_score || 0, label: "Score medio" },
+    { value: (s.total_comments || 0).toLocaleString(), label: "Comentarios extraidos" },
+    { value: (s.total_unique_commenters || 0).toLocaleString(), label: "Comentaristas unicos" },
+  ];
 
   const summaryHtml = `
     <div class="gold-card">
-      <h3>📊 Resumo Geral</h3>
+      <h3>Resumo Geral</h3>
       <div class="summary-grid">
-        <div class="summary-item"><div class="s-value">${gold.summary.total_posts}</div><div class="s-label">Posts analisados</div></div>
-        <div class="summary-item"><div class="s-value">${gold.summary.unique_tools}</div><div class="s-label">Ferramentas únicas</div></div>
-        <div class="summary-item"><div class="s-value">${gold.summary.unique_subreddits}</div><div class="s-label">Subreddits</div></div>
-        <div class="summary-item"><div class="s-value">${gold.summary.avg_score}</div><div class="s-label">Score médio</div></div>
-        <div class="summary-item"><div class="s-value">${gold.summary.posts_with_tools}</div><div class="s-label">Posts com ferramentas</div></div>
+        ${summaryItems.map((item) => `
+          <div class="summary-item"><div class="s-value">${item.value}</div><div class="s-label">${item.label}</div></div>
+        `).join("")}
       </div>
     </div>`;
 
-  const toolsHtml = `
+  const rankings = gold.subreddit_rankings || [];
+  const subsHtml = rankings.length ? `
     <div class="gold-card">
-      <h3>🔧 Top Ferramentas Mencionadas</h3>
-      ${gold.tool_rankings
-        .map(
-          (t, i) => `
+      <h3>Ranking de Subreddits</h3>
+      ${rankings.map(
+        (sub, i) => `
+        <div class="ranking-item">
+          <span class="ranking-pos">${i + 1}.</span>
+          <span class="ranking-name">r/${escapeHtml(sub.subreddit)}</span>
+          <span class="ranking-value">${(sub.posts || sub.post_count || 0).toLocaleString()} posts · avg ${sub.avg_score}</span>
+        </div>`
+      ).join("")}
+    </div>` : "";
+
+  const commenters = gold.top_commenters || [];
+  const commentersHtml = commenters.length ? `
+    <div class="gold-card">
+      <h3>Top Comentaristas</h3>
+      ${commenters.map(
+        (c, i) => `
+        <div class="ranking-item">
+          <span class="ranking-pos">${i + 1}.</span>
+          <span class="ranking-name">${escapeHtml(c.author)}</span>
+          <span class="ranking-value">${(c.comment_count || 0).toLocaleString()} comentarios · avg ${(c.avg_score || 0).toFixed(1)}</span>
+        </div>`
+      ).join("")}
+    </div>` : "";
+
+  const tools = gold.tool_rankings || [];
+  const toolsHtml = tools.length ? `
+    <div class="gold-card">
+      <h3>Top Ferramentas Mencionadas</h3>
+      ${tools.map(
+        (t, i) => `
         <div class="ranking-item">
           <span class="ranking-pos">${i + 1}.</span>
           <span class="ranking-name">${escapeHtml(t.tool)}</span>
-          <span class="ranking-value">${t.mentions} menções</span>
+          <span class="ranking-value">${t.mentions} mencoes</span>
         </div>`
-        )
-        .join("")}
-    </div>`;
+      ).join("")}
+    </div>` : "";
 
-  const subsHtml = `
-    <div class="gold-card">
-      <h3>🏆 Ranking de Subreddits</h3>
-      ${gold.subreddit_rankings
-        .map(
-          (s, i) => `
-        <div class="ranking-item">
-          <span class="ranking-pos">${i + 1}.</span>
-          <span class="ranking-name">r/${escapeHtml(s.subreddit)}</span>
-          <span class="ranking-value">${s.posts} posts · avg ${s.avg_score}</span>
-        </div>`
-        )
-        .join("")}
-    </div>`;
-
-  grid.innerHTML = summaryHtml + toolsHtml + subsHtml;
+  grid.innerHTML = summaryHtml + subsHtml + commentersHtml + toolsHtml;
 }
 
 /* ===== UTILS ===== */
@@ -572,6 +603,6 @@ function showSchedMsg(text, type) {
 
 /* ===== INIT ===== */
 loadPipeline();
-loadSubreddits();
-checkAirflow();
-loadScheduledStatus();
+loadSubreddits().catch(() => {});
+checkAirflow().catch(() => {});
+loadScheduledStatus().catch(() => {});
