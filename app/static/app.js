@@ -602,7 +602,28 @@ function showSchedMsg(text, type) {
 }
 
 /* ===== INIT ===== */
-loadPipeline();
-loadSubreddits().catch(() => {});
-checkAirflow().catch(() => {});
-loadScheduledStatus().catch(() => {});
+async function init() {
+  let apiAvailable = false;
+  try {
+    const res = await fetch(API + "/api/v1/pipeline/status", { signal: AbortSignal.timeout(3000) });
+    if (res.ok) apiAvailable = true;
+  } catch {}
+
+  if (!apiAvailable) {
+    document.querySelectorAll('.nav-btn').forEach((btn) => {
+      const section = btn.dataset.section;
+      if (["ingest", "scheduled", "explorer"].includes(section)) {
+        btn.style.display = "none";
+      }
+    });
+  }
+
+  await loadPipeline();
+
+  if (apiAvailable) {
+    loadSubreddits().catch(() => {});
+    checkAirflow().catch(() => {});
+    loadScheduledStatus().catch(() => {});
+  }
+}
+init();
