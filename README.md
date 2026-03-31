@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 
-![DataRadar Dashboard](docs/assets/dataradar.png)
+![Pipeline — camadas Medallion no dashboard (Bronze, Silver, Gold)](docs/assets/pipeline.png)
 
 ## O que faz
 
@@ -18,6 +18,12 @@ O DataRadar extrai posts e comentarios de 72+ subreddits de tecnologia, processa
 - Extracao automatica a cada hora via Airflow
 - 71 comunidades com AI Insights gerados
 - Pipeline completo: Reddit -> Airflow -> S3 -> Lambda -> Databricks -> LLM -> Dashboard
+
+### AI Insights
+
+Aba do dashboard com insights por subreddit (ferramentas em alta, dores da comunidade, solucoes propostas).
+
+![AI Insights — analise por comunidade](docs/assets/ai_insights.png)
 
 ## Arquitetura
 
@@ -114,7 +120,9 @@ DataRadar/
 
 ## Agendamento
 
-![Agendamento](docs/assets/agendamento_dataradar.png)
+Extracao horaria dos subreddits cadastrados via DAG do Airflow.
+
+![Agendamento — DAG e subreddits](docs/assets/agendamento_dataradar.png)
 
 ## Documentacao
 
