@@ -1,6 +1,6 @@
 # DataRadar
 
-> Pipeline de dados end-to-end que monitora 72+ comunidades tech do Reddit — da ingestao a visualizacao, seguindo a **Medallion Architecture** (Bronze -> Silver -> Gold).
+> Radar de tendencias tech alimentado por IA — monitora 72+ comunidades do Reddit, processa dados em camadas (Medallion Architecture) e usa LLM para extrair insights sobre ferramentas, dores e solucoes de cada comunidade.
 
 [![CI/CD](https://github.com/wesleyolvr/DataRadar/actions/workflows/ci.yml/badge.svg)](https://github.com/wesleyolvr/DataRadar/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://python.org)
@@ -11,12 +11,13 @@
 
 ## O que faz
 
-O DataRadar extrai posts e comentarios de subreddits de tecnologia em tempo real, processa os dados em camadas (Bronze -> Silver -> Gold) e expoe uma API + dashboard interativo para explorar tendencias, ferramentas mais mencionadas e metricas de engajamento.
+O DataRadar extrai posts e comentarios de 72+ subreddits de tecnologia, processa em camadas (Bronze -> Silver -> Gold) e usa **LLM (Llama via Groq)** para analisar o conteudo e extrair insights estruturados: ferramentas em alta, dores da comunidade e solucoes propostas.
 
 **Numeros atuais:**
 - 72 subreddits monitorados (de `r/dataengineering` a `r/vibecoding`)
 - Extracao automatica a cada hora via Airflow
-- Pipeline completo: Reddit -> Airflow -> S3 -> Lambda -> Databricks -> Dashboard
+- 71 comunidades com AI Insights gerados
+- Pipeline completo: Reddit -> Airflow -> S3 -> Lambda -> Databricks -> LLM -> Dashboard
 
 ## Arquitetura
 
@@ -27,6 +28,8 @@ flowchart LR
     S3 -->|S3 Event| Lambda["AWS Lambda"]
     Lambda -->|trigger job| Databricks["Databricks Silver/Gold"]
     Databricks -->|SQL Connector| API["FastAPI"]
+    Databricks -->|Silver data| LLM["Groq LLM"]
+    LLM -->|insights JSON| API
     API -->|REST| UI["Dashboard"]
 ```
 
@@ -40,6 +43,7 @@ flowchart LR
 | Processamento | Databricks (PySpark + Delta Lake) |
 | Serving | Databricks SQL Warehouse (Serverless) |
 | API | FastAPI + uvicorn |
+| AI Insights | Groq API (Llama 3.1 8B) + OpenAI SDK |
 | Frontend | HTML/CSS/JS (estatico) |
 | CI/CD | GitHub Actions -> lint + test + deploy Lambda |
 
@@ -53,6 +57,7 @@ flowchart LR
 | Trigger | Lambda event-driven (nao polling) | Custo zero quando inativo; reage em segundos ao novo arquivo no S3 |
 | Concorrencia | Pool do Airflow (2 slots) | Evita cascata de rate limit 429; comments serializado (1 slot) |
 | Serving | SQL Connector direto ao Databricks | Dados sempre atualizados; elimina ETL intermediario; warehouse serverless |
+| AI Insights | Groq (Llama 3.1 8B) via OpenAI SDK | Free tier generoso (500K TPD); resposta rapida; JSON estruturado |
 
 ## Quick Start
 
@@ -102,7 +107,7 @@ DataRadar/
 │   ├── services/       # Leitura Bronze + cliente Databricks
 │   └── static/         # Dashboard HTML/CSS/JS
 ├── lambda/             # AWS Lambda (trigger Databricks via S3 event)
-├── scripts/            # Utilitarios (trigger DAG, replay Lambda)
+├── scripts/            # Utilitarios (generate_insights, replay Lambda)
 ├── tests/              # 55+ testes automatizados (pytest)
 └── docs/               # Arquitetura, setup, planos
 ```

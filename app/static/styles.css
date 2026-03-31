@@ -660,6 +660,30 @@ tr:hover td { background: var(--bg-hover); }
   .sched-header { flex-direction: column; }
 }
 
+/* ===== INSIGHTS ===== */
+.insights-header { margin-bottom: 1.5rem; }
+.insights-filter { margin-top: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+.insights-filter label { font-size: 0.85rem; color: var(--text-dim); }
+.insights-filter select {
+  background: var(--bg-card); color: var(--text); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 0.5rem 1rem; font-family: var(--font);
+}
+.insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+.insight-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.5rem; transition: border-color 0.2s;
+}
+.insight-card:hover { border-color: var(--accent); }
+.insight-card h3 { font-size: 1rem; margin-bottom: 1rem; color: var(--accent-light); }
+.insight-items { display: flex; flex-direction: column; gap: 0.75rem; }
+.insight-item {
+  background: var(--bg); border-radius: 8px; padding: 0.75rem 1rem;
+  border-left: 3px solid var(--accent);
+}
+.insight-name { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+.insight-mentions { font-size: 0.75rem; color: var(--green); font-family: var(--mono); margin: 0.25rem 0; }
+.insight-context { font-size: 0.8rem; color: var(--text-dim); line-height: 1.4; }
+
 /* ===== FOOTER ===== */
 footer {
   text-align: center;

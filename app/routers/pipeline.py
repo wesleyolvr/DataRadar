@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import json
 import logging
+import os
 
 from fastapi import APIRouter
 from services.bronze_reader import get_all_posts_flat, list_subreddits
@@ -107,4 +109,14 @@ def pipeline_status():
         ],
         "silver_posts": silver_posts[:30],
         "gold": gold,
+        "insights": _load_insights(),
     }
+
+
+def _load_insights() -> dict:
+    path = os.path.join(os.path.dirname(__file__), "..", "static", "data.json")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f).get("insights", {})
+    except Exception:
+        return {}

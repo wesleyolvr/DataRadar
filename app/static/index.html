@@ -23,6 +23,7 @@
   <button class="nav-btn" data-section="scheduled">Agendamento</button>
   <button class="nav-btn" data-section="explorer">Bronze Explorer</button>
   <button class="nav-btn" data-section="layers">Silver &amp; Gold</button>
+  <button class="nav-btn" data-section="insights">AI Insights</button>
 </nav>
 
 <!-- ============ PIPELINE VIEW ============ -->
@@ -215,6 +216,19 @@
   <div id="tab-gold" class="tab-content">
     <div class="gold-grid" id="gold-grid"></div>
   </div>
+</section>
+
+<!-- ============ AI INSIGHTS ============ -->
+<section id="section-insights" class="section">
+  <div class="insights-header">
+    <h2>AI Community Insights</h2>
+    <p class="layer-info">Tendencias, dores e solucoes extraidas por IA (Llama 3.3 70B) dos posts e comentarios de cada comunidade.</p>
+    <div class="insights-filter">
+      <label for="insights-sub-select">Subreddit</label>
+      <select id="insights-sub-select"><option value="">Carregando...</option></select>
+    </div>
+  </div>
+  <div id="insights-content" class="insights-grid"></div>
 </section>
 
 <footer>

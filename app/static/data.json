@@ -1401,5 +1401,3906 @@
       "total_comments": 571,
       "total_unique_commenters": 459
     }
+  },
+  "insights": {
+    "dataengineering": {
+      "trending_tools": [
+        {
+          "name": "BigQuery",
+          "mentions": 2,
+          "context": "BigQuery infere grupos de agrupamento automaticamente."
+        },
+        {
+          "name": "Databricks",
+          "mentions": 4,
+          "context": "Databricks é uma ferramenta popular para processamento de dados."
+        },
+        {
+          "name": "PySpark",
+          "mentions": 2,
+          "context": "PySpark é uma biblioteca de processamento de dados em Python."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Teradata",
+          "mentions": 2,
+          "context": "Teradata é uma ferramenta de processamento de dados que pode ser difícil de usar."
+        },
+        {
+          "topic": "Old Oracle setups",
+          "mentions": 1,
+          "context": "Configurações antigas do Oracle podem ser difíceis de gerenciar."
+        },
+        {
+          "topic": "SAP",
+          "mentions": 1,
+          "context": "SAP é uma ferramenta de processamento de dados que pode ser complexa de usar."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Dlthub",
+          "mentions": 1,
+          "context": "Dlthub é uma ferramenta para criar conectores personalizados."
+        },
+        {
+          "topic": "Roll your own connectors",
+          "mentions": 1,
+          "context": "Criar conectores personalizados pode ser uma boa solução."
+        },
+        {
+          "topic": "Streaming pipelines",
+          "mentions": 2,
+          "context": "Pipelines de streaming podem ser uma boa solução para processamento de dados em tempo real."
+        }
+      ]
+    },
+    "SaaS": {
+      "trending_tools": [
+        {
+          "name": "FeedbackQueue",
+          "mentions": 2,
+          "context": "Plataforma gratuita para troca de feedback entre desenvolvedores e ferramentas."
+        },
+        {
+          "name": "Reddit ads",
+          "mentions": 2,
+          "context": "Anúncios no Reddit para promover ferramentas SaaS."
+        },
+        {
+          "name": "SOC2",
+          "mentions": 1,
+          "context": "Compliance de segurança para empresas SaaS."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Perda de dados",
+          "mentions": 1,
+          "context": "Perda de dados em produção devido a erro de migração de banco de dados."
+        },
+        {
+          "topic": "Custo de SOC2",
+          "mentions": 1,
+          "context": "Custo de tempo e dinheiro para implementar compliance de segurança."
+        },
+        {
+          "topic": "Marketing eficaz",
+          "mentions": 1,
+          "context": "Desafio de encontrar estratégias de marketing eficazes para ferramentas SaaS."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Uptime garantido",
+          "mentions": 1,
+          "context": "Oferecer nível de serviço garantido para clientes em troca de pagamento adicional."
+        },
+        {
+          "topic": "Feedback para ferramentas",
+          "mentions": 2,
+          "context": "Plataforma para troca de feedback entre desenvolvedores e ferramentas."
+        },
+        {
+          "topic": "Marketing de conteúdo",
+          "mentions": 1,
+          "context": "Criar conteúdo de qualidade para atrair clientes e promover ferramentas SaaS."
+        }
+      ]
+    },
+    "SideProject": {
+      "trending_tools": [
+        {
+          "name": "Review Analyzer Pro",
+          "mentions": 1,
+          "context": "Chrome Extension para extrair defeitos de produtos"
+        },
+        {
+          "name": "Launchpad Manager",
+          "mentions": 1,
+          "context": "Aplicativo para gerenciar lançadores no macOS"
+        },
+        {
+          "name": "Flameshot",
+          "mentions": 1,
+          "context": "Ferramenta de captura de tela gratuita para Linux"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Dificuldade em encontrar ideias",
+          "mentions": 2,
+          "context": "Muitas pessoas têm dificuldade em encontrar ideias para projetos"
+        },
+        {
+          "topic": "Frustração com a falta de usuários",
+          "mentions": 2,
+          "context": "Alguns usuários se sentem frustrados com a falta de usuários em seus projetos"
+        },
+        {
+          "topic": "Paranoia em cafés",
+          "mentions": 1,
+          "context": "Alguns usuários se sentem desconfortáveis em cafés e precisam se esconder"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Marketing eficaz",
+          "mentions": 1,
+          "context": "Alguns usuários encontraram sucesso com marketing eficaz"
+        },
+        {
+          "topic": "Desenvolvimento de ferramentas úteis",
+          "mentions": 3,
+          "context": "Alguns usuários desenvolveram ferramentas úteis que atraíram usuários"
+        },
+        {
+          "topic": "Compartilhamento de experiências",
+          "mentions": 1,
+          "context": "Alguns usuários compartilham suas experiências e conhecimentos com a comunidade"
+        }
+      ]
+    },
+    "leetcode": {
+      "trending_tools": [
+        {
+          "name": "Google Docs",
+          "mentions": 2,
+          "context": "O editor de código do Google é melhor que o Google Docs?"
+        },
+        {
+          "name": "AI",
+          "mentions": 4,
+          "context": "A inteligência artificial está afetando a nossa intuição e pensamento cognitivo."
+        },
+        {
+          "name": "LeetCode",
+          "mentions": 7,
+          "context": "A LeetCode é uma plataforma de treinamento de programação popular."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Frustração com entrevistas técnicas",
+          "mentions": 2,
+          "context": "Muitas pessoas se sentem frustradas com as entrevistas técnicas."
+        },
+        {
+          "topic": "Dificuldade com DSA",
+          "mentions": 2,
+          "context": "Muitas pessoas encontram difícil aprender DSA."
+        },
+        {
+          "topic": "Problemas de comunicação",
+          "mentions": 2,
+          "context": "A comunicação é fundamental para o sucesso em carreiras de tecnologia."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Grind constante",
+          "mentions": 4,
+          "context": "O grind constante é fundamental para o sucesso em carreiras de tecnologia."
+        },
+        {
+          "topic": "Prática de problemas",
+          "mentions": 2,
+          "context": "A prática de problemas é fundamental para melhorar as habilidades de programação."
+        },
+        {
+          "topic": "Desenvolvimento de projetos",
+          "mentions": 2,
+          "context": "O desenvolvimento de projetos é fundamental para demonstrar habilidades práticas."
+        }
+      ]
+    },
+    "vibecoding": {
+      "trending_tools": [
+        {
+          "name": "Emscripten",
+          "mentions": 1,
+          "context": "Original C++ client compiled to WebAssembly via Emscripten"
+        },
+        {
+          "name": "Claude Code",
+          "mentions": 1,
+          "context": "About 99% of the new code was written by AI"
+        },
+        {
+          "name": "MEX",
+          "mentions": 1,
+          "context": "Sharing here since this community is exactly who it's built for"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Company forcing people to vibe code",
+          "mentions": 2,
+          "context": "The problem is my company forcing people to vibe code more in the hopes of getting"
+        },
+        {
+          "topic": "Vision dilution",
+          "mentions": 1,
+          "context": "Most PMs don't even know what they're building and we had to fill the gaps"
+        },
+        {
+          "topic": "Daily limit",
+          "mentions": 1,
+          "context": "On 20$ I hit daily limit like in hour, and I'm kinda learning the tool, doing very small incr"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Shipping fast",
+          "mentions": 1,
+          "context": "Shipping fast feels productive"
+        },
+        {
+          "topic": "Clarity and structure",
+          "mentions": 1,
+          "context": "But without clarity, structure, and a clear plan, shipping fast can lead to disaster"
+        },
+        {
+          "topic": "Constant crosscheck",
+          "mentions": 1,
+          "context": "In ideal world you will always have better result with constant crosscheck between different models"
+        }
+      ]
+    },
+    "investimentos": {
+      "trending_tools": [
+        {
+          "name": "Trezor",
+          "mentions": 1,
+          "context": "Fica aí o aviso pros aventureiros da web3. Defi é maravilhosa mas é bom olhar tudo sempre 2000x vezes."
+        },
+        {
+          "name": "Mastercard",
+          "mentions": 1,
+          "context": "Mastercard sofre prejuízo bilionário com liquidação do Will Bank, do Master"
+        },
+        {
+          "name": "Open Source",
+          "mentions": 1,
+          "context": "criei um open source para controle de gastos e patrimonio, 100% privado e gratuito"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Perda de Dinheiro",
+          "mentions": 4,
+          "context": "Burro é o OP que se achava o espertão malandro comprando moeda fake que não serve pra nada, e ainda conseguiu perder tudo"
+        },
+        {
+          "topic": "Golpe",
+          "mentions": 3,
+          "context": "Foi justo. Achei que tinha alguma engenharia social por trás. Mas você caiu igual minha mãe/pai cairiam em um golpe."
+        },
+        {
+          "topic": "Frustração",
+          "mentions": 2,
+          "context": "Triste é o brasileiro que trabalha pra kct viver numa situação que nao consegue comprar uma geladeira sem parcelar em 24"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Investir",
+          "mentions": 3,
+          "context": "E continue com consistência."
+        },
+        {
+          "topic": "Economia",
+          "mentions": 2,
+          "context": "Sem fazer nada vírgula. Vc teve que abdicar de gastar esse dinheiro, não é uma tarefa fácil e precisa de bastante autocontrole."
+        },
+        {
+          "topic": "Controle de Gastos",
+          "mentions": 1,
+          "context": "criei um open source para controle de gastos e patrimonio, 100% privado e gratuito"
+        }
+      ]
+    },
+    "devBR": {
+      "trending_tools": [
+        {
+          "name": "Gemini",
+          "mentions": 1,
+          "context": "Perguntei ao Gemini se poderia me ajudar a treinar programação em python"
+        },
+        {
+          "name": "Python",
+          "mentions": 2,
+          "context": "Eu trabalho faz quase 2 anos em uma micro empresa de 8 funcionários, e eu entrei como estagiário quando tudo era mato, agora nesse ano o meu chefe decidiu que eu iria aprender Python"
+        },
+        {
+          "name": "VSCode",
+          "mentions": 1,
+          "context": "Sou iniciante na computação e n sei fazer quase nada, nada de experiencia. To tentando rodar esse comando mas aparece isso o tempo todo, n sei como me fazer o VSCode funcionar"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Desgraça na vida da T.I",
+          "mentions": 1,
+          "context": "Proxy é a maior desgraça na vida da T.I"
+        },
+        {
+          "topic": "Frustração com o VSCode",
+          "mentions": 1,
+          "context": "Sou iniciante na computação e n sei fazer quase nada, nada de experiencia. To tentando rodar esse comando mas aparece isso o tempo todo, n sei como me fazer o VSCode funcionar"
+        },
+        {
+          "topic": "Dificuldade de fazer o VSCode funcionar",
+          "mentions": 1,
+          "context": "Sou iniciante na computação e n sei fazer quase nada, nada de experiencia. To tentando rodar esse comando mas aparece isso o tempo todo, n sei como me fazer o VSCode funcionar"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Unir a categoria",
+          "mentions": 2,
+          "context": "Precisamos unir a categoria"
+        },
+        {
+          "topic": "Fazer um alerta sobre perguntas de diversidade em processos seletivos",
+          "mentions": 1,
+          "context": "Quero fazer um alerta sobre perguntas de diversidade em processos seletivos (sofri discriminação para uma vaga de dev jr)"
+        },
+        {
+          "topic": "Ir estudando pra alguma outra área",
+          "mentions": 1,
+          "context": "Trabalho com análise de dados, estou disposto a ir estudando pra alguma outra área"
+        }
+      ]
+    },
+    "mcp": {
+      "trending_tools": [
+        {
+          "name": "Prism MCP v5.1",
+          "mentions": 1,
+          "context": "Prism MCP v5.1 - 10x memory compression e aprendizado de agentes de IA"
+        },
+        {
+          "name": "pixelpanda-mcp",
+          "mentions": 1,
+          "context": "pixelpanda-mcp - um MCP com 31 ferramentas de processamento de imagem"
+        },
+        {
+          "name": "LegalMCP",
+          "mentions": 2,
+          "context": "LegalMCP - primeiro servidor de pesquisa jurídica MCP nos EUA"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "MCP é morto",
+          "mentions": 2,
+          "context": "A conversa sobre MCP é apenas devs com óculos de desenvolvedor muito próximos de seu próprio trabalho"
+        },
+        {
+          "topic": "MCP é ineficiente",
+          "mentions": 1,
+          "context": "200+ ferramentas é uma arquitetura extraordinariamente ineficiente"
+        },
+        {
+          "topic": "Problemas de rede",
+          "mentions": 1,
+          "context": "Canais + Telegram não funcionam para mim no CC"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Antecipar tarefas",
+          "mentions": 1,
+          "context": "Antecipar as tarefas que os agentes devem realizar e construir ferramentas em torno delas"
+        },
+        {
+          "topic": "MCP com streaming HTTP",
+          "mentions": 1,
+          "context": "Suporte a streaming HTTP seria muito legal"
+        },
+        {
+          "topic": "MCP com interface de usuário",
+          "mentions": 1,
+          "context": "Servidores podem retornar componentes de interface de usuário interativos que sejam renderizados diretamente"
+        }
+      ]
+    },
+    "Python": {
+      "trending_tools": [
+        {
+          "name": "Pydantic AI",
+          "mentions": 1,
+          "context": "Aditya, um dos mantenedores de Pydantic AI, compartilhou atualizações sobre o projeto."
+        },
+        {
+          "name": "httpx",
+          "mentions": 1,
+          "context": "O usuário mencionou que switchou para httpx devido à sua suporte à sincronia em um projeto."
+        },
+        {
+          "name": "voicetag",
+          "mentions": 1,
+          "context": "O usuário compartilhou sobre o projeto voicetag, que identifica falantes em arquivos de áudio e transcreve o que cada pessoa disse."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "AI generated project showcases",
+          "mentions": 2,
+          "context": "O usuário expressou frustração com a quantidade de projetos gerados por AI compartilhados no subreddit."
+        },
+        {
+          "topic": "Supply chain attack",
+          "mentions": 1,
+          "context": "O usuário mencionou a ataque à cadeia de suprimentos que afetou o pacote litellm."
+        },
+        {
+          "topic": "Mental health",
+          "mentions": 1,
+          "context": "O usuário compartilhou sobre a importância da saúde mental e como a programação pode afetá-la."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Litellm alternatives",
+          "mentions": 1,
+          "context": "O usuário compartilhou algumas alternativas ao pacote litellm após a ataque à cadeia de suprimentos."
+        },
+        {
+          "topic": "Open Source contributions",
+          "mentions": 1,
+          "context": "O usuário incentivou a contribuição para o projeto Pydantic AI."
+        },
+        {
+          "topic": "Python Type Checkers",
+          "mentions": 1,
+          "context": "O usuário comparou diferentes verificadores de tipos em Python."
+        }
+      ]
+    },
+    "microsaas": {
+      "trending_tools": [
+        {
+          "name": "Clipvo Site",
+          "mentions": 1,
+          "context": "AI-powered tool for finding customers on Reddit"
+        },
+        {
+          "name": "CliqSpy",
+          "mentions": 1,
+          "context": "See every Google Ad your competitors are running"
+        },
+        {
+          "name": "DirectoryBacklinks.org",
+          "mentions": 1,
+          "context": "Helps you submit your startup to 50 directories"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Getting 1 person to sign up",
+          "mentions": 1,
+          "context": "Struggling to get even one person to sign up for the site"
+        },
+        {
+          "topic": "Website visitors: 0 - Paid users: 0",
+          "mentions": 1,
+          "context": "Launching a product with zero website visitors and paid users"
+        },
+        {
+          "topic": "Rental business operations",
+          "mentions": 1,
+          "context": "Rental business operations getting messy with bookings"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "List as 138 conversations",
+          "mentions": 1,
+          "context": "Treating the list as 138 conversations, not 138 leads"
+        },
+        {
+          "topic": "Post on social media",
+          "mentions": 1,
+          "context": "Posting on social media to reach more people"
+        },
+        {
+          "topic": "Build an all-in-one marketing pack",
+          "mentions": 1,
+          "context": "Building an all-in-one marketing pack for founders"
+        }
+      ]
+    },
+    "webdev": {
+      "trending_tools": [
+        {
+          "name": "Threejs",
+          "mentions": 2,
+          "context": "Por que o Threejs está explodindo em popularidade?"
+        },
+        {
+          "name": "Liquid Glass",
+          "mentions": 1,
+          "context": "Como criar um efeito de vidro líquido no navegador com CSS e SVG"
+        },
+        {
+          "name": "Forme",
+          "mentions": 1,
+          "context": "Um gerador de PDF que funciona no navegador, no Edge e em Node"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Perda de diversão no desenvolvimento",
+          "mentions": 2,
+          "context": "O que está acontecendo com o desenvolvimento web?"
+        },
+        {
+          "topic": "Problemas de SEO",
+          "mentions": 2,
+          "context": "Por que é difícil manter um site em primeiro lugar no Google?"
+        },
+        {
+          "topic": "Desenvolvimento de APIs",
+          "mentions": 1,
+          "context": "Como criar uma API que seja fácil de usar e entender?"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Melhorar a experiência do usuário",
+          "mentions": 1,
+          "context": "Como criar uma interface de usuário que seja fácil de usar e agradável?"
+        },
+        {
+          "topic": "Aprender a trabalhar com APIs",
+          "mentions": 1,
+          "context": "Como criar uma API que seja fácil de usar e entender?"
+        },
+        {
+          "topic": "Evitar o uso excessivo de JavaScript",
+          "mentions": 1,
+          "context": "Como criar uma página web que seja rápida e eficiente?"
+        }
+      ]
+    },
+    "cscareerquestions": {
+      "trending_tools": [
+        {
+          "name": "Fortnite",
+          "mentions": 2,
+          "context": "A plataforma de jogos Fortnite está perdendo popularidade e receita."
+        },
+        {
+          "name": "Meta",
+          "mentions": 3,
+          "context": "A Meta está enfrentando cortes de pessoal e reestruturação."
+        },
+        {
+          "name": "AI",
+          "mentions": 4,
+          "context": "A inteligência artificial está sendo citada como uma das razões para os cortes de pessoal."
+        },
+        {
+          "name": "996",
+          "mentions": 2,
+          "context": "O trabalho excessivo está sendo citado como uma das causas de estresse e burnout."
+        },
+        {
+          "name": "LinkedIn",
+          "mentions": 1,
+          "context": "O LinkedIn é uma ferramenta importante para networking e contato profissional."
+        },
+        {
+          "name": "Tim Hortons",
+          "mentions": 1,
+          "context": "A Tim Hortons está contratando talentos de tecnologia em grande escala."
+        },
+        {
+          "name": "Amazon",
+          "mentions": 1,
+          "context": "A Amazon é uma das empresas que está enfrentando cortes de pessoal e reestruturação."
+        },
+        {
+          "name": "FAANG",
+          "mentions": 2,
+          "context": "As empresas FAANG (Facebook, Apple, Amazon, Netflix e Google) estão enfrentando cortes de pessoal e reestruturação."
+        },
+        {
+          "name": "Pip",
+          "mentions": 1,
+          "context": "O Pip é um programa de preparação para entrevistas pagas."
+        },
+        {
+          "name": "Uber",
+          "mentions": 1,
+          "context": "O Uber é uma opção de trabalho para aqueles que precisam de uma fonte de renda adicional."
+        },
+        {
+          "name": "DLC",
+          "mentions": 1,
+          "context": "O DLC é um tipo de conteúdo adicional para jogos."
+        },
+        {
+          "name": "SWE",
+          "mentions": 1,
+          "context": "O SWE é um tipo de engenharia de software."
+        },
+        {
+          "name": "AWS",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Python",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Java",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "JavaScript",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "C++",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Git",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "SQL",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "HTML",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "CSS",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "React",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Angular",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Vue",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Node",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Express",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "MongoDB",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "PostgreSQL",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "MySQL",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Redis",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "RabbitMQ",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Kafka",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Docker",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Kubernetes",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "AWS Lambda",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Azure",
+          "mentions": 0,
+          "context": ""
+        },
+        {
+          "name": "Google Cloud",
+          "mentions": 0,
+          "context": ""
+        }
+      ]
+    },
+    "learnprogramming": {
+      "trending_tools": [
+        {
+          "name": "GitHub Copilot",
+          "mentions": 2,
+          "context": "GitHub Copilot é uma ferramenta de codificação assistida por inteligência artificial."
+        },
+        {
+          "name": "AI model training",
+          "mentions": 2,
+          "context": "O treinamento de modelos de inteligência artificial é uma ferramenta importante para melhorar a codificação."
+        },
+        {
+          "name": "GitHub",
+          "mentions": 2,
+          "context": "O GitHub é uma plataforma de hospedagem de código que permite colaboração e compartilhamento de projetos."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Falta de projetos práticos",
+          "mentions": 2,
+          "context": "Muitos desenvolvedores têm dificuldade em criar projetos práticos e úteis."
+        },
+        {
+          "topic": "Dificuldade em aprender sistemas de pensamento",
+          "mentions": 1,
+          "context": "Aprender a pensar em sistemas é uma habilidade importante para desenvolvedores."
+        },
+        {
+          "topic": "Frustração com a falta de progresso",
+          "mentions": 2,
+          "context": "A falta de progresso em projetos pode causar frustração e desmotivação."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Aprender aplicação de arquitetura e padrões de design",
+          "mentions": 1,
+          "context": "Aprender aplicação de arquitetura e padrões de design pode ajudar a melhorar a codificação."
+        },
+        {
+          "topic": "Focar em qualidade ao invés de velocidade",
+          "mentions": 1,
+          "context": "Focar em qualidade ao invés de velocidade pode ajudar a melhorar a codificação."
+        },
+        {
+          "topic": "Aprender a pensar em sistemas",
+          "mentions": 1,
+          "context": "Aprender a pensar em sistemas é uma habilidade importante para desenvolvedores."
+        }
+      ]
+    },
+    "Annas_Archive": {
+      "trending_tools": [
+        {
+          "name": "Goodlib",
+          "mentions": 1,
+          "context": "Uma extensão que abre qualquer livro da Goodreads em Anna's Archive, Z-Library e mais em um clique."
+        },
+        {
+          "name": "Open Source extension",
+          "mentions": 1,
+          "context": "Um desenvolvedor compartilhou o código-fonte de uma extensão aberta para o navegador."
+        },
+        {
+          "name": "Z-Library",
+          "mentions": 1,
+          "context": "Uma biblioteca digital que oferece acesso a livros e artigos acadêmicos."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Perda de acesso a livros",
+          "mentions": 2,
+          "context": "Alguns usuários estão preocupados com a possibilidade de perder acesso a livros importantes."
+        },
+        {
+          "topic": "Problemas com o Kindle",
+          "mentions": 1,
+          "context": "Alguns usuários estão tendo problemas para enviar livros para o Kindle."
+        },
+        {
+          "topic": "Falta de confiança na equipe",
+          "mentions": 1,
+          "context": "Alguns usuários estão questionando a capacidade da equipe de manter o site funcionando."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Backup de dados",
+          "mentions": 1,
+          "context": "Alguns usuários estão sugerindo que a equipe faça um backup dos dados para evitar a perda de informações."
+        },
+        {
+          "topic": "Alternativas para o Kindle",
+          "mentions": 1,
+          "context": "Alguns usuários estão sugerindo alternativas para enviar livros para o Kindle."
+        },
+        {
+          "topic": "Mudança de domínio",
+          "mentions": 1,
+          "context": "Alguns usuários estão sugerindo que a equipe mude o domínio do site para evitar problemas."
+        }
+      ]
+    },
+    "brdev": {
+      "trending_tools": [
+        {
+          "name": "React Native",
+          "mentions": 2,
+          "context": "Comecei como desenvolvedor React Native sem nunca ter"
+        },
+        {
+          "name": "TDD",
+          "mentions": 1,
+          "context": "única maneira que achei de desenvolver com IA sem perder tempo com regressão foi TDD"
+        },
+        {
+          "name": "LLMs",
+          "mentions": 1,
+          "context": "a google ta ficando bem mais madura que a openai em questão de LLMs"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Layoff Bradesco",
+          "mentions": 1,
+          "context": "nas últimas semanas, o bradesco desligou silenciosamente mais de 100 pessoas e continua desligando"
+        },
+        {
+          "topic": "Demissões em massa",
+          "mentions": 2,
+          "context": "A quantidade de demissões em massa por grandes empresas"
+        },
+        {
+          "topic": "Burnout diário",
+          "mentions": 1,
+          "context": "vivendo a base de ansiolíticos pesados"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "TDD",
+          "mentions": 1,
+          "context": "única maneira que achei de desenvolver com IA sem perder tempo com regressão foi TDD"
+        },
+        {
+          "topic": "Contratar dev sênior",
+          "mentions": 1,
+          "context": "Pois é, os caras não querem contratar Junior nem Pleno, querem contratar um Senior pra trabalhar presencial por um salário"
+        },
+        {
+          "topic": "Mudar de cidade",
+          "mentions": 1,
+          "context": "Aplique em vagas para SP enquanto mora aí, vai fazendo e tenta ir para lá com algo garantido"
+        }
+      ]
+    },
+    "Design": {
+      "trending_tools": [
+        {
+          "name": "Adobe Creative Cloud",
+          "mentions": 1,
+          "context": "Ou seja, o uso de ferramentas como o Adobe Creative Cloud está se tornando cada vez mais comum."
+        },
+        {
+          "name": "AI",
+          "mentions": 2,
+          "context": "A inteligência artificial está sendo usada em diversas áreas, incluindo a design gráfico e a criação de conteúdo."
+        },
+        {
+          "name": "ARIRANG",
+          "mentions": 2,
+          "context": "O projeto ARIRANG é um exemplo de como a tecnologia pode ser usada para criar experiências inovadoras e interativas."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Falta de empregos",
+          "mentions": 1,
+          "context": "Muitos designers estão se sentindo desanimados devido à falta de oportunidades de emprego na indústria."
+        },
+        {
+          "topic": "Desafios de design",
+          "mentions": 1,
+          "context": "Os designers estão enfrentando desafios para criar soluções inovadoras e eficazes para os problemas dos usuários."
+        },
+        {
+          "topic": "Frustração com a indústria",
+          "mentions": 1,
+          "context": "Muitos designers estão se sentindo frustrados com a indústria de design, devido à falta de reconhecimento e oportunidades."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Aprender novas habilidades",
+          "mentions": 1,
+          "context": "Os designers devem estar dispostos a aprender novas habilidades e se adaptar às mudanças na indústria."
+        },
+        {
+          "topic": "Criar soluções inovadoras",
+          "mentions": 1,
+          "context": "Os designers devem criar soluções inovadoras e eficazes para os problemas dos usuários."
+        },
+        {
+          "topic": "Conectar-se com a comunidade",
+          "mentions": 1,
+          "context": "Os designers devem se conectar com a comunidade e compartilhar suas ideias e experiências."
+        }
+      ]
+    },
+    "roastmystartup": {
+      "trending_tools": [
+        {
+          "name": "BetTracker",
+          "mentions": 1,
+          "context": "Um aplicativo web para apostadores sérios que se cansaram de usar planilhas desorganizadas e ferramentas complicadas."
+        },
+        {
+          "name": "FutureSelf",
+          "mentions": 1,
+          "context": "Um adblocker do Chrome que bloqueia todo o internet às 21h para ajudar a se tornar uma pessoa da manhã."
+        },
+        {
+          "name": "Langvora",
+          "mentions": 1,
+          "context": "Um SaaS que ajuda as pessoas a escapar do 'Trapaço Anki' criando flashcards personalizados."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Falta de usuários",
+          "mentions": 5,
+          "context": "Muitos fundadores estão lutando para atrair usuários para seus produtos."
+        },
+        {
+          "topic": "Problemas de monetização",
+          "mentions": 2,
+          "context": "Alguns fundadores estão tendo dificuldades em encontrar uma forma de monetizar seus produtos."
+        },
+        {
+          "topic": "Desafios de marketing",
+          "mentions": 2,
+          "context": "Muitos fundadores estão tendo dificuldades em promover seus produtos e alcançar seus objetivos de marketing."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Melhorar a experiência do usuário",
+          "mentions": 2,
+          "context": "Alguns fundadores estão sugerindo melhorar a experiência do usuário para aumentar a satisfação e a retenção."
+        },
+        {
+          "topic": "Desenvolver uma estratégia de marketing eficaz",
+          "mentions": 2,
+          "context": "Muitos fundadores estão sugerindo desenvolver uma estratégia de marketing eficaz para alcançar seus objetivos."
+        },
+        {
+          "topic": "Aumentar a visibilidade do produto",
+          "mentions": 1,
+          "context": "Alguns fundadores estão sugerindo aumentar a visibilidade do produto para atrair mais usuários."
+        }
+      ]
+    },
+    "csMajors": {
+      "trending_tools": [
+        {
+          "name": "Anthropic",
+          "mentions": 1,
+          "context": "Seu time não escreve mais código."
+        },
+        {
+          "name": "Google",
+          "mentions": 2,
+          "context": "Eu internei no Google durante meu primeiro e segundo ano e então esse verão (sou um terceiro ano) eles disseram que todos os internos precisam se candidatar novamente."
+        },
+        {
+          "name": "IBM",
+          "mentions": 2,
+          "context": "Finalmente, após um ano e meio de aplicativos, preparativos e dúvidas, recebi ofertas de ambas a Apple e a IBM para cargos de entrada."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Cariocas inúteis",
+          "mentions": 1,
+          "context": "Fui à feira de carreiras da minha universidade. Para contexto, eu frequento uma universidade não-alvo, mas conseguimos alguns nomes grandes como o Google e o Intel para aparecer."
+        },
+        {
+          "topic": "Código não escrito",
+          "mentions": 1,
+          "context": "Ninguém no seu time escreveu código manualmente nos últimos meses."
+        },
+        {
+          "topic": "Autenticidade perdida",
+          "mentions": 1,
+          "context": "Desde que o AI explodiu, ele está f$&cking com a autenticidade cada vez mais todos os dias, à medida que os modelos ficam melhores."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Reaplicar",
+          "mentions": 1,
+          "context": "Eles disseram que todos os internos precisam se candidatar novamente."
+        },
+        {
+          "topic": "Candidatar-se novamente",
+          "mentions": 1,
+          "context": "Eles disseram que todos os internos precisam se candidatar novamente."
+        },
+        {
+          "topic": "Aprender a lidar com a perda de autenticidade",
+          "mentions": 1,
+          "context": "Aprenda a lidar com a perda de autenticidade."
+        }
+      ]
+    },
+    "startups": {
+      "trending_tools": [
+        {
+          "name": "Delve (YC W24 startup)",
+          "mentions": 1,
+          "context": "PSA: Delve (YC W24 startup) caught running fake SOC 2 / ISO 27001 compliance reports, 494 companies affected"
+        },
+        {
+          "name": "Linear",
+          "mentions": 1,
+          "context": "Linear just announced 'Issue Tracking is Dead.' Their Moat is dry."
+        },
+        {
+          "name": "Claude",
+          "mentions": 1,
+          "context": "I’ve been trying to build a good feedback loop between the Claude specs and linear with their MCP."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Fake SOC 2 / ISO 27001 compliance",
+          "mentions": 1,
+          "context": "PSA: Delve (YC W24 startup) caught running fake SOC 2 / ISO 27001 compliance reports, 494 companies affected"
+        },
+        {
+          "topic": "Co-founder not delivering",
+          "mentions": 1,
+          "context": "Co Founder hasn’t delivered in 6 months- how do I handle equity and the conversation?"
+        },
+        {
+          "topic": "CEO can't pitch",
+          "mentions": 1,
+          "context": "He shouldn’t be the CEO if he can’t pitch."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Hire a better leader",
+          "mentions": 1,
+          "context": "Hire a better leader for the first branch."
+        },
+        {
+          "topic": "Root out toxic employee",
+          "mentions": 1,
+          "context": "It sounds like you have a toxic employee who is undermining leadership. Root them out and fire them."
+        },
+        {
+          "topic": "Increase salaries",
+          "mentions": 1,
+          "context": "Increase salaries if you can’t find a better leader."
+        }
+      ]
+    },
+    "aws": {
+      "trending_tools": [
+        {
+          "name": "Floci AWS Local Emulator",
+          "mentions": 2,
+          "context": "Floci é um emulador local de AWS que permite testar integrações de aplicativos sem necessidade de infraestrutura."
+        },
+        {
+          "name": "LocalStack",
+          "mentions": 1,
+          "context": "LocalStack é um emulador local de AWS que permite testar integrações de aplicativos sem necessidade de infraestrutura."
+        },
+        {
+          "name": "Valkey",
+          "mentions": 1,
+          "context": "Valkey é uma ferramenta de caching de banco de dados para AWS que ajuda a otimizar o desempenho das aplicações."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "DDoS",
+          "mentions": 2,
+          "context": "Um ataque de DDoS pode causar um aumento significativo no custo de transferência de dados no AWS S3."
+        },
+        {
+          "topic": "Fatura alta",
+          "mentions": 4,
+          "context": "Uma fatura alta no AWS pode ser causada por vários fatores, incluindo ataques de DDoS, uso excessivo de recursos e falta de configuração adequada."
+        },
+        {
+          "topic": "Limites de fatura",
+          "mentions": 3,
+          "context": "Os limites de fatura no AWS podem ser configurados para evitar que a fatura aumente de forma significativa."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Caching de banco de dados",
+          "mentions": 1,
+          "context": "O caching de banco de dados pode ajudar a otimizar o desempenho das aplicações e reduzir o custo de transferência de dados no AWS S3."
+        },
+        {
+          "topic": "Limites de fatura",
+          "mentions": 3,
+          "context": "Os limites de fatura no AWS podem ser configurados para evitar que a fatura aumente de forma significativa."
+        },
+        {
+          "topic": "Emulador local de AWS",
+          "mentions": 2,
+          "context": "Um emulador local de AWS pode ser usado para testar integrações de aplicativos sem necessidade de infraestrutura."
+        }
+      ]
+    },
+    "DadosBrasil": {
+      "trending_tools": [
+        {
+          "name": "ERP",
+          "mentions": 1,
+          "context": "administrava os relatórios, banco de dados e interface do erp"
+        },
+        {
+          "name": "Substack",
+          "mentions": 1,
+          "context": "Leituras de dados no substack"
+        },
+        {
+          "name": "Teo me Why",
+          "mentions": 1,
+          "context": "aprender sobre Data Science de forma mais organizada e de graça"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Procurar estágio na área de dados",
+          "mentions": 2,
+          "context": "estou recebendo um total de ZERO respostas"
+        },
+        {
+          "topic": "Dificuldade em encontrar emprego como dev",
+          "mentions": 1,
+          "context": "Me formei em Engenharia de computação há um ano e não consegui emprego como dev"
+        },
+        {
+          "topic": "Sensação de travamento após demissão",
+          "mentions": 1,
+          "context": "e agora me sinto travado"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Melhorar currículo para encontrar estágio",
+          "mentions": 2,
+          "context": "meu currículo ficou assim no fim das contas"
+        },
+        {
+          "topic": "Focar na busca por vaga internacional",
+          "mentions": 1,
+          "context": "comecei a gravar o meu processo de preparação com uma "
+        },
+        {
+          "topic": "Investir em Data Science",
+          "mentions": 1,
+          "context": "aprender sobre Data Science de forma mais organizada e de graça"
+        }
+      ]
+    },
+    "automation": {
+      "trending_tools": [
+        {
+          "name": "N8N",
+          "mentions": 4,
+          "context": "Utilizado para automatizar tarefas complexas."
+        },
+        {
+          "name": "Zapier",
+          "mentions": 4,
+          "context": "Ferramenta popular para automação de workflows."
+        },
+        {
+          "name": "Make",
+          "mentions": 1,
+          "context": "Outra ferramenta de automação de workflows."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Automatização de tarefas complexas",
+          "mentions": 2,
+          "context": "Muitas pessoas enfrentam dificuldades para automatizar tarefas complexas."
+        },
+        {
+          "topic": "Faturamento de automação",
+          "mentions": 2,
+          "context": "Alguns usuários se queixam de faturamento excessivo de automação."
+        },
+        {
+          "topic": "Limitações de API",
+          "mentions": 1,
+          "context": "Algumas APIs têm limitações que dificultam a automação."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Automatizar tarefas repetitivas",
+          "mentions": 3,
+          "context": "Automatizar tarefas repetitivas pode economizar tempo e esforço."
+        },
+        {
+          "topic": "Monitorar rotas de entrega",
+          "mentions": 1,
+          "context": "Automatizar o monitoramento de rotas de entrega pode melhorar a eficiência."
+        },
+        {
+          "topic": "Criar newsletters automatizados",
+          "mentions": 2,
+          "context": "Criar newsletters automatizados pode ser uma ótima maneira de gerar receita."
+        }
+      ]
+    },
+    "dev": {
+      "trending_tools": [
+        {
+          "name": "React + Firebase + AI",
+          "mentions": 1,
+          "context": "Looking for Full-Stack Developer (React + Firebase + AI) | Hi everyone, I’m looking for a full-stack developer with experience building modern web applications and integrating AI tools."
+        },
+        {
+          "name": "Chainlink",
+          "mentions": 1,
+          "context": "Cartesi & Chainlink integration"
+        },
+        {
+          "name": "Laravel",
+          "mentions": 1,
+          "context": "I would say pick a language and stick to it. I entered Laravel as my first job when i was a student, and never switched."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Existential crisis in dev",
+          "mentions": 2,
+          "context": "There’s so much existential crisis going on for devs right now. I’m building a new product and everything has changed."
+        },
+        {
+          "topic": "QA job became rewriting scripts",
+          "mentions": 1,
+          "context": "My entire QA job became rewriting scripts. I hadn't actually found a bug in two months."
+        },
+        {
+          "topic": "Difficulty in hiring developers",
+          "mentions": 1,
+          "context": "5 years in help desk and finally interviewing for a dev role. Need suggestions."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Focus on systems understanding",
+          "mentions": 1,
+          "context": "From my perspective, the most valuable thing right now is becoming someone who understands systems, not just someone who"
+        },
+        {
+          "topic": "Pick a language and stick to it",
+          "mentions": 1,
+          "context": "I would say pick a language and stick to it. I entered Laravel as my first job when i was a student, and never switched."
+        },
+        {
+          "topic": "Build exciting projects",
+          "mentions": 2,
+          "context": "20 yoe and I feel ya. Building something exciting and putting the pieces together to make and idea come alive is the thr"
+        }
+      ]
+    },
+    "VibeCodeDevs": {
+      "trending_tools": [
+        {
+          "name": "Claude Code",
+          "mentions": 6,
+          "context": "Claude Code structure that didn’t break after 2–3 real projects"
+        },
+        {
+          "name": "Lovable",
+          "mentions": 2,
+          "context": "Day 1 with Lovable:  “build me a full SaaS with auth, payments, dashboard, emails”"
+        },
+        {
+          "name": "MiniMax M2.7",
+          "mentions": 1,
+          "context": "The ultimate vibe coding trick is realizing standard models cannot build and design simultaneously, offload the grunt execution to MiniMax M2."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "getting almost no traffic",
+          "mentions": 2,
+          "context": "I’m literally getting almost no traffic."
+        },
+        {
+          "topic": "context-switching was overwhelming",
+          "mentions": 1,
+          "context": "I have been running Claude Code, Codex, and Gemini simultaneously on different features and the context-switching was overwhelming me."
+        },
+        {
+          "topic": "vibe killer in this workflow",
+          "mentions": 1,
+          "context": "The biggest vibe killer in this workflow is forcing a single high reasoning model to handle both the system architecture and the tedious file structur"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Tell the AI to use Shadcn",
+          "mentions": 1,
+          "context": "If you are building a dashboard & want to get the UI right - Tell the AI to use Shadcn"
+        },
+        {
+          "topic": "offload the grunt execution to MiniMax M2",
+          "mentions": 1,
+          "context": "The ultimate vibe coding trick is realizing standard models cannot build and design simultaneously, offload the grunt execution to MiniMax M2."
+        },
+        {
+          "topic": "programmatic SEO pages",
+          "mentions": 1,
+          "context": "Drop your site - I’ll map out programmatic SEO pages for it"
+        }
+      ]
+    },
+    "webscraping": {
+      "trending_tools": [
+        {
+          "name": "Scrapling v0.4",
+          "mentions": 2,
+          "context": "Scrapling é um framework de raspagem de web adaptativo que lidará com tudo, desde uma solicitação única"
+        },
+        {
+          "name": "browser-js-dumper",
+          "mentions": 1,
+          "context": "Ferramenta que escaneia o navegador para pesquisar impressões digitais"
+        },
+        {
+          "name": "curl_cffi",
+          "mentions": 1,
+          "context": "Curl_cffi para correspondência de impressão digital de TLS"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Selectors quebrados",
+          "mentions": 2,
+          "context": "Seletores quebrados são um dos principais problemas de raspagem de web"
+        },
+        {
+          "topic": "Site antigo",
+          "mentions": 1,
+          "context": "Sites antigos são um dos principais problemas de raspagem de web"
+        },
+        {
+          "topic": "Cloudflare",
+          "mentions": 2,
+          "context": "Cloudflare é um dos principais problemas de raspagem de web"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Usar a versão móvel do site",
+          "mentions": 1,
+          "context": "Usar a versão móvel do site é uma solução para evitar a detecção do Cloudflare"
+        },
+        {
+          "topic": "Usar proxies",
+          "mentions": 1,
+          "context": "Usar proxies é uma solução para evitar a detecção do Cloudflare"
+        },
+        {
+          "topic": "Usar xvfb",
+          "mentions": 1,
+          "context": "Usar xvfb é uma solução para evitar a detecção do Cloudflare"
+        }
+      ]
+    },
+    "datasets": {
+      "trending_tools": [
+        {
+          "name": "Common Crawl",
+          "mentions": 1,
+          "context": "Extraiu ~72M domínios únicos da última snapshot do Common Crawl"
+        },
+        {
+          "name": "Git",
+          "mentions": 2,
+          "context": "Arquivos Epstein e leis espanholas estão disponíveis em Git"
+        },
+        {
+          "name": "Kaggle",
+          "mentions": 1,
+          "context": "Dataset do S&P 500 está disponível em Kaggle"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Dificuldade em encontrar dados",
+          "mentions": 2,
+          "context": "Pesquisador está tendo dificuldade em encontrar dados confiáveis para sua pesquisa"
+        },
+        {
+          "topic": "Dificuldade em indexar documentos",
+          "mentions": 1,
+          "context": "Documentos Epstein são grandes e difíceis de indexar"
+        },
+        {
+          "topic": "Dificuldade em encontrar dados sobre violência sexual",
+          "mentions": 1,
+          "context": "Pesquisador está procurando por dados sobre taxas de violência sexual em diferentes países"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Uso de interfaces de voz para consultar dados",
+          "mentions": 1,
+          "context": "Alguém sugeriu usar uma interface de voz para consultar os 3,5M páginas dos arquivos Epstein"
+        },
+        {
+          "topic": "Uso de datasets de real-world",
+          "mentions": 1,
+          "context": "Alguém sugeriu usar datasets de real-world para prática de análise de dados"
+        },
+        {
+          "topic": "Uso de datasets de finanças",
+          "mentions": 1,
+          "context": "Alguém sugeriu usar datasets de finanças para pesquisa sobre bancos em Ásia"
+        }
+      ]
+    },
+    "LaunchMyStartup": {
+      "trending_tools": [
+        {
+          "name": "Klipy GIF API",
+          "mentions": 1,
+          "context": "Hey r/LaunchMyStartup - we’ve launched [KLIPY](https://klipy.com), a GIF API built by former [Tenor](http://tenor.com) (ex-Google) team members across"
+        },
+        {
+          "name": "RediGuard",
+          "mentions": 1,
+          "context": "How it works: Paste your post → choose your subreddit → hit Analyze RediGuard checks your content against the subreddit's rules, rewrites it for com"
+        },
+        {
+          "name": "Chronos",
+          "mentions": 1,
+          "context": "Just launched [Chronos](https://todayscount.com/) — a life-in-time calculator. Enter your birthday and it breaks down your entire life — years, month"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "salary geographical problem",
+          "mentions": 1,
+          "context": "Every week, I see founders complaining about the same developer shortage. But after hiring for a few startups, I’m starting to think the shortage isn’"
+        },
+        {
+          "topic": "losing weight",
+          "mentions": 1,
+          "context": "Hey! I’ve been struggling with my weight for years. 170cm, 80-85kg, not huge but I never felt good in the mirror. I tried everything: cutting cal"
+        },
+        {
+          "topic": "zero paying customers",
+          "mentions": 1,
+          "context": "Quick backstory. Six months ago I hit the Hacker News front page. Traffic went nuts. Thousands of signups in a week. I remember texting my mate at 2am"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "find clients on Reddit",
+          "mentions": 1,
+          "context": "I built a tool that helps find clients on Reddit without getting banned. I’ve been using Reddit for about five years now, mostly for my side projects"
+        },
+        {
+          "topic": "AI App for SaaS Demos",
+          "mentions": 1,
+          "context": "About 3 months ago, I built an AI tool that turns raw screen recordings into polished SaaS demo videos with AI-written instructional scripts and human"
+        },
+        {
+          "topic": "wellness app",
+          "mentions": 1,
+          "context": "Hey everyone 👋 Long-time builder, first time posting here. Just hit a milestone I’ve been grinding toward for months so wanted to share it with a com"
+        }
+      ]
+    },
+    "AIDeveloperNews": {
+      "trending_tools": [
+        {
+          "name": "CodeGraphContext",
+          "mentions": 2,
+          "context": "Um servidor MCP que indexa código local em uma base de dados gráfica para fornecer contexto a assistentes de IA."
+        },
+        {
+          "name": "NullClaw",
+          "mentions": 1,
+          "context": "Uma infraestrutura de assistente de IA estática em Zig que cabe em qualquer placa de $5, carrega em milissegundos e não requer nada."
+        },
+        {
+          "name": "Shannon",
+          "mentions": 1,
+          "context": "Um agente de hacker autônomo aberto fonte que aponta para sua aplicação web e não apenas escaneia vulnerabilidades, mas as explora."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Escrever ML boilerplate",
+          "mentions": 1,
+          "context": "Para aqueles que estão cansados de escrever o mesmo boilerplate de ML a cada vez ou para iniciantes que não têm experiência de codificação."
+        },
+        {
+          "topic": "Aprender ML sem codificar",
+          "mentions": 1,
+          "context": "Eu sei que a codificação é um grande obstáculo para quem quer aprender ML; no entanto, existem maneiras de aprender sem escrever uma linha de código."
+        },
+        {
+          "topic": "Código base indexação",
+          "mentions": 1,
+          "context": "Eu batalhei por muito tempo tentando encontrar uma solução de indexação de código base adequada e sempre encontrei as soluções existentes muito pesadas e sobrepostas."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Aprender ML sem codificar",
+          "mentions": 1,
+          "context": "Existem maneiras de aprender ML sem escrever uma linha de código, como usar ferramentas visuais ou aprender a partir de exemplos."
+        },
+        {
+          "topic": "Código base indexação",
+          "mentions": 1,
+          "context": "Uma solução de indexação de código base pode ser encontrada usando ferramentas como CodeGraphContext ou SocratiCode."
+        },
+        {
+          "topic": "Agentes autônomos",
+          "mentions": 1,
+          "context": "Os agentes autônomos podem ser usados para automatizar tarefas e melhorar a produtividade, como no caso do OpenFang."
+        }
+      ]
+    },
+    "antitrampo": {
+      "trending_tools": [
+        {
+          "name": "M.R.T. — Manual do Revide do Trabalhador",
+          "mentions": 1,
+          "context": "Indicação de filme, Quando o céu se engana"
+        },
+        {
+          "name": "LinkedIn",
+          "mentions": 2,
+          "context": "Posta e marca a empresa no linkedin e diz que foi mais forte que você"
+        },
+        {
+          "name": "TikTok",
+          "mentions": 1,
+          "context": "1- nao sabem e nao tem noçao da realidade"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Trabalho remoto desorganizado",
+          "mentions": 1,
+          "context": "Setor desorganizado, mal estruturado, falta de treinamento adequado..."
+        },
+        {
+          "topic": "Cursos pagos pelo trabalhador",
+          "mentions": 2,
+          "context": "Se é obrigatório então a empresa tem que arcar com o custo total."
+        },
+        {
+          "topic": "Microgerenciamento",
+          "mentions": 1,
+          "context": "Mas como eles vão te microgerenciar com o tridente invisível deles???"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Rejeitar cursos pagos",
+          "mentions": 1,
+          "context": "A partir de hoje você não dá mais nem 1 (um) minuto do seu trabalho extra pra eles."
+        },
+        {
+          "topic": "Reclamar sobre condições de trabalho",
+          "mentions": 1,
+          "context": "Vão fazer de tudo pra ganhar +40k por mês, menos fazer algo em prol dos trabalhadores."
+        },
+        {
+          "topic": "Busca por empregos melhores",
+          "mentions": 1,
+          "context": "Vai na mesma linha de cobrar que o colaborador compr"
+        }
+      ]
+    },
+    "literaciafinanceira": {
+      "trending_tools": [
+        {
+          "name": "Insider trading",
+          "mentions": 2,
+          "context": "A prática de insider trading é considerada ilegal e pode ter consequências graves."
+        },
+        {
+          "name": "Euribor",
+          "mentions": 1,
+          "context": "A taxa Euribor é uma taxa de juros que é usada como referência para calcular as taxas de juros em empréstimos e depósitos."
+        },
+        {
+          "name": "Fds",
+          "mentions": 1,
+          "context": "Fds é um tipo de investimento que permite que os investidores comprem e vendam ações de empresas."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Corrupção",
+          "mentions": 2,
+          "context": "A corrupção é um problema grave que afeta a economia e a sociedade em geral."
+        },
+        {
+          "topic": "Desastre económico",
+          "mentions": 1,
+          "context": "O desastre económico pode ter consequências graves para a economia e a sociedade."
+        },
+        {
+          "topic": "Problemas financeiros",
+          "mentions": 1,
+          "context": "Os problemas financeiros podem afetar a vida das pessoas e da sociedade em geral."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Investir em ações",
+          "mentions": 1,
+          "context": "Investir em ações pode ser uma forma de aumentar o valor do investimento e gerar renda."
+        },
+        {
+          "topic": "Diversificar o portfólio",
+          "mentions": 1,
+          "context": "Diversificar o portfólio pode ajudar a reduzir o risco e aumentar as oportunidades de investimento."
+        },
+        {
+          "topic": "Consultar um profissional",
+          "mentions": 1,
+          "context": "Consultar um profissional pode ajudar a tomar decisões informadas e evitar erros financeiros."
+        }
+      ]
+    },
+    "vibecoders_": {
+      "trending_tools": [
+        {
+          "name": "Claude Agents Library",
+          "mentions": 1,
+          "context": "Get the [Claude Agents Library](https://aiagentskit.com/blog/claude-agents-library/)"
+        },
+        {
+          "name": "Claude Code cheat sheet",
+          "mentions": 2,
+          "context": "Claude code workflow cheat sheet! Claude Code cheat sheet!"
+        },
+        {
+          "name": "Claude Agents Library",
+          "mentions": 1,
+          "context": "Get the [Claude Agents Library](https://aiagentskit.com/blog/claude-agents-library/)"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Claude usage limits",
+          "mentions": 1,
+          "context": "10 Tricks to stop hitting Claude’s usage limits!"
+        },
+        {
+          "topic": "Claude project structure",
+          "mentions": 2,
+          "context": "Claude code project structure! Claude code project structure!"
+        },
+        {
+          "topic": "Claude skills usage",
+          "mentions": 1,
+          "context": "How to use skills inside Claude code!"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Claude usage limits",
+          "mentions": 1,
+          "context": "10 Tricks to stop hitting Claude’s usage limits!"
+        },
+        {
+          "topic": "Claude project structure",
+          "mentions": 2,
+          "context": "Claude code project structure! Claude code project structure!"
+        },
+        {
+          "topic": "Claude skills usage",
+          "mentions": 1,
+          "context": "How to use skills inside Claude code!"
+        }
+      ]
+    },
+    "InternetBrasil": {
+      "trending_tools": [
+        {
+          "name": "Skyrim",
+          "mentions": 1,
+          "context": "Usando Skyrim para passar na verificação de idade"
+        },
+        {
+          "name": "GrapheneOS",
+          "mentions": 1,
+          "context": "GrapheneOS confirma que não vai cumprir a lei de verificação de idade do brasil"
+        },
+        {
+          "name": "GrapheneOS",
+          "mentions": 1,
+          "context": "Tai aí gente esse primeiro parece ser bom GrapheneOS"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Lei Felca",
+          "mentions": 7,
+          "context": "Essa Lei Felca tá osso, só atrapalhando nossa vida"
+        },
+        {
+          "topic": "Verificação de idade",
+          "mentions": 3,
+          "context": "Parece que até aplicativo de lavar roupa tá pedindo verificação"
+        },
+        {
+          "topic": "Conteúdo online",
+          "mentions": 2,
+          "context": "Parabéns aos envolvidos, 13 anos de conta..."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Burlar verificação",
+          "mentions": 1,
+          "context": "Será que estão voltando atrás? Na minha opinião, ou perceberam o quão ruim era essa lei, ou o quão fácil seria de burlar isso"
+        },
+        {
+          "topic": "Passar pelo teste",
+          "mentions": 2,
+          "context": "Tai aí gente esse primeiro parece ser bom"
+        },
+        {
+          "topic": "Revogar a Lei Felca",
+          "mentions": 2,
+          "context": "Proposta de ideia legislativa que peça a revogação da Lei Felca atinge 15k das 20k exigidas no site do Senado Federal"
+        }
+      ]
+    },
+    "django": {
+      "trending_tools": [
+        {
+          "name": "Django Control Room",
+          "mentions": 1,
+          "context": "Um controle de painel dentro da sua aplicação Django."
+        },
+        {
+          "name": "django-lumen",
+          "mentions": 1,
+          "context": "Um aplicativo Django para visualizar modelos Django."
+        },
+        {
+          "name": "django-o11y",
+          "mentions": 1,
+          "context": "Um pacote de observabilidade para Django e Celery."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Django em produção",
+          "mentions": 2,
+          "context": "O que é o principal problema que as equipes enfrentam ao executar Django em produção."
+        },
+        {
+          "topic": "Debugging",
+          "mentions": 2,
+          "context": "A habilidade de depuração é fundamental no desenvolvimento de software."
+        },
+        {
+          "topic": "Django em produção",
+          "mentions": 1,
+          "context": "O que é o principal problema que as equipes enfrentam ao executar Django em produção."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "django-tw",
+          "mentions": 2,
+          "context": "Um pacote de integração simples de Tailwind CSS com Django."
+        },
+        {
+          "topic": "django-tailwind-cli",
+          "mentions": 2,
+          "context": "Um pacote de integração de Tailwind CSS com Django."
+        },
+        {
+          "topic": "django-vite",
+          "mentions": 1,
+          "context": "Um pacote de integração de Tailwind CSS com Django."
+        }
+      ]
+    },
+    "crawling": {
+      "trending_tools": [
+        {
+          "name": "3D printed body",
+          "mentions": 2,
+          "context": "Eu 3D imprima o corpo e o deixei com um aspecto degradado."
+        },
+        {
+          "name": "Bed topper",
+          "mentions": 1,
+          "context": "Eu tentei com o topper de cama para ver se meu ajuste permitiria que ele agarrasse."
+        },
+        {
+          "name": "Driver/tuner mod",
+          "mentions": 1,
+          "context": "Mod de motorista/tunador fácil dinheiro com isso."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Bolt heads caked",
+          "mentions": 1,
+          "context": "Os cabeçotes de parafuso estavam tão encaroçados que era um grande incômodo."
+        },
+        {
+          "topic": "Tire size and clearance",
+          "mentions": 1,
+          "context": "Tamanho e clearance de pneu."
+        },
+        {
+          "topic": "Shitty brazing work",
+          "mentions": 1,
+          "context": "Trabalho de solda ruim."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Custom rear hinges",
+          "mentions": 1,
+          "context": "Hastes de traseira personalizadas para fixar o corpo usando a ligação de suspensão."
+        },
+        {
+          "topic": "Front lights",
+          "mentions": 1,
+          "context": "Luzes da frente."
+        },
+        {
+          "topic": "Front inner fenders",
+          "mentions": 1,
+          "context": "Frentes internos 3D impressos."
+        }
+      ]
+    },
+    "databricks": {
+      "trending_tools": [
+        {
+          "name": "Databricks Lakeflow Jobs",
+          "mentions": 2,
+          "context": "Databricks rebrands to better reflect the company’s commitment to AI /s | After the legendary glow-up of Delta Live Tables (DLT -> LDP -> SDP), jobs (jobs -> workflows -> lakeflow jobs), and the flawless rebrand of DABs (Dat"
+        },
+        {
+          "name": "Genie Code",
+          "mentions": 2,
+          "context": "Have you tried Genie Code yet? | Have any of you tried the new Genie Code yet? For anyone that missed the announcement here it is: [https://www.databricks.com/blog/introducing-genie-c"
+        },
+        {
+          "name": "Declarative Automation Bundles",
+          "mentions": 1,
+          "context": "Databricks Asset Bundles is now Declarative Automation Bundles | Databricks Asset Bundles is now Declarative Automation Bundles. It is not only a name change. Now we can use the new direct engine, just specify the e"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Databricks Assistant and Copilot",
+          "mentions": 1,
+          "context": "Unpopular opinion: Databricks Assistant and Copilot are a joke for real Spark debugging and nobody talks about it | Nobody wants to hear this but here it is."
+        },
+        {
+          "topic": "ADF",
+          "mentions": 1,
+          "context": "Move out of ADF now | I think it is time to move out of ADF now. If databricks is your main platform, you can go to Databricks Lakeflow Jobs or to Fabric ADF. Obviously fir"
+        },
+        {
+          "topic": "Spark debugging",
+          "mentions": 1,
+          "context": "Unpopular opinion: Databricks Assistant and Copilot are a joke for real Spark debugging and nobody talks about it | Nobody wants to hear this but here it is."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Custom container for unit testing",
+          "mentions": 1,
+          "context": "Honestly, 1 and 3 would be amazing - I have a custom container for unit testing but it's never one to one 😅"
+        },
+        {
+          "topic": "Container service on Azure",
+          "mentions": 1,
+          "context": "We use container service on some components in production since almost two years now, our images are loaded from aws ECR"
+        },
+        {
+          "topic": "Databricks-managed registry",
+          "mentions": 1,
+          "context": "Starting first with the status quo - the major hyperscaler container registries. As far a Databricks-managed registry: i"
+        }
+      ]
+    },
+    "FastAPI": {
+      "trending_tools": [
+        {
+          "name": "SQLite database",
+          "mentions": 1,
+          "context": "Utilizado como única base de dados em um SaaS de produção."
+        },
+        {
+          "name": "FastAPI",
+          "mentions": 7,
+          "context": "Framework Python para desenvolvimento de APIs."
+        },
+        {
+          "name": "Next.js",
+          "mentions": 1,
+          "context": "Biblioteca JavaScript para desenvolvimento de interfaces de usuário."
+        },
+        {
+          "name": "PydanticAI",
+          "mentions": 1,
+          "context": "Biblioteca Python para desenvolvimento de aplicativos de inteligência artificial."
+        },
+        {
+          "name": "HTMX",
+          "mentions": 1,
+          "context": "Biblioteca JavaScript para desenvolvimento de interfaces de usuário interativas."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Conexão de banco de dados",
+          "mentions": 1,
+          "context": "O usuário está tendo dificuldade em entender como conectar o banco de dados."
+        },
+        {
+          "topic": "Escolha de frontend",
+          "mentions": 1,
+          "context": "O usuário está tendo dificuldade em escolher o frontend para usar com o FastAPI."
+        },
+        {
+          "topic": "Desempenho de aplicativos",
+          "mentions": 1,
+          "context": "O usuário está preocupado com o desempenho de aplicativos em produção."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Uso de templates de projeto",
+          "mentions": 1,
+          "context": "O usuário sugere usar templates de projeto para acelerar o desenvolvimento de aplicativos."
+        },
+        {
+          "topic": "Uso de bibliotecas de UI",
+          "mentions": 1,
+          "context": "O usuário sugere usar bibliotecas de UI para desenvolver interfaces de usuário mais rápidas e eficientes."
+        },
+        {
+          "topic": "Uso de tecnologias emergentes",
+          "mentions": 1,
+          "context": "O usuário sugere usar tecnologias emergentes como a inteligência artificial e a realidade aumentada para desenvolver aplicativos mais inovadores."
+        }
+      ]
+    },
+    "developer": {
+      "trending_tools": [
+        {
+          "name": "PostgreSQL",
+          "mentions": 1,
+          "context": "O PostgreSQL se tornou o banco de dados relacional padrão por razões desconhecidas."
+        },
+        {
+          "name": "Claude AI",
+          "mentions": 1,
+          "context": "O Claude AI é uma ferramenta de inteligência artificial que pode ajudar a desenvolver características em um dia."
+        },
+        {
+          "name": "Rust",
+          "mentions": 1,
+          "context": "O Rust é uma linguagem de programação que pode ser usada para desenvolver jogos e aplicativos."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Incompetência de desenvolvedores seniores",
+          "mentions": 1,
+          "context": "É difícil lidar com desenvolvedores seniores que não sabem o que estão fazendo."
+        },
+        {
+          "topic": "Segurança de sites",
+          "mentions": 1,
+          "context": "Muitos sites têm vulnerabilidades de segurança que podem ser exploradas por hackers."
+        },
+        {
+          "topic": "Desenvolvimento de características em um dia",
+          "mentions": 1,
+          "context": "É difícil desenvolver características complexas em um dia, especialmente com a ajuda de inteligência artificial."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Aprender a 'vibe code'",
+          "mentions": 1,
+          "context": "Aprender a 'vibe code' significa aprender a desenvolver características de forma eficiente e eficaz."
+        },
+        {
+          "topic": "Usar ferramentas de inteligência artificial",
+          "mentions": 1,
+          "context": "As ferramentas de inteligência artificial podem ajudar a desenvolver características em um dia."
+        },
+        {
+          "topic": "Reconsiderar linguagens de programação",
+          "mentions": 1,
+          "context": "É importante reconsiderar linguagens de programação que podem ser úteis para o desenvolvimento de características."
+        }
+      ]
+    },
+    "Entrepreneur": {
+      "trending_tools": [
+        {
+          "name": "SaaS model for small businesses",
+          "mentions": 1,
+          "context": "O modelo de SaaS está caindo para pequenas empresas e ninguém em tecnologia quer admitir."
+        },
+        {
+          "name": "Influencer scene in Florida",
+          "mentions": 1,
+          "context": "O cenário de influenciadores na Flórida é um indicador de inflação."
+        },
+        {
+          "name": "Marketing agency for e-com brand",
+          "mentions": 1,
+          "context": "Paguei uma agência de marketing $5.000/mês para escalar meu e-com, mas isso foi um lembrete duro sobre onde o dinheiro realmente foi gasto."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Dependência de parceiros em empresas",
+          "mentions": 1,
+          "context": "Tentei tornar a empresa de contabilidade do meu tio menos dependente de parceiros, mas agora eu sou o novo gargalo."
+        },
+        {
+          "topic": "Falta de foco em projetos",
+          "mentions": 1,
+          "context": "Muitos de vocês estão tentando ser \"médio\" em dez projetos diferentes, em vez de ser o melhor em um único projeto."
+        },
+        {
+          "topic": "Dificuldade em encontrar um bom marketer",
+          "mentions": 1,
+          "context": "Contratei meu primeiro marketer full-time após fazer tudo sozinho por 14 meses, e isso foi um lembrete duro sobre o que eu deveria ter sabido antes de assinar o contrato."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Automatizar processos",
+          "mentions": 1,
+          "context": "Automatizei processos e isso me fez sentir que o futuro já está aqui."
+        },
+        {
+          "topic": "Focar em um projeto",
+          "mentions": 1,
+          "context": "Se você pode apenas desligar a mente e fazer as coisas, as coisas funcionarão melhor do que você esperaria."
+        },
+        {
+          "topic": "Construir aplicativos",
+          "mentions": 1,
+          "context": "Construir aplicativos é como começar um podcast, é fácil e qualquer pessoa pode fazer isso."
+        }
+      ]
+    },
+    "learnpython": {
+      "trending_tools": [
+        {
+          "name": "Polars LazyFrame",
+          "mentions": 1,
+          "context": "Polars [LazyFrame](https://docs.pola.rs/api/python/stable/reference/api/polars.scan_csv.html) is your best friend, Monsi"
+        },
+        {
+          "name": "CS50P",
+          "mentions": 1,
+          "context": "CS50P is one of many options."
+        },
+        {
+          "name": "boot.dev",
+          "mentions": 1,
+          "context": "[boot.dev](http://boot.dev) uses a gameified approach to teaching programming, starting with python (though the later classes are in other languages)"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Encapsulation in Python",
+          "mentions": 1,
+          "context": "Encapsulation in Python finally clicked for me when I stopped thinking about it like Java"
+        },
+        {
+          "topic": "Too many if statements",
+          "mentions": 1,
+          "context": "What do people mean when they say \"don't use too many if statements\" and how do you avoid it?"
+        },
+        {
+          "topic": "Understanding while loop",
+          "mentions": 1,
+          "context": "Unable to understand \"while\" loop."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Automate the boring stuff",
+          "mentions": 1,
+          "context": "Automate the boring stuff with python might be a good starting point."
+        },
+        {
+          "topic": "Create or update software",
+          "mentions": 1,
+          "context": "You don't really \"know\" python until you've actually used it, and that means to create or update software that is being used."
+        },
+        {
+          "topic": "Learn by doing projects",
+          "mentions": 1,
+          "context": "This is how I learned.  It’s not fun until you start get some useful projects working."
+        }
+      ]
+    },
+    "Backend": {
+      "trending_tools": [
+        {
+          "name": "AWS",
+          "mentions": 2,
+          "context": "Trabalhando com projetos que usam serviços como EC2, CloudWatch, S3, ElastiCache."
+        },
+        {
+          "name": "NATS",
+          "mentions": 1,
+          "context": "Escolha de um broker de mensagens para um sistema de backend."
+        },
+        {
+          "name": "RabbitMQ",
+          "mentions": 1,
+          "context": "Escolha de um broker de mensagens para um sistema de backend."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Distribuído transações",
+          "mentions": 1,
+          "context": "Como lidar com transações distribuídas em um sistema de backend."
+        },
+        {
+          "topic": "Gerenciamento de logs",
+          "mentions": 1,
+          "context": "Como gerenciar logs em produção e decidir o que registrar e por quanto tempo."
+        },
+        {
+          "topic": "Frustração e confusão",
+          "mentions": 1,
+          "context": "Sentimento de confusão e frustração em um desenvolvedor backend."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Preparação para entrevistas",
+          "mentions": 1,
+          "context": "Como se preparar para entrevistas de emprego como desenvolvedor backend."
+        },
+        {
+          "topic": "Gerenciamento de DBs em startup",
+          "mentions": 1,
+          "context": "Como gerenciar bancos de dados em produção em uma startup pequena."
+        },
+        {
+          "topic": "Escolha de stack",
+          "mentions": 1,
+          "context": "Como escolher uma pilha de tecnologias para um novo projeto de backend."
+        }
+      ]
+    },
+    "empreendedorismo": {
+      "trending_tools": [
+        {
+          "name": "NuvemShop",
+          "mentions": 2,
+          "context": "Criei com a nuvemshop e utilizo meta ads no Instagram"
+        },
+        {
+          "name": "Meta Ads",
+          "mentions": 1,
+          "context": "Utilizo meta ads no Instagram"
+        },
+        {
+          "name": "Amazon",
+          "mentions": 1,
+          "context": "Vendo na Amazon"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Divida",
+          "mentions": 4,
+          "context": "Estou aqui com toda a humildade para pedir um conselho! Tenho uma divida de 40 mil"
+        },
+        {
+          "topic": "Concorrência",
+          "mentions": 1,
+          "context": "Problemas com a “concorrência” ao lado"
+        },
+        {
+          "topic": "Vergonha",
+          "mentions": 1,
+          "context": "Vc tem mais vergonha de vender na rua do que ficar como caloteiro"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Vender na rua",
+          "mentions": 2,
+          "context": "Vc tem mais vergonha de vender na rua do que ficar como caloteiro"
+        },
+        {
+          "topic": "Criar funil de vendas",
+          "mentions": 1,
+          "context": "Te passar o macete: pegue o e-mail das pessoas que compram de você pelo marketplace para criar seu funil de vendas no mercado livre"
+        },
+        {
+          "topic": "Trabalho honesto",
+          "mentions": 1,
+          "context": "Julgamento sempre vai ter. Trabalho honesto é algo que você nunca deve se envergonhar"
+        }
+      ]
+    },
+    "NewTubers": {
+      "trending_tools": [
+        {
+          "name": "YouTube Analytics",
+          "mentions": 2,
+          "context": "I intentionally avoided checking my analytics after uploading."
+        },
+        {
+          "name": "Vidcon",
+          "mentions": 1,
+          "context": "I've also been to Vidcon twice and attended some creator workshops there."
+        },
+        {
+          "name": "YouTube Shorts",
+          "mentions": 1,
+          "context": "i do youtube shorts to gain subs quickly."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Content Creation Struggles",
+          "mentions": 4,
+          "context": "I struggle with everything being a youtuber requires."
+        },
+        {
+          "topic": "Lack of Creativity",
+          "mentions": 1,
+          "context": "I also have no creativity so I don't e"
+        },
+        {
+          "topic": "Haters and Negativity",
+          "mentions": 1,
+          "context": "The funny part is none of them had anything to do with the actual video."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Consistency is Key",
+          "mentions": 1,
+          "context": "Curious how often yall post in a day or week, what are you posting (shorts or videos) and at what times?"
+        },
+        {
+          "topic": "Engage with Audience",
+          "mentions": 1,
+          "context": "sitting at 17 subs i get surprised when someone leaves a comment."
+        },
+        {
+          "topic": "Be Authentic",
+          "mentions": 1,
+          "context": "Share your creator story and connect with fellow NewTubers!"
+        }
+      ]
+    },
+    "ConselhosLegais": {
+      "trending_tools": [
+        {
+          "name": "MEI",
+          "mentions": 1,
+          "context": "Meu irmão quer que eu abra um MEI para ele poder passar recursos pelo meu nome."
+        },
+        {
+          "name": "Laudos",
+          "mentions": 1,
+          "context": "Supervisora no primeiro emprego me mandando mentir sobre laudos."
+        },
+        {
+          "name": "Site de compras",
+          "mentions": 1,
+          "context": "Empresa afirma que não pode excluir meu cadastro do site de compras."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Multas de energia elétrica",
+          "mentions": 1,
+          "context": "Meu pai recebeu uma multa de 13k da cia eletrica acusando ele de ter feito gato."
+        },
+        {
+          "topic": "Inquilino não quer sair",
+          "mentions": 1,
+          "context": "Inquilino não quer pagar e não quer sair da casa."
+        },
+        {
+          "topic": "Funcionário agrediu verbalmente",
+          "mentions": 1,
+          "context": "Funcionário me agrediu verbalmente, me coagiu e fez ofensas homofóbicas."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Buscar sobre redpill",
+          "mentions": 1,
+          "context": "Gente, seguinte, chegaram alguns reports de pessoas fazendo comentários sobre ideologia redpill, recomenda do buscar sobre."
+        },
+        {
+          "topic": "Contrato de união estável",
+          "mentions": 1,
+          "context": "Moro com minha parceira há um ano. Banco todas as contas. Há chance dela declarar união estável após uma eventual separação?"
+        },
+        {
+          "topic": "Excluir cadastro do site de compras",
+          "mentions": 1,
+          "context": "Empresa afirma que não pode excluir meu cadastro do site de compras."
+        }
+      ]
+    },
+    "SQL": {
+      "trending_tools": [
+        {
+          "name": "SQL Developer",
+          "mentions": 2,
+          "context": "Muitas pessoas estão procurando por carreiras em SQL Developer."
+        },
+        {
+          "name": "SQL Server",
+          "mentions": 2,
+          "context": "Muitas pessoas estão trabalhando com SQL Server e precisam de ajuda."
+        },
+        {
+          "name": "Cursor",
+          "mentions": 1,
+          "context": "O Cursor é uma ferramenta útil para gerenciar consultas SQL."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Problemas com consultas lentas",
+          "mentions": 1,
+          "context": "Muitas pessoas estão enfrentando problemas com consultas lentas em seus bancos de dados."
+        },
+        {
+          "topic": "Dificuldade em importar grandes arquivos",
+          "mentions": 1,
+          "context": "Alguns usuários estão tendo dificuldade em importar grandes arquivos JSON em seus bancos de dados."
+        },
+        {
+          "topic": "Falta de conhecimento em SQL",
+          "mentions": 1,
+          "context": "Muitas pessoas estão enfrentando problemas devido à falta de conhecimento em SQL."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Uso de índices para acelerar consultas",
+          "mentions": 1,
+          "context": "Criar índices pode ajudar a acelerar consultas em bancos de dados."
+        },
+        {
+          "topic": "Uso de ferramentas de prática para melhorar habilidades em SQL",
+          "mentions": 1,
+          "context": "Ferramentas de prática podem ajudar a melhorar habilidades em SQL."
+        },
+        {
+          "topic": "Uso de técnicas de join para melhorar desempenho",
+          "mentions": 1,
+          "context": "Técnicas de join podem ajudar a melhorar o desempenho de consultas em bancos de dados."
+        }
+      ]
+    },
+    "PythonLearning": {
+      "trending_tools": [
+        {
+          "name": "memory-graph",
+          "mentions": 2,
+          "context": "Automático data structure visualization em seu IDE usando memory-graph."
+        },
+        {
+          "name": "VS Code",
+          "mentions": 1,
+          "context": "Abriu o VS Code e construiu algo real."
+        },
+        {
+          "name": "HackerRank",
+          "mentions": 1,
+          "context": "Não HackerRank, não compilador online."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "if else statement confusion",
+          "mentions": 1,
+          "context": "Por que não está sendo impresso no primeiro caso, o A e B."
+        },
+        {
+          "topic": "inheritance",
+          "mentions": 1,
+          "context": "Quando uma classe filha/subclasse herda propriedades e métodos da classe pai."
+        },
+        {
+          "topic": "gui",
+          "mentions": 1,
+          "context": "Procurando por interface gráfica."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "built a personal terminal dashboard",
+          "mentions": 1,
+          "context": "Construiu um painel de terminal pessoal de zero."
+        },
+        {
+          "topic": "built a Grade Analyzer",
+          "mentions": 1,
+          "context": "Construiu um analisador de notas."
+        },
+        {
+          "topic": "turned logic into systems",
+          "mentions": 1,
+          "context": "Transformou lógica em sistemas."
+        }
+      ]
+    },
+    "VagasArrombadas": {
+      "trending_tools": [
+        {
+          "name": "IA",
+          "mentions": 2,
+          "context": "Uma das equipes tinha colocado aqueles agentes de IA que fazem a transcrição da reunião e envia para o email depois."
+        },
+        {
+          "name": "RH",
+          "mentions": 3,
+          "context": "Todo chefe têm prioridades... E a sua saúde não é uma delas."
+        },
+        {
+          "name": "VT",
+          "mentions": 1,
+          "context": "E tem empresa que não paga VT, ainda por cima"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Demitida por reclamar",
+          "mentions": 1,
+          "context": "Fui demitida por reclamar da escala abusiva"
+        },
+        {
+          "topic": "Pagamento n é dos piores",
+          "mentions": 1,
+          "context": "Passar fome as vezes vale mais a pena | Pagamento n é dos piores, admito"
+        },
+        {
+          "topic": "Escala abusiva",
+          "mentions": 1,
+          "context": "Fui demitida por reclamar da escala abusiva"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Processo trabalhista",
+          "mentions": 1,
+          "context": "mais tenho certeza que um plano melhor seria aceitar a vaga, reunir as provas e meter o processo trabalhista"
+        },
+        {
+          "topic": "Negociar com o patrão",
+          "mentions": 1,
+          "context": "E tem quem vai tentar te convencer de que dá pra negociar com o patrão.."
+        },
+        {
+          "topic": "Reclamar da escala",
+          "mentions": 1,
+          "context": "Fui demitida por reclamar da escala abusiva"
+        }
+      ]
+    },
+    "marketing": {
+      "trending_tools": [
+        {
+          "name": "AI-generated models",
+          "mentions": 2,
+          "context": "Uma tendência recente em marketing é o uso de modelos gerados por inteligência artificial."
+        },
+        {
+          "name": "ChatGPT",
+          "mentions": 1,
+          "context": "O ChatGPT é uma ferramenta de inteligência artificial que está sendo usado em marketing."
+        },
+        {
+          "name": "Gemini",
+          "mentions": 1,
+          "context": "O Gemini é uma ferramenta de inteligência artificial que está sendo usada para resumir conteúdo em marketing."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Falta de transparência salarial",
+          "mentions": 2,
+          "context": "A falta de transparência salarial é um problema comum em marketing."
+        },
+        {
+          "topic": "Hype da inteligência artificial",
+          "mentions": 2,
+          "context": "O hype da inteligência artificial pode ser estressante para os profissionais de marketing."
+        },
+        {
+          "topic": "Spam em r/Marketing",
+          "mentions": 1,
+          "context": "O spam é um problema comum em r/Marketing e pode ser frustrante para os usuários."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Aprender a lidar com a ansiedade",
+          "mentions": 1,
+          "context": "Aprender a lidar com a ansiedade é uma solução para os profissionais de marketing que se sentem sobrecarregados."
+        },
+        {
+          "topic": "Desenvolver habilidades em inteligência artificial",
+          "mentions": 1,
+          "context": "Desenvolver habilidades em inteligência artificial pode ser uma solução para os profissionais de marketing que querem se manter atualizados."
+        },
+        {
+          "topic": "Falar sobre salários",
+          "mentions": 2,
+          "context": "Falar sobre salários pode ser uma solução para os profissionais de marketing que querem entender melhor a indústria."
+        }
+      ]
+    },
+    "bigdata": {
+      "trending_tools": [
+        {
+          "name": "OpenMetadata",
+          "mentions": 2,
+          "context": "Ferramenta de governança de dados e observabilidade"
+        },
+        {
+          "name": "RayforceDB",
+          "mentions": 1,
+          "context": "Banco de dados columnar aberto"
+        },
+        {
+          "name": "ClickHouse",
+          "mentions": 1,
+          "context": "Sistema de armazenamento de dados rápido"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Dificuldades com pipelines de dados",
+          "mentions": 2,
+          "context": "Problemas com esquemas e documentação"
+        },
+        {
+          "topic": "Desempenho de Spark",
+          "mentions": 2,
+          "context": "Tarefas lentas e repartição de dados"
+        },
+        {
+          "topic": "Gestão de dados em tempo real",
+          "mentions": 1,
+          "context": "Visualização de dados em tempo real"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Melhorias em pipelines de dados",
+          "mentions": 1,
+          "context": "Uso de esquemas e documentação claros"
+        },
+        {
+          "topic": "Otimização de Spark",
+          "mentions": 1,
+          "context": "Uso de broadcast e AQE"
+        },
+        {
+          "topic": "Uso de bancos de dados columnares",
+          "mentions": 1,
+          "context": "Uso de ClickHouse para análises rápidas"
+        }
+      ]
+    },
+    "GrowthHacking": {
+      "trending_tools": [
+        {
+          "name": "Firecrawl",
+          "mentions": 1,
+          "context": "Utilizado em AI SEO tools para coletar dados de palavras-chave."
+        },
+        {
+          "name": "Framer",
+          "mentions": 2,
+          "context": "Plataforma de design de interfaces utilizada para criar sites."
+        },
+        {
+          "name": "GPT wrapper",
+          "mentions": 2,
+          "context": "Problema comuns em AI SEO tools que envolvem a utilização de wrappers para reformatar inputs em prompts."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Low Domain Authority",
+          "mentions": 1,
+          "context": "Problema comum em SEO que envolve a falta de autoridade de domínio."
+        },
+        {
+          "topic": "Live selling failing",
+          "mentions": 1,
+          "context": "Problema comum em vendas ao vivo que envolve a falta de sucesso."
+        },
+        {
+          "topic": "Traffic spikes that don't convert",
+          "mentions": 1,
+          "context": "Problema comum que envolve picos de tráfego que não geram conversões."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Cold email agency",
+          "mentions": 2,
+          "context": "Agência de e-mail frio que envolve a criação de estratégias de marketing eficazes."
+        },
+        {
+          "topic": "Reddit marketing system",
+          "mentions": 1,
+          "context": "Sistema de marketing no Reddit que envolve a criação de estratégias de marketing eficazes."
+        },
+        {
+          "topic": "Launch sequences",
+          "mentions": 1,
+          "context": "Sequências de lançamento que envolvem a criação de estratégias de marketing eficazes para o sucesso de projetos."
+        }
+      ]
+    },
+    "B2BForHire": {
+      "trending_tools": [
+        {
+          "name": "Pre-made templates",
+          "mentions": 3,
+          "context": "Usados para responder DMs e consultas de clientes."
+        },
+        {
+          "name": "AI task platforms",
+          "mentions": 2,
+          "context": "Plataformas usadas para tarefas de IA."
+        },
+        {
+          "name": "Audio recording software",
+          "mentions": 1,
+          "context": "Ferramentas usadas para gravação de áudio."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Falta de tempo",
+          "mentions": 1,
+          "context": "Pessoas procurando trabalhos remotos para ganhar dinheiro extra."
+        },
+        {
+          "topic": "Dificuldade de encontrar emprego",
+          "mentions": 2,
+          "context": "Pessoas procurando empregos remotos estáveis e com salário fixo."
+        },
+        {
+          "topic": "Necessidade de habilidades específicas",
+          "mentions": 1,
+          "context": "Pessoas procurando trabalhos remotos que não exigem experiência ou habilidades específicas."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Trabalho remoto estável",
+          "mentions": 3,
+          "context": "Empregos remotos que oferecem salário fixo e horário de trabalho previsível."
+        },
+        {
+          "topic": "Treinamento e desenvolvimento",
+          "mentions": 2,
+          "context": "Oportunidades de treinamento e desenvolvimento para melhorar habilidades e conhecimentos."
+        },
+        {
+          "topic": "Flexibilidade e autonomia",
+          "mentions": 1,
+          "context": "Trabalhos remotos que oferecem flexibilidade e autonomia para gerenciar tempo e trabalho."
+        }
+      ]
+    },
+    "indiehackers": {
+      "trending_tools": [
+        {
+          "name": "Lovable",
+          "mentions": 2,
+          "context": "Front-end framework para desenvolvimento de software"
+        },
+        {
+          "name": "Supabase",
+          "mentions": 2,
+          "context": "Banco de dados para desenvolvimento de software"
+        },
+        {
+          "name": "Contral",
+          "mentions": 2,
+          "context": "IDE para desenvolvimento de software"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Validação de ideias",
+          "mentions": 2,
+          "context": "Muitos fundadores têm dificuldade em validar suas ideias antes de começar a desenvolver"
+        },
+        {
+          "topic": "Problemas de autenticação",
+          "mentions": 1,
+          "context": "Autenticação pode ser um problema comum em projetos de software"
+        },
+        {
+          "topic": "Dificuldade em encontrar usuários",
+          "mentions": 1,
+          "context": "Muitos fundadores têm dificuldade em encontrar usuários para seus projetos"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Teste de validação",
+          "mentions": 1,
+          "context": "Teste de validação pode ajudar a validar ideias antes de começar a desenvolver"
+        },
+        {
+          "topic": "Autenticação segura",
+          "mentions": 1,
+          "context": "Autenticação segura pode ajudar a proteger os usuários e o projeto"
+        },
+        {
+          "topic": "Marketing eficaz",
+          "mentions": 1,
+          "context": "Marketing eficaz pode ajudar a encontrar usuários e promover o projeto"
+        }
+      ]
+    },
+    "ShowMeYourSaaS": {
+      "trending_tools": [
+        {
+          "name": "Vooz Omegle alternative",
+          "mentions": 1,
+          "context": "Nossa plataforma Vooz é uma alternativa ao Omegle, com 40k usuários diários."
+        },
+        {
+          "name": "Scrap.io",
+          "mentions": 2,
+          "context": "Scrap.io é uma ferramenta que puxa informações de várias fontes."
+        },
+        {
+          "name": "LinkedNav",
+          "mentions": 1,
+          "context": "LinkedNav é uma ferramenta de geração de leads no LinkedIn."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Moderação inadequada",
+          "mentions": 1,
+          "context": "A falta de moderação adequada no Omegle levou ao fechamento da plataforma."
+        },
+        {
+          "topic": "Dificuldade de distribuição",
+          "mentions": 1,
+          "context": "Os fundadores de SaaS enfrentam dificuldades em distribuir seus produtos de forma eficaz."
+        },
+        {
+          "topic": "Falta de feedback",
+          "mentions": 1,
+          "context": "Os desenvolvedores de SaaS precisam de mais feedback para melhorar seus produtos."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Feedback de alta qualidade",
+          "mentions": 1,
+          "context": "Os desenvolvedores de SaaS precisam de feedback de alta qualidade para melhorar seus produtos."
+        },
+        {
+          "topic": "Distribuição eficaz",
+          "mentions": 1,
+          "context": "Os fundadores de SaaS precisam de estratégias de distribuição eficazes para alcançar seus usuários."
+        },
+        {
+          "topic": "Melhoria contínua",
+          "mentions": 1,
+          "context": "Os desenvolvedores de SaaS precisam de uma abordagem de melhoria contínua para manter seus produtos atualizados e relevantes."
+        }
+      ]
+    },
+    "ProgramadoresBrasil": {
+      "trending_tools": [
+        {
+          "name": "Java",
+          "mentions": 2,
+          "context": "Java, Spring Boot, SQL Server, PostgreSQL, Angular, React, NextJS,"
+        },
+        {
+          "name": "Javascript",
+          "mentions": 2,
+          "context": "Aprendendo Javascript do zero ( com o titio Guanabara ksksk )"
+        },
+        {
+          "name": "HTML",
+          "mentions": 1,
+          "context": "Eu tô aprendendo desenvolvimento web, já fiz o básico. HTML, CSS e javascript."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Perda de vontade de progredir",
+          "mentions": 1,
+          "context": "Faz um tempo que trabalho como desenvolvedor Java, mas parece que ultimamente não sinto vontade de progredir na minha carreira, já sou formado a 4 ano"
+        },
+        {
+          "topic": "Frustração com entrevistas",
+          "mentions": 1,
+          "context": "Fiz mais de 50 entrevistas, fui elogiado em todas e contratado em nenhuma. Desisti."
+        },
+        {
+          "topic": "Dificuldade em aprender",
+          "mentions": 1,
+          "context": "Quero aprender a programar, aonde eu começo?? | Esse aqui será um post fixo com vários tutoriais e dicas de como programar."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Criar projetos pessoais",
+          "mentions": 1,
+          "context": "trabalho pra gringa como editor. mas como sei programar acabei criando nos meus horários livres uma série de códigos que hoje salvam horas de trabalho"
+        },
+        {
+          "topic": "Buscar orientação",
+          "mentions": 1,
+          "context": "Os que forem mais avançados, por favor compartilhem aqui seus cursos favor"
+        },
+        {
+          "topic": "Aprender a gerenciar tempo",
+          "mentions": 1,
+          "context": "Essa seria o extremo da produtividade?"
+        }
+      ]
+    },
+    "MarketingDigitalBR": {
+      "trending_tools": [
+        {
+          "name": "Automatize WhatsApp",
+          "mentions": 1,
+          "context": "Automatizei o WhatsApp de um corretor e ele parou de perder 40% dos leads."
+        },
+        {
+          "name": "IA para imagens",
+          "mentions": 1,
+          "context": "Qual IA vocês recomendam pra gerar o maior número de imagens por dia?"
+        },
+        {
+          "name": "Meta Ads",
+          "mentions": 1,
+          "context": "Bid Cap no Meta Ads: a “estratégia oculta dos grandes players” que está na interface desde 2017"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Perda de leads",
+          "mentions": 1,
+          "context": "70% do orçamento de tráfego do meu cliente estava sendo desperdiçado."
+        },
+        {
+          "topic": "Chatbots de WhatsApp",
+          "mentions": 2,
+          "context": "90% dos chatbots de WhatsApp são lixo."
+        },
+        {
+          "topic": "Custo por lead",
+          "mentions": 1,
+          "context": "Enquanto o mercado comemora custo por lead, quem entende o jogo pergunta: qual o CAC real?"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Monetizar Instagram",
+          "mentions": 1,
+          "context": "URGENTE: Como monetizar uma página do Instagram com 70k seguidores com alto engajamento?"
+        },
+        {
+          "topic": "Gerenciar redes sociais",
+          "mentions": 1,
+          "context": "Gerencio redes sociais há 7 anos. Aqui estão os 5 erros que quase todo mundo comete (e como evitar cada um)"
+        },
+        {
+          "topic": "Definir CAC real",
+          "mentions": 1,
+          "context": "O LTV justifica o investimento"
+        }
+      ]
+    },
+    "PostgreSQL": {
+      "trending_tools": [
+        {
+          "name": "Postgres",
+          "mentions": 5,
+          "context": "You just need postgres para resolver problemas de banco de dados."
+        },
+        {
+          "name": "Stacksync",
+          "mentions": 1,
+          "context": "Stacksync é uma alternativa ao Heroku Connect para trabalhar com PostgreSQL."
+        },
+        {
+          "name": "pgvector",
+          "mentions": 1,
+          "context": "pgvector é uma biblioteca para realizar busca de vetores em PostgreSQL."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Problemas de escalabilidade",
+          "mentions": 2,
+          "context": "Escalabilidade é um dos principais problemas enfrentados ao trabalhar com PostgreSQL em produção."
+        },
+        {
+          "topic": "Erros de query",
+          "mentions": 1,
+          "context": "Erros de query são comuns ao trabalhar com PostgreSQL e podem ser difíceis de resolver."
+        },
+        {
+          "topic": "Migração de banco de dados",
+          "mentions": 1,
+          "context": "A migração de banco de dados é um processo complexo que pode ser difícil de realizar corretamente."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Uso de read replicas",
+          "mentions": 1,
+          "context": "O uso de read replicas é uma solução para melhorar a escalabilidade de um banco de dados PostgreSQL."
+        },
+        {
+          "topic": "Uso de trigger",
+          "mentions": 1,
+          "context": "Os triggers podem ser usados para automatizar tarefas e melhorar a segurança de um banco de dados PostgreSQL."
+        },
+        {
+          "topic": "Uso de bibliotecas",
+          "mentions": 1,
+          "context": "As bibliotecas podem ser usadas para melhorar a performance e a escalabilidade de um banco de dados PostgreSQL."
+        }
+      ]
+    },
+    "programacao": {
+      "trending_tools": [
+        {
+          "name": "Visual Studio",
+          "mentions": 1,
+          "context": "Agora sim fiquei inspirado a programar | Extensão do ClaudeIDE no Visual Studio xD"
+        },
+        {
+          "name": "Python",
+          "mentions": 1,
+          "context": "Quando faz `int()` o python tenta transformar o `input()` que é texto para numero, mas voce colocou esta transformacao n"
+        },
+        {
+          "name": "GitHub",
+          "mentions": 1,
+          "context": "Nesse caso, Faz sentido postar arquivos MarkDown no Github?"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Calculadora não funciona",
+          "mentions": 1,
+          "context": "Tô começando a programar e tentei fazer uma calculadora mas aparece essa mensagem, alguém consegue explicar isso?"
+        },
+        {
+          "topic": "Erro de compilação",
+          "mentions": 1,
+          "context": "Muito mal escrito e tende a levar ao erro"
+        },
+        {
+          "topic": "Dificuldade em aprender",
+          "mentions": 1,
+          "context": "Eu sou completamente iniciante no mundo da computação e ainda sou vestibulanda"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Usar orientação a objetos",
+          "mentions": 1,
+          "context": "qualquer coisa menos fazer orientado a objeto"
+        },
+        {
+          "topic": "Estudar a longo prazo",
+          "mentions": 1,
+          "context": "Tu tá pensando a longo prazo"
+        },
+        {
+          "topic": "Aprender a programar",
+          "mentions": 1,
+          "context": "Agora sim fiquei inspirado a programar"
+        }
+      ]
+    },
+    "algorithms": {
+      "trending_tools": [
+        {
+          "name": "Last Mile Optimizer",
+          "mentions": 1,
+          "context": "Um otimizador de rotas que supera as rotas da Amazon em um laptop"
+        },
+        {
+          "name": "ForSort",
+          "mentions": 1,
+          "context": "Um algoritmo de ordenação rápido, adaptativo, estável e in-place, com complexidade O(nlogn)"
+        },
+        {
+          "name": "Graphisual",
+          "mentions": 1,
+          "context": "Um ferramenta interativa para visualizar algoritmos de grafos em grafos personalizados"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Hash table lookups",
+          "mentions": 1,
+          "context": "Por que os acessos em tabelas hash são considerados complexidade de tempo O(1)"
+        },
+        {
+          "topic": "Spotify shuffle",
+          "mentions": 1,
+          "context": "Por que o Spotify não embaralha músicas de forma precisa"
+        },
+        {
+          "topic": "LeetCode questions",
+          "mentions": 1,
+          "context": "Quais questões do LeetCode são essenciais para saber"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Pathfinding algorithm",
+          "mentions": 1,
+          "context": "Um algoritmo de busca de caminho inspirado em fungos, que evolui como um organismo vivo"
+        },
+        {
+          "topic": "Study Introduction to Algorithms",
+          "mentions": 1,
+          "context": "Como estudar o livro 'Introduction to Algorithms' de forma eficaz"
+        },
+        {
+          "topic": "Advanced data structures and algorithms book",
+          "mentions": 1,
+          "context": "Recomendações de livros avançados sobre estruturas de dados e algoritmos"
+        }
+      ]
+    },
+    "apachespark": {
+      "trending_tools": [
+        {
+          "name": "Apache Gravitino",
+          "mentions": 1,
+          "context": "catalog federation across multiple Spark clusters"
+        },
+        {
+          "name": "ScaleDP",
+          "mentions": 2,
+          "context": "document processing in Apache Spark"
+        },
+        {
+          "name": "OTEL + SPARK",
+          "mentions": 1,
+          "context": " flare GitHub project"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "migrating from hive 3 to iceberg",
+          "mentions": 1,
+          "context": "modernize to iceberg without breaking existing spark jobs"
+        },
+        {
+          "topic": "understanding Spark UI",
+          "mentions": 1,
+          "context": "confusing issue with Spark UI"
+        },
+        {
+          "topic": "infrastructure lock-in",
+          "mentions": 1,
+          "context": "expensive waste of time with cloud-agnostic Spark setups"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "deduplicate Parquet data",
+          "mentions": 1,
+          "context": "speed up uploads and downloads"
+        },
+        {
+          "topic": "detect and redact signatures",
+          "mentions": 1,
+          "context": "automatic signature detection + redaction"
+        },
+        {
+          "topic": "end-to-end data lineage",
+          "mentions": 1,
+          "context": "capture and visualize data lineage with Kafka, Flink, Spark, and Iceberg"
+        }
+      ]
+    },
+    "datasciencebr": {
+      "trending_tools": [
+        {
+          "name": "agrobr",
+          "mentions": 2,
+          "context": "Fala pessoal, criei o agrobr, uma lib Python que unifica 8 fontes públicas do agro em uma API única e retorna pandas DataFrame (ou polars)."
+        },
+        {
+          "name": "GeckoAPI",
+          "mentions": 1,
+          "context": "Construí a GeckoAPI: Hub de APIs para grandes sites onde a API é paga ou não existe (Mercado Livre, iFood, Amazon BR, Booking, Webmotors)"
+        },
+        {
+          "name": "Corpus PT-BR v1",
+          "mentions": 1,
+          "context": "Resolvi compartilhar um projeto que acabei de liberar no HuggingFace: o Corpus PT-BR v1, um corpus em português brasileiro voltado para pr"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Frustração em estatística",
+          "mentions": 1,
+          "context": "Recentemente eu me formei em estatística numa federal, concluí o curso em 2025. Eu sempre vejo dizerem que estatísticos tem muitas oportunidades, mas "
+        },
+        {
+          "topic": "Empregabilidade não é sorte",
+          "mentions": 1,
+          "context": "Empregabilidade não é sorte: é evidência. E a maioria não produz nenhuma."
+        },
+        {
+          "topic": "Projetos devem vir em último lugar",
+          "mentions": 1,
+          "context": "Projetos deve vir em último lugar no currículo, e outra, evite projetos com jogos, animes, Netflix ou esportes, isso passa a impressão de que você não tem experiência prática."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Crie projetos com dados públicos",
+          "mentions": 1,
+          "context": "Muito bom, recomendo fazer uns projetos na mesma linha porém trabalhando com dados públicos que dá para obter direto no "
+        },
+        {
+          "topic": "Omita temas de projetos",
+          "mentions": 1,
+          "context": "acho que é melhor omitir o tema do projeto é a melhor solução. talvez o projeto seja muito bom, mas um lol escrito ali faz com que o RH não leve a sério."
+        },
+        {
+          "topic": "Coloque projetos em cima da experiência",
+          "mentions": 1,
+          "context": "Sobre a posição dos projetos, eu os colocava no final e recebi a dica de colocá-los em cima, antes ou depois da experiência."
+        }
+      ]
+    },
+    "datascience": {
+      "trending_tools": [
+        {
+          "name": "Pandas Power BI dashboards",
+          "mentions": 1,
+          "context": "Trabalho com SQL, Pandas, Power BI dashboards, credit risk modeling, MLOps e um pouco de machine learning."
+        },
+        {
+          "name": "LLMs AI",
+          "mentions": 1,
+          "context": "Vários comentários altamente votados por dia dizendo coisas como \"LLMs não são AI\", demonstrando uma completa falta de compreensão do conceito técnico."
+        },
+        {
+          "name": "Gen AI",
+          "mentions": 1,
+          "context": "Apenas tive 3 entrevistas ruins de seguida. Principalmente porque havia um desalinhamento insano entre as suas exigências e meu perfil de habilidades."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Entrevistas de dados científicos difíceis",
+          "mentions": 3,
+          "context": "Ainda não há um processo de entrevista padronizado, apesar de serem quase 15 anos desde o artigo \"O emprego mais sexy do século 21\"."
+        },
+        {
+          "topic": "Qualidade de discussão em subreddits",
+          "mentions": 1,
+          "context": "Vemos comentários altamente votados por dia dizendo coisas como \"LLMs não são AI\", demonstrando uma completa falta de compreensão do conceito técnico."
+        },
+        {
+          "topic": "Oportunidades de emprego para estudantes",
+          "mentions": 1,
+          "context": "Como um cientista de dados com quase dois anos de experiência, posso dizer que a situação de emprego para estudantes ainda é um desafio."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Fazer relatórios de dados mais acessíveis",
+          "mentions": 1,
+          "context": "Muitas equipes lutam para tornar os relatórios de dados mais acessíveis para equipes executivas."
+        },
+        {
+          "topic": "Desenvolver habilidades em LLMs",
+          "mentions": 1,
+          "context": "Acredito que os LLMs possam ser uma ferramenta útil para os cientistas de dados, mas é importante desenvolver habilidades em LLMs para aproveitá-los ao máximo."
+        },
+        {
+          "topic": "Padronizar processos de entrevista",
+          "mentions": 1,
+          "context": "Acredito que a padronização de processos de entrevista possa ajudar a reduzir a dificuldade de entrevistas de dados científicos."
+        }
+      ]
+    },
+    "freelance": {
+      "trending_tools": [
+        {
+          "name": "Next.js project",
+          "mentions": 1,
+          "context": "O cliente me enviou um projeto em Next.js e disse que era \"jus"
+        },
+        {
+          "name": "Upwork",
+          "mentions": 3,
+          "context": "Eu sou novo em Upwork e meu primeiro cliente me enviou um projeto em Next.js"
+        },
+        {
+          "name": "ChatGPT",
+          "mentions": 1,
+          "context": "O cliente usou meu trabalho para \"construir a aplicação com o ChatGPT\""
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Client ghosted me",
+          "mentions": 2,
+          "context": "O cliente me ghostou duas vezes e eu estava muito frustrado"
+        },
+        {
+          "topic": "Unpaid work",
+          "mentions": 1,
+          "context": "Eu fui pago por um trabalho que eu completei, mas o cliente não me pagou"
+        },
+        {
+          "topic": "Missing deadlines",
+          "mentions": 2,
+          "context": "Eu estou tendo problemas para cumprir prazos e estou me sentindo muito estressado"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Diversify clients",
+          "mentions": 2,
+          "context": "Eu deveria diversificar meus clientes para não depender de apenas um"
+        },
+        {
+          "topic": "Save WiFi",
+          "mentions": 1,
+          "context": "Eu posso \"guardar\" a conexão Wi-Fi em um dispositivo e usá-la em outro lugar"
+        },
+        {
+          "topic": "Referenciar colegas",
+          "mentions": 1,
+          "context": "Eu posso pedir a meus clientes para me referirem a colegas de negócios"
+        }
+      ]
+    },
+    "DBT": {
+      "trending_tools": [
+        {
+          "name": "DBT",
+          "mentions": 2,
+          "context": "Banda de rock americana de Alabama"
+        },
+        {
+          "name": "Drive-By Truckers",
+          "mentions": 2,
+          "context": "Banda de rock americana de Alabama"
+        },
+        {
+          "name": "Dexateens",
+          "mentions": 1,
+          "context": "Banda de rock americana de Alabama"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Voto contra interesses",
+          "mentions": 1,
+          "context": "Pessoas votando contra seus próprios interesses"
+        },
+        {
+          "topic": "Morte de Wes Freed",
+          "mentions": 1,
+          "context": "Artista falecido"
+        },
+        {
+          "topic": "Falta de reconhecimento",
+          "mentions": 1,
+          "context": "Banda não sendo reconhecida"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Compartilhar música",
+          "mentions": 1,
+          "context": "Compartilhar música com amigos"
+        },
+        {
+          "topic": "Ver shows",
+          "mentions": 1,
+          "context": "Ver shows da banda"
+        },
+        {
+          "topic": "Adquirir arte",
+          "mentions": 1,
+          "context": "Adquirir arte da banda"
+        }
+      ]
+    },
+    "scrapy": {
+      "trending_tools": [
+        {
+          "name": "Scrapy 2.14.0",
+          "mentions": 1,
+          "context": "Scrapy 2.14.0 é lançado!"
+        },
+        {
+          "name": "Scrapy-webarchive",
+          "mentions": 1,
+          "context": "Uma extensão Scrapy chamada scrapy-webarchive facilita o trabalho com arquivos WACZ."
+        },
+        {
+          "name": "kafka_scrapy_conne",
+          "mentions": 1,
+          "context": "Uma biblioteca personalizada para integrar Scrapy com Apache Kafka chamada kafka_scrapy_conne é compartilhada."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Problemas ao processar dados",
+          "mentions": 1,
+          "context": "O usuário está procurando por uma maneira segura de processar dados extraídos."
+        },
+        {
+          "topic": "Falta de conhecimento em codificação",
+          "mentions": 1,
+          "context": "O usuário tem conhecimento limitado em codificação e está considerando uma carreira como freelancer em web scraping."
+        },
+        {
+          "topic": "Desafios ao web scraping",
+          "mentions": 1,
+          "context": "O usuário está enfrentando desafios ao web scraping e está procurando por conselhos avançados."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Cursos de Scrapy",
+          "mentions": 1,
+          "context": "O usuário está procurando por um curso de Scrapy de qualidade."
+        },
+        {
+          "topic": "Integração com Apache Kafka",
+          "mentions": 1,
+          "context": "Uma biblioteca personalizada para integrar Scrapy com Apache Kafka chamada kafka_scrapy_conne é compartilhada."
+        },
+        {
+          "topic": "Localização da documentação de Scrapy",
+          "mentions": 1,
+          "context": "A documentação de Scrapy está sendo localizada para diferentes idiomas."
+        }
+      ]
+    },
+    "pythontips": {
+      "trending_tools": [
+        {
+          "name": "GPT-4o, Gemini 2.5, Llama 3",
+          "mentions": 1,
+          "context": "Eu queria compartilhar uma ferramenta que eu construí chamada FreeFlow LLM (freeflow-llm)"
+        },
+        {
+          "name": "sklearn",
+          "mentions": 1,
+          "context": "Você pode copiar e colar código de sklearn e"
+        },
+        {
+          "name": "FreeFlow LLM",
+          "mentions": 1,
+          "context": "Eu queria compartilhar uma ferramenta que eu construí chamada FreeFlow LLM (freeflow-llm)"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "GUIs em Python",
+          "mentions": 1,
+          "context": "Eu preciso de ajuda para começar com GUIs em Python"
+        },
+        {
+          "topic": "Entender dados científicos",
+          "mentions": 1,
+          "context": "Eu estou vendo a mesma pergunta: 'Eu realmente preciso de estatística para dados científicos?'"
+        },
+        {
+          "topic": "Aprender Python",
+          "mentions": 1,
+          "context": "Eu estou assistindo cursos, mas todos apenas explicam os fundamentos"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Printar iteráveis linha por linha",
+          "mentions": 1,
+          "context": "Você pode imprimir iteráveis linha por linha sem usar um loop ou '\\n'.join(...)"
+        }
+      ]
+    },
+    "Dados": {
+      "trending_tools": [
+        {
+          "name": "Mercado Livre",
+          "mentions": 1,
+          "context": "Salário de engenheiro de dados sênior - Mercado Livre | Boa tarde pessoal,"
+        },
+        {
+          "name": "WhatsApp",
+          "mentions": 1,
+          "context": "Salário de engenheiro de dados sênior - Mercado Livre | Boa tarde pessoal,"
+        },
+        {
+          "name": "Python",
+          "mentions": 0,
+          "context": ""
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Escassez de água",
+          "mentions": 1,
+          "context": "Escassez de água: os países que serão mais afetados em 2040"
+        },
+        {
+          "topic": "Expectativa de vida",
+          "mentions": 1,
+          "context": "Expectativa de vida ao nascer no Brasil de 1870 a 2020"
+        },
+        {
+          "topic": "Demanda de água",
+          "mentions": 1,
+          "context": "Demandas de uso da água no Brasil, 2017"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Experimento numérico",
+          "mentions": 1,
+          "context": "Experimento numérico: quantos pacotes são necessários para completar um album de figurinhas, sozinho vs 2 amigos juntos | Eu recebi um album de figurinhas esses dias e resolvi fazer esse experimento"
+        },
+        {
+          "topic": "Participação no PIB",
+          "mentions": 1,
+          "context": "Participação no PIB gerado na América do Sul"
+        },
+        {
+          "topic": "Consolidação de pesquisas",
+          "mentions": 1,
+          "context": "Como Lula impactou a corrida eleitoral: Um consolidado de 28 pesquisas de intenção de votos (+info nos comentários)"
+        }
+      ]
+    },
+    "vibecodeapp": {
+      "trending_tools": [
+        {
+          "name": "Claude Code",
+          "mentions": 3,
+          "context": "Um guia visual e de cópia e cola que leva você de digitar prompts básicos a orquestrar agentes, hooks, habilidades e servidores MCP."
+        },
+        {
+          "name": "MongoDB GUI",
+          "mentions": 1,
+          "context": "Um projeto lateral - um GUI do MongoDB chamado LeafBase."
+        },
+        {
+          "name": "Robo3T",
+          "mentions": 1,
+          "context": "Meu go-to por anos. Quando ele foi descontinuado, eu continuei saltitando entre "
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Desenvolvimento confuso",
+          "mentions": 1,
+          "context": "Desde que comecei a vibe codar, eu tenho sido baixo-key confuso sobre o que chamar a mim mesmo."
+        },
+        {
+          "topic": "Manutenção de aplicativos",
+          "mentions": 1,
+          "context": "Como garantir que seus aplicativos vibecodados não caíam em silêncio ao longo do tempo?"
+        },
+        {
+          "topic": "Falta de confiabilidade",
+          "mentions": 1,
+          "context": "Entre AI-escrito e realistas, é um jogo diferente."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Aprender e encontrar seu caminho",
+          "mentions": 1,
+          "context": "Isso é um grande parte da jornada de aprendizado."
+        },
+        {
+          "topic": "Postar aplicativos em subreddits",
+          "mentions": 1,
+          "context": "Postar seu aplicativo/empresa em esses subreddits:"
+        },
+        {
+          "topic": "Construir aplicativos com Vibecode",
+          "mentions": 2,
+          "context": "Construir aplicativos reais com Vibecode em vez de apenas vibar no playground."
+        }
+      ]
+    },
+    "scraping": {
+      "trending_tools": [
+        {
+          "name": "Python free proxies scraper",
+          "mentions": 1,
+          "context": "Criei um tutorial sobre como obter proxies gratuitos e raspar dados com uma lista de proxies: https://dspyt.com/easy-proxy-scraper-a"
+        },
+        {
+          "name": "Asynchronous Python Webscraper",
+          "mentions": 1,
+          "context": "Escrevi um tutorial sobre como raspar dados de vagas com Python de forma assincrona, o que aumenta muito a velocidade do programa: [https"
+        },
+        {
+          "name": "Web Scraping with Selenium in Python - ZenRows",
+          "mentions": 1,
+          "context": "Infraestrutura de raspagem aberta-fonte incrível"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "InstaPy melhor alternativa",
+          "mentions": 1,
+          "context": "Estava muito animado com o InstaPy porque esperava automatizar a parte mais chata e odiada do meu trabalho, que é lidar com perfis do Instagram"
+        },
+        {
+          "topic": "Website bloquear IP",
+          "mentions": 1,
+          "context": "Estou implementando um script de raspagem. Um dos problemas que estou vendo é que o site que estou raspando pode se irritar com minhas solicitações e bloquear meu IP"
+        },
+        {
+          "topic": "Scrap recent posts de Instagram",
+          "mentions": 1,
+          "context": "Queria raspar posts do Instagram usando NodeJS. Pode recomendar algum Raspador que não precise de ID de sessão e não tenha autenticação de usuário"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Simular variação no IP das solicitações",
+          "mentions": 1,
+          "context": "Estou implementando um script de raspagem. Um dos problemas que estou vendo é que o site que estou raspando pode se irritar com minhas solicitações e bloquear meu IP"
+        },
+        {
+          "topic": "Scraping com Python",
+          "mentions": 1,
+          "context": "Infraestrutura de raspagem aberta-fonte incrível"
+        },
+        {
+          "topic": "P2P Proxies Network",
+          "mentions": 1,
+          "context": "Ideal para Raspagem"
+        }
+      ]
+    },
+    "farialimabets": {
+      "trending_tools": [
+        {
+          "name": "SAAS",
+          "mentions": 2,
+          "context": "Youtuber criou SAAS com faturamento de 200k em 50 dias"
+        },
+        {
+          "name": "VSCODE",
+          "mentions": 1,
+          "context": "código dos outros desde que código existe e existem setores inteiros dedicados a"
+        },
+        {
+          "name": "Porsche",
+          "mentions": 2,
+          "context": "usava a porsche e os 4k para financiar uma lamborghini"
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Declarar o IR",
+          "mentions": 1,
+          "context": "A dificuldade de declarar o IR é inversamente proporcional ao quão fudido você é."
+        },
+        {
+          "topic": "Contratar imigrante ilegal",
+          "mentions": 1,
+          "context": "Contratar imigrante ilegal nos EUA é gain ?"
+        },
+        {
+          "topic": "Fazer graça com carro",
+          "mentions": 1,
+          "context": "Fazer graça com carro é loss"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Comprar consórcio",
+          "mentions": 1,
+          "context": "Sim, compra consórcio, é uma boa sim. Faz todo sentido."
+        },
+        {
+          "topic": "Vender carro",
+          "mentions": 1,
+          "context": "Venderia. um arranhadinho desse carro vai o salário todo dos dois, fora que desvaloriza que é uma beleza KKKKKKKKKKKKKKK"
+        },
+        {
+          "topic": "Fazer video pro insta",
+          "mentions": 1,
+          "context": "Mente milionária. E começa a fazer video pro insta vendendo curso"
+        }
+      ]
+    },
+    "SystemDesign": {
+      "trending_tools": [
+        {
+          "name": "System Design Sketches",
+          "mentions": 2,
+          "context": "O System Design Sketches é uma coleção de esboços de design de sistemas populares para questões de entrevista de design de sistemas."
+        },
+        {
+          "name": "Snowflake",
+          "mentions": 1,
+          "context": "O Snowflake é um banco de dados em nuvem que pode ser usado para armazenar dados de análise."
+        },
+        {
+          "name": "Apache Druid",
+          "mentions": 1,
+          "context": "O Apache Druid é um banco de dados de análise que pode ser usado para detecção de fraude."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "System Design Interview",
+          "mentions": 3,
+          "context": "A entrevista de design de sistemas pode ser um desafio para muitos candidatos."
+        },
+        {
+          "topic": "Fraud Detection",
+          "mentions": 1,
+          "context": "A detecção de fraude é um problema comum em sistemas de análise."
+        },
+        {
+          "topic": "Distributed System",
+          "mentions": 1,
+          "context": "Um sistema distribuído pode ser complexo de projetar e implementar."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Group Study",
+          "mentions": 1,
+          "context": "Um estudo em grupo pode ser uma ótima maneira de aprender sobre design de sistemas e problemas de programação."
+        },
+        {
+          "topic": "UUID vs ID",
+          "mentions": 1,
+          "context": "O uso de UUID em vez de ID pode ser uma boa prática em sistemas de design."
+        },
+        {
+          "topic": "Microservices Design Patterns",
+          "mentions": 1,
+          "context": "Os padrões de design de microserviços podem ser úteis para projetar sistemas escaláveis."
+        }
+      ]
+    },
+    "LovingAIAgents": {
+      "trending_tools": [
+        {
+          "name": "AgentScope Python framework",
+          "mentions": 1,
+          "context": "Um framework de Python aberto para construir agentes de IA chamado AgentScope."
+        },
+        {
+          "name": "Gemini 3.1 Flash Live",
+          "mentions": 1,
+          "context": "Um modelo de tempo real para construir agentes de voz e visão chamado Gemini 3.1 Flash Live."
+        },
+        {
+          "name": "GitAgent",
+          "mentions": 1,
+          "context": "Um formato que funciona em todos os frameworks, chamado GitAgent."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "Limites dos agentes",
+          "mentions": 1,
+          "context": "Quais são os limites dos agentes e como superá-los?"
+        },
+        {
+          "topic": "Memória dos agentes",
+          "mentions": 1,
+          "context": "Como os agentes podem aprender e não apenas lembrar?"
+        },
+        {
+          "topic": "Coordenação dos agentes",
+          "mentions": 1,
+          "context": "Como coordenar o trabalho de milhares de agentes independentes simultaneamente?"
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Hindsight",
+          "mentions": 1,
+          "context": "Um sistema de memória de agentes para criar agentes mais inteligentes que aprendem ao longo do tempo."
+        },
+        {
+          "topic": "Claude Code",
+          "mentions": 2,
+          "context": "Um código que permite aos agentes abrir aplicativos, clicar em interfaces de usuário e testar o que eles construíram, diretamente do CLI."
+        },
+        {
+          "topic": "GitAgent",
+          "mentions": 1,
+          "context": "Um formato que funciona em todos os frameworks, chamado GitAgent."
+        }
+      ]
+    },
+    "pythonDojo": {
+      "trending_tools": [
+        {
+          "name": "Tensorflow",
+          "mentions": 1,
+          "context": "Um guia para obter suporte de GPU para Tensorflow no Ubuntu 22.04."
+        },
+        {
+          "name": "Pandas",
+          "mentions": 1,
+          "context": "Aprenda os fundamentos de Pandas com Corey Schaffer e compartilhe suas notas no GitHub."
+        },
+        {
+          "name": "PyTV",
+          "mentions": 1,
+          "context": "Acesse a conferência online gratuita de Python, Python Unplugged on PyTV, em 4 de março."
+        }
+      ],
+      "pain_points": [
+        {
+          "topic": "GPU suporte",
+          "mentions": 1,
+          "context": "Depois de 2,5 semanas de tentativas, consegui finalmente obter suporte de GPU para Tensorflow."
+        },
+        {
+          "topic": "Aprendizado de Python",
+          "mentions": 2,
+          "context": "Estou procurando por alunos de Python (especialmente estudantes do ensino médio explorando CS ou estudantes de CS iniciais) para revisar o curso gratuito e fornecer feedback claro sobre a clareza."
+        },
+        {
+          "topic": "Suporte",
+          "mentions": 1,
+          "context": "Depois de 2,5 semanas de tentativas, consegui finalmente obter suporte de GPU para Tensorflow."
+        }
+      ],
+      "solutions": [
+        {
+          "topic": "Aprender Pandas",
+          "mentions": 1,
+          "context": "Aprenda os fundamentos de Pandas com Corey Schaffer e compartilhe suas notas no GitHub."
+        },
+        {
+          "topic": "Automatizar tarefas",
+          "mentions": 1,
+          "context": "Acesse o curso gratuito 'Automate the Boring Stuff with Python'."
+        },
+        {
+          "topic": "Melhorar habilidades",
+          "mentions": 1,
+          "context": "Participe do bootcamp gratuito Code In Place da Universidade de Stanford e melhore suas habilidades em Python."
+        }
+      ]
+    }
   }
 }

@@ -41,6 +41,7 @@ async function loadPipeline() {
   renderPipelineCounts();
   renderSilverTable(pipelineData.silver_posts);
   renderGold(pipelineData.gold);
+  loadInsights();
 }
 
 function renderPipelineCounts() {
@@ -599,6 +600,55 @@ function showSchedMsg(text, type) {
   const el = document.getElementById("sched-msg");
   el.innerHTML = `<div class="ingest-msg ${type}"><pre>${escapeHtml(text)}</pre></div>`;
   setTimeout(() => { el.innerHTML = ""; }, 5000);
+}
+
+/* ===== INSIGHTS ===== */
+let insightsData = null;
+
+function loadInsights() {
+  if (!pipelineData || !pipelineData.insights) return;
+  insightsData = pipelineData.insights;
+  const subs = Object.keys(insightsData).sort();
+  const sel = document.getElementById("insights-sub-select");
+  if (!subs.length) {
+    sel.innerHTML = '<option value="">Sem dados</option>';
+    document.getElementById("insights-content").innerHTML =
+      '<p style="color:var(--text-dim)">Nenhum insight disponivel. Execute scripts/generate_insights.py para gerar.</p>';
+    return;
+  }
+  sel.innerHTML = subs.map((s) => `<option value="${s}">r/${s}</option>`).join("");
+  sel.addEventListener("change", () => renderInsights(sel.value));
+  renderInsights(subs[0]);
+}
+
+function renderInsights(sub) {
+  const data = insightsData[sub];
+  const el = document.getElementById("insights-content");
+  if (!data) { el.innerHTML = '<p style="color:var(--text-dim)">Sem insights para este subreddit.</p>'; return; }
+
+  const sections = [
+    { key: "trending_tools", title: "Ferramentas em Alta", icon: "🔧", field: "name" },
+    { key: "pain_points", title: "Dores da Comunidade", icon: "🔥", field: "topic" },
+    { key: "solutions", title: "Solucoes Propostas", icon: "💡", field: "topic" },
+  ];
+
+  el.innerHTML = sections.map((sec) => {
+    const items = data[sec.key] || [];
+    if (!items.length) return "";
+    return `
+      <div class="insight-card">
+        <h3>${sec.icon} ${sec.title}</h3>
+        <div class="insight-items">
+          ${items.map((item) => `
+            <div class="insight-item">
+              <div class="insight-name">${escapeHtml(item[sec.field] || item.name || item.topic)}</div>
+              <div class="insight-mentions">${item.mentions || 0} mencoes</div>
+              <div class="insight-context">${escapeHtml(item.context || "")}</div>
+            </div>
+          `).join("")}
+        </div>
+      </div>`;
+  }).join("");
 }
 
 /* ===== INIT ===== */

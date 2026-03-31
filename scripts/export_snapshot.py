@@ -97,10 +97,23 @@ def main() -> None:
         },
     ]
 
+    insights = {}
+    data_json_path = os.path.join(os.path.dirname(__file__), "..", "app", "static", "data.json")
+    if os.path.exists(data_json_path):
+        try:
+            with open(data_json_path, "r", encoding="utf-8") as f:
+                existing = json.load(f)
+            insights = existing.get("insights", {})
+            if insights:
+                print(f"  Preservando insights existentes ({len(insights)} subreddits)")
+        except Exception:
+            pass
+
     snapshot = {
         "layers": layers,
         "silver_posts": silver_posts,
         "gold": gold,
+        "insights": insights,
     }
 
     out_path = os.path.join(os.path.dirname(__file__), "..", "app", "static", "data.json")
