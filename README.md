@@ -27,6 +27,12 @@ Aba do dashboard com insights por subreddit (ferramentas em alta, dores da comun
 
 ## Arquitetura
 
+Visão geral do fluxo de dados e da stack. O diagrama abaixo é vetorial (`docs/assets/architecture.svg`); você pode recriar ou refinar no [Excalidraw](https://excalidraw.com/), exportar **PNG** (~1600×900) como `docs/assets/architecture.png` e versionar o **fonte** `docs/assets/architecture.excalidraw` junto.
+
+![Arquitetura — pipeline e stack](docs/assets/architecture.svg)
+
+Diagrama equivalente em texto (útil para forks e diffs):
+
 ```mermaid
 flowchart LR
     Reddit["Reddit API"] -->|JSON| Airflow["Apache Airflow"]
