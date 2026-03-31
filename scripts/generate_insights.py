@@ -105,7 +105,7 @@ def call_groq(client: OpenAI, subreddit: str, content: str) -> dict | None:
                 time.sleep(wait)
                 continue
             if "json_validate_failed" in err_str and attempt < 2:
-                print(f"    JSON invalido, retentando...")
+                print("    JSON invalido, retentando...")
                 time.sleep(2)
                 continue
             print(f"    ERRO: {err_str[:150]}")
@@ -116,7 +116,7 @@ def call_groq(client: OpenAI, subreddit: str, content: str) -> dict | None:
 def load_existing_insights() -> dict:
     if os.path.exists(DATA_JSON_PATH):
         try:
-            with open(DATA_JSON_PATH, "r", encoding="utf-8") as f:
+            with open(DATA_JSON_PATH, encoding="utf-8") as f:
                 return json.load(f).get("insights", {})
         except Exception:
             pass
@@ -176,7 +176,7 @@ def main() -> None:
             time.sleep(DELAY_BETWEEN_CALLS)
 
     if os.path.exists(DATA_JSON_PATH):
-        with open(DATA_JSON_PATH, "r", encoding="utf-8") as f:
+        with open(DATA_JSON_PATH, encoding="utf-8") as f:
             data = json.load(f)
     else:
         data = {}

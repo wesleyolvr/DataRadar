@@ -116,7 +116,7 @@ def pipeline_status():
 def _load_insights() -> dict:
     path = os.path.join(os.path.dirname(__file__), "..", "static", "data.json")
     try:
-        with open(path, "r", encoding="utf-8") as f:
+        with open(path, encoding="utf-8") as f:
             return json.load(f).get("insights", {})
     except Exception:
         return {}

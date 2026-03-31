@@ -35,14 +35,15 @@ Diagrama equivalente em texto (útil para forks e diffs):
 
 ```mermaid
 flowchart LR
-    Reddit["Reddit API"] -->|JSON| Airflow["Apache Airflow"]
-    Airflow -->|raw_*.json| S3["AWS S3 Bronze"]
-    S3 -->|S3 Event| Lambda["AWS Lambda"]
-    Lambda -->|trigger job| Databricks["Databricks Silver/Gold"]
-    Databricks -->|SQL Connector| API["FastAPI"]
-    Databricks -->|Silver data| LLM["Groq LLM"]
-    LLM -->|insights JSON| API
-    API -->|REST| UI["Dashboard"]
+    Reddit["Reddit API"] --> Airflow["Apache Airflow\nPool reddit_api"]
+    Airflow --> S3["AWS S3 Bronze\nraw_*.json"]
+    S3 --> Lambda["AWS Lambda\nrun-now job"]
+    Lambda --> Databricks["Databricks\nPySpark + Delta\nSilver / Gold"]
+    Databricks -->|SQL Warehouse| FastAPI["FastAPI"]
+    Databricks -->|script + Groq| Groq["Groq API\nLlama 3.1"]
+    Groq --> DataJSON["data.json\ninsights"]
+    DataJSON --> FastAPI
+    FastAPI --> UI["Dashboard"]
 ```
 
 ## Stack
