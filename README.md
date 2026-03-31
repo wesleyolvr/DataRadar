@@ -27,9 +27,9 @@ Aba do dashboard com insights por subreddit (ferramentas em alta, dores da comun
 
 ## Arquitetura
 
-Visão geral do fluxo de dados e da stack. O diagrama abaixo é vetorial (`docs/assets/architecture.svg`); você pode recriar ou refinar no [Excalidraw](https://excalidraw.com/), exportar **PNG** (~1600×900) como `docs/assets/architecture.png` e versionar o **fonte** `docs/assets/architecture.excalidraw` junto.
+Visão geral do fluxo de dados e da stack. O diagrama abaixo é um **PNG exportado do [Excalidraw](https://excalidraw.com/)** (`docs/assets/arquitetura_dataradar.png`). O GitHub renderiza PNG de forma confiável no README; o arquivo fonte `.excalidraw` pode ficar em `docs/assets/` (ex.: `arquitetura_dataradar.excalidraw`) para edições futuras.
 
-![Arquitetura — pipeline e stack](docs/assets/architecture.svg)
+![Arquitetura — pipeline e stack](docs/assets/arquitetura_dataradar.png)
 
 Diagrama equivalente em texto (útil para forks e diffs):
 

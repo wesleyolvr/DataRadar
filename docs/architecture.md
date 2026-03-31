@@ -1,53 +1,45 @@
 # DataRadar — Arquitetura
 
-## Visão Geral
+## Diagrama
 
-O DataRadar implementa a Medallion Architecture para processar dados de comunidades tech do Reddit:
+![Diagrama de arquitetura](assets/arquitetura_dataradar.png)
 
-### Bronze (Ingestão)
-- **Airflow** orquestra a extração via API pública do Reddit
-- Posts e comentários são salvos como JSON no **disco local** e opcionalmente no **S3**
-- Particionamento: `reddit/{subreddit}/date=YYYY-MM-DD/raw_{timestamp}.json`
-- Cache de comentários evita re-extrair posts que não mudaram
+*(Versão editável: export do Excalidraw em `docs/assets/`; ver também o diagrama em texto no [README](../README.md#arquitetura).)*
 
-### Silver (Processamento) — em desenvolvimento
-- **Lambda** detecta novos arquivos no S3 e dispara jobs no **Databricks**
-- Deduplicação cross-batch, schema validation, extração de ferramentas mencionadas
+## Visão geral
 
-### Gold (Agregação) — em desenvolvimento
-- Rankings de ferramentas, tendências temporais, análise de sentimento
+O DataRadar segue a **Medallion Architecture** (Bronze → Silver → Gold) sobre dados públicos do Reddit, com **insights semânticos** gerados por LLM a partir da camada Silver.
 
-### API + Dashboard
-- **FastAPI** expõe os dados Bronze do disco local
-- Frontend estático com explorador de posts, stats por subreddit
-- Silver/Gold atualmente mockados com regex sobre dados Bronze
+### Bronze (ingestão)
 
-## Fluxo de Dados
+- **Apache Airflow** orquestra a extração (`extract_reddit.py`) contra a API pública do Reddit.
+- **Pool `reddit_api`** e backoff limitam concorrência e erros 429.
+- JSON bruto particionado no **AWS S3** (`reddit/{subreddit}/date=.../raw_*.json`).
 
-1. Airflow (cron ou manual) → `extract_reddit.py` → API pública Reddit
-2. Posts/comentários → JSON no disco → upload S3 (opcional)
-3. S3 Event → Lambda → Databricks Job (Silver/Gold)
-4. FastAPI lê JSONs do disco → API REST → Dashboard
+### Silver / Gold (processamento)
 
-## Componentes
+- **AWS Lambda** reage a novos objetos no S3 e dispara o job no **Databricks** (`run-now`).
+- **PySpark + Delta Lake**: tabelas Silver (posts/comentários limpos) e Gold (agregações por subreddit/semana, top commenters, etc.), com **MERGE** (regra “novo vence”).
 
-### `airflow/scripts/extract_reddit.py`
-Módulo core de extração. Funções puras que retornam dados em memória — sem I/O local.
-Lida com paginação, rate-limiting (429), retry com backoff, deduplicação de posts e comentários.
+### Serving e insights
 
-### `airflow/dags/`
-Três DAGs:
-- `dag_reddit_ingestion.py` — versão original, subreddits fixos
-- `dag_reddit_ingestion_local.py` — parametrizável, disco + S3 opcional
-- `dag_reddit_scheduled.py` — execução horária automática
+- **Databricks SQL Warehouse**: o **FastAPI** usa o conector SQL para Silver/Gold em tempo real no dashboard local.
+- **Insights IA**: script `scripts/generate_insights.py` lê Silver via SQL, chama **Groq** (Llama 3.1), grava `app/static/data.json`; o endpoint de pipeline e o deploy estático (ex.: **Vercel**) consomem esse JSON.
+- **Frontend**: HTML/CSS/JS em `app/static/`.
 
-### `app/services/bronze_reader.py`
-Lê JSONs Bronze do filesystem. Deduplica por ID mantendo o snapshot mais recente.
-Suporta paginação e sorting.
+## Fluxo resumido
 
-### `app/services/mock_layers.py`
-Simula Silver/Gold usando regex de ferramentas sobre dados Bronze.
-Dicionário de ~35 ferramentas tech com aliases.
+1. Airflow (agendado ou manual) → Reddit API → S3 Bronze.
+2. S3 → Lambda → job Databricks → Silver/Gold (Delta).
+3. FastAPI ← SQL Warehouse (dados tabulares); `data.json` ← batch Groq (insights).
+4. Dashboard ← FastAPI e/ou snapshot estático.
 
-### `lambda/handler.py`
-Lambda acionada por S3 Event. Filtra `raw_*.json`, valida path, dispara Databricks Jobs API.
+## Componentes principais
+
+| Área | Onde está |
+|------|-----------|
+| DAGs e extração | `airflow/dags/`, `airflow/scripts/extract_reddit.py` |
+| Lambda S3 → Databricks | `lambda/handler.py` |
+| Pipeline medallion (referência) | `databricks/jobs/medallion_pipeline.py` |
+| API e dashboard | `app/` |
+| Insights batch | `scripts/generate_insights.py` |
