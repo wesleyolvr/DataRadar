@@ -10,6 +10,26 @@ import time
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "app"))
 
+
+def _load_env_file() -> None:
+    path = os.path.join(os.path.dirname(__file__), "..", ".env")
+    if not os.path.isfile(path):
+        return
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if "=" not in line:
+                continue
+            key, _, val = line.partition("=")
+            key, val = key.strip(), val.strip().strip('"').strip("'")
+            if key and key not in os.environ:
+                os.environ[key] = val
+
+
+_load_env_file()
+
 from openai import OpenAI  # noqa: E402
 from services.databricks_client import _execute_query, _rows_to_dicts  # noqa: E402
 
@@ -41,16 +61,23 @@ def get_subreddits_with_data() -> list[str]:
     return [r[0] for r in rows if r[1] >= 3]
 
 
-def get_content_for_subreddit(sub: str) -> str:
+def get_content_for_subreddit(
+    sub: str,
+    posts_limit: int = 15,
+    comments_limit: int = 20,
+    max_chars: int = 6000,
+    selftext_clip: int = 150,
+    comment_clip: int = 120,
+) -> str:
     posts_rows, posts_cols = _execute_query(
         f"SELECT title, selftext FROM devradar_silver_posts "
-        f"WHERE subreddit = '{sub}' ORDER BY score DESC LIMIT 15"
+        f"WHERE subreddit = '{sub}' ORDER BY score DESC LIMIT {posts_limit}"
     )
     posts = _rows_to_dicts(posts_rows, posts_cols)
 
     comments_rows, comments_cols = _execute_query(
         f"SELECT body FROM devradar_silver_comments "
-        f"WHERE subreddit = '{sub}' ORDER BY score DESC LIMIT 20"
+        f"WHERE subreddit = '{sub}' ORDER BY score DESC LIMIT {comments_limit}"
     )
     comments = _rows_to_dicts(comments_rows, comments_cols)
 
@@ -58,14 +85,14 @@ def get_content_for_subreddit(sub: str) -> str:
     for p in posts:
         text = p.get("title", "")
         if p.get("selftext"):
-            text += f" | {p['selftext'][:150]}"
+            text += f" | {p['selftext'][:selftext_clip]}"
         parts.append(text)
 
     for c in comments:
         if c.get("body"):
-            parts.append(c["body"][:120])
+            parts.append(c["body"][:comment_clip])
 
-    return "\n".join(parts)[:6000]
+    return "\n".join(parts)[:max_chars]
 
 
 def _parse_retry_after(err_str: str) -> int:
@@ -123,24 +150,69 @@ def load_existing_insights() -> dict:
     return {}
 
 
+def _parse_cli() -> tuple[bool, int, str | None, int, int]:
+    """Retorna (force, limit, subreddit_only, posts_limit, comments_limit)."""
+    force = "--force" in sys.argv
+    limit = 0
+    sub_only: str | None = None
+    posts_limit = 15
+    comments_limit = 20
+    argv = sys.argv[1:]
+    i = 0
+    while i < len(argv):
+        a = argv[i]
+        if a == "--subreddit" or a == "-s":
+            if i + 1 < len(argv):
+                sub_only = argv[i + 1].strip().lower()
+                i += 2
+                continue
+            print("Uso: --subreddit NOME")
+            sys.exit(1)
+        if a.startswith("--subreddit="):
+            sub_only = a.split("=", 1)[1].strip().lower()
+            i += 1
+            continue
+        if a in ("--posts", "-p") and i + 1 < len(argv) and argv[i + 1].isdigit():
+            posts_limit = int(argv[i + 1])
+            i += 2
+            continue
+        if a in ("--comments", "-c") and i + 1 < len(argv) and argv[i + 1].isdigit():
+            comments_limit = int(argv[i + 1])
+            i += 2
+            continue
+        if a.isdigit():
+            limit = int(a)
+        i += 1
+
+    if sub_only and not re.match(r"^[a-zA-Z0-9_]+$", sub_only):
+        print("Nome de subreddit invalido.")
+        sys.exit(1)
+
+    return force, limit, sub_only, posts_limit, comments_limit
+
+
 def main() -> None:
     if not GROQ_API_KEY:
         print("GROQ_API_KEY nao configurada. Defina via env var.")
         sys.exit(1)
 
-    force = "--force" in sys.argv
-    limit = 0
-    for arg in sys.argv[1:]:
-        if arg.isdigit():
-            limit = int(arg)
+    force, limit, sub_only, posts_limit, comments_limit = _parse_cli()
 
     existing = load_existing_insights()
     print(f"Insights existentes: {len(existing)} subreddits")
 
     print("Buscando subreddits com dados no Databricks...")
-    subs = get_subreddits_with_data()
-    if limit:
-        subs = subs[:limit]
+    if sub_only:
+        subs = [sub_only]
+        # Modo um subreddit: mais amostras (Groq limita tamanho total do request; ver max_chars abaixo)
+        if "--posts" not in sys.argv and "-p" not in sys.argv:
+            posts_limit = max(posts_limit, 80)
+        if "--comments" not in sys.argv and "-c" not in sys.argv:
+            comments_limit = max(comments_limit, 120)
+    else:
+        subs = get_subreddits_with_data()
+        if limit:
+            subs = subs[:limit]
 
     if not force:
         subs = [s for s in subs if s not in existing]
@@ -150,13 +222,25 @@ def main() -> None:
         print("Nada a fazer. Use --force para regenerar todos.")
         return
 
+    # Groq retorna 413 se o prompt exceder o limite do modelo; ~12k chars de dados costuma caber.
+    max_chars = 12000 if sub_only else 6000
+    selftext_clip = 280 if sub_only else 150
+    comment_clip = 200 if sub_only else 120
+
     client = OpenAI(base_url="https://api.groq.com/openai/v1", api_key=GROQ_API_KEY)
     all_insights = dict(existing)
     new_count = 0
 
     for i, sub in enumerate(subs, 1):
         print(f"[{i}/{len(subs)}] r/{sub}...", end=" ", flush=True)
-        content = get_content_for_subreddit(sub)
+        content = get_content_for_subreddit(
+            sub,
+            posts_limit=posts_limit,
+            comments_limit=comments_limit,
+            max_chars=max_chars,
+            selftext_clip=selftext_clip,
+            comment_clip=comment_clip,
+        )
         if len(content) < 100:
             print("pouco conteudo, pulando.")
             continue

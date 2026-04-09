@@ -1,5 +1,5 @@
 """
-DataRadar — DAG agendada de ingestão do Reddit (a cada hora).
+DataRadar — DAG agendada de ingestão do Reddit (a cada 2h30).
 
 Lê a lista de subreddits da Airflow Variable `devradar_subreddits`
 (JSON array) e executa o pipeline completo: extração → validação →
@@ -340,8 +340,8 @@ def upload_to_s3(file_info: dict) -> str:
 with DAG(
     dag_id="devradar_reddit_scheduled",
     default_args=DEFAULT_ARGS,
-    description="[PROD] Extrai Reddit a cada hora — subreddits via Variable",
-    schedule="0 */1 * * *",
+    description="[PROD] Extrai Reddit a cada 2h30 — subreddits via Variable",
+    schedule=timedelta(hours=2, minutes=30),
     start_date=datetime(2025, 1, 1),
     catchup=False,
     tags=["devradar", "reddit", "scheduled", "prod"],
