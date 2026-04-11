@@ -6,6 +6,26 @@ import json
 import os
 import sys
 
+
+def _load_env_file() -> None:
+    path = os.path.join(os.path.dirname(__file__), "..", ".env")
+    if not os.path.isfile(path):
+        return
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if "=" not in line:
+                continue
+            key, _, val = line.partition("=")
+            key, val = key.strip(), val.strip().strip('"').strip("'")
+            if key and key not in os.environ:
+                os.environ[key] = val
+
+
+_load_env_file()
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "app"))
 
 from services.databricks_client import (  # noqa: E402
@@ -13,10 +33,18 @@ from services.databricks_client import (  # noqa: E402
     fetch_gold_summary,
     fetch_gold_top_commenters,
     fetch_silver_posts,
+    is_configured,
 )
 
 
 def main() -> None:
+    if not is_configured():
+        print(
+            "Erro: configure DATABRICKS_HOST, DATABRICKS_TOKEN e DATABRICKS_WAREHOUSE_ID "
+            "em devradar/.env (veja .env.example)."
+        )
+        sys.exit(1)
+
     print("Conectando ao Databricks...")
 
     print("  Buscando Silver posts...")
