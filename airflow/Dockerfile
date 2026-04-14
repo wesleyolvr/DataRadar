@@ -1,11 +1,10 @@
-FROM apache/airflow:2.10.4-python3.11
+FROM quay.io/astronomer/astro-runtime:12.1.1
 
-USER root
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        curl \
-    && rm -rf /var/lib/apt/lists/*
+# Install OS-level packages (if needed)
+# Uncomment and add packages to packages.txt if required
+# COPY packages.txt .
+# RUN apt-get update && cat packages.txt | xargs apt-get install -y
 
-USER airflow
-
-COPY requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+# Install Python packages
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt

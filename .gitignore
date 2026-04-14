@@ -34,6 +34,38 @@ airflow/data/
 .env
 airflow/.env
 
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfvars
+terraform/.terraform.lock.hcl
+terraform/crash.log
+terraform/iam-policy-*.json
+
+# Airflow/Astronomer
+airflow/.astro/
+airflow/astronomer-deploy.zip
+
+# Lambda artifacts
+lambda/*.zip
+
+# Docs temporários/internos
+IMPLEMENTACAO_MANUAL.md
+STATUS_AUTOMACAO.md
+PROXIMOS_PASSOS.txt
+COMANDOS_RAPIDOS.md
+
+# Skills e agents (desenvolvimento local)
+.agents/
+skills-lock.json
+
+# Assets temporários
+*.png
+!docs/assets/*.png
+docs/assets/*.excalidraw
+docs/superpowers/
+
 # OS
 .DS_Store
 Thumbs.db

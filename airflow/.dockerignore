@@ -1,0 +1,8 @@
+# Astronomer .dockerignore
+logs/
+data/
+.env
+*.pyc
+__pycache__/
+.pytest_cache/
+dags/

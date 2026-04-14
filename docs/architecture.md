@@ -15,6 +15,7 @@ O DataRadar segue a **Medallion Architecture** (Bronze → Silver → Gold) sobr
 - **Apache Airflow** orquestra a extração (`extract_reddit.py`) contra a API pública do Reddit.
 - **Pool `reddit_api`** e backoff limitam concorrência e erros 429.
 - JSON bruto particionado no **AWS S3** (`reddit/{subreddit}/date=.../raw_*.json`).
+- **Cache e otimização:** decisões de produto (posts/comentários, `num_comments`, contrato S3) estão em [spec: Reddit extraction cache](superpowers/specs/2026-03-31-reddit-extraction-cache-design.md).
 
 ### Silver / Gold (processamento)
 

@@ -1,0 +1,16 @@
+# Copie este arquivo para terraform.tfvars e preencha com seus valores reais
+# terraform.tfvars está no .gitignore (não commitar secrets!)
+
+environment         = "prod"
+project_name        = "devradar"
+aws_region          = "us-east-1"
+s3_bucket_name      = "devradar-raw"
+lambda_function_name = "devradar-s3-trigger"
+
+# Databricks (obter do workspace)
+databricks_host   = "dbc-xxxxxxxx-xxxx.cloud.databricks.com"
+databricks_token  = "dapiXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+databricks_job_id = "123456789"
+
+# Groq API Key
+groq_api_key = "gsk_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
