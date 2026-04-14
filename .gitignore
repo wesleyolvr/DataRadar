@@ -55,6 +55,10 @@ IMPLEMENTACAO_MANUAL.md
 STATUS_AUTOMACAO.md
 PROXIMOS_PASSOS.txt
 COMANDOS_RAPIDOS.md
+RESUMO_EXECUTIVO.md
+MELHORIAS.md
+docs/deploy-guide.md
+docs/deploy-strategy.md
 
 # Skills e agents (desenvolvimento local)
 .agents/

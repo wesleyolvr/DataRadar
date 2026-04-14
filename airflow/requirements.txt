@@ -1,7 +1,4 @@
-# Airflow Requirements
-# Instalar no Astronomer deployment
-
-apache-airflow==2.10.4
 boto3>=1.35.98
 openai>=1.59.7
 databricks-sql-connector>=3.6.0
+requests>=2.31.0

@@ -3,18 +3,12 @@ DataRadar — DAG agendada de ingestão do Reddit (a cada 6h).
 
 Lê a lista de subreddits da Airflow Variable `devradar_subreddits`
 (JSON array) e executa o pipeline completo: extração → validação →
-salvamento local → comentários → upload S3.
+salvamento local → comentários → upload S3 → geração de insights LLM.
 
 Airflow Variable esperada:
   devradar_subreddits = ["dataengineering", "python", "rust"]
 
 Se a Variable não existir, usa o default: ["dataengineering", "python"].
-
-Parâmetros conservadores para respeitar rate limits da API pública:
-  - max_pages = 2  (menos requests por subreddit)
-  - top_k_comments = 20  (menos requests de comentários)
-  - upload_s3 = true  (sempre sobe para o S3)
-  - schedule = 6h (otimizado para free tier Astronomer)
 """
 
 from __future__ import annotations
@@ -28,10 +22,9 @@ from pathlib import Path
 
 from airflow.decorators import task
 from airflow.models import Variable
-from airflow import DAG
-
-# Import da task de insights (mesmo diretório)
 from task_generate_insights import generate_insights
+
+from airflow import DAG
 
 sys.path.insert(0, "/opt/airflow/scripts")
 
@@ -39,10 +32,6 @@ logger = logging.getLogger(__name__)
 
 LOCAL_DATA_DIR = Path("/opt/airflow/data")
 S3_BUCKET = os.getenv("DEVRADAR_S3_BUCKET", "devradar-raw")
-DATABRICKS_HOST = os.getenv("DATABRICKS_HOST", "")
-DATABRICKS_TOKEN = os.getenv("DATABRICKS_TOKEN", "")
-DATABRICKS_WAREHOUSE_ID = os.getenv("DATABRICKS_WAREHOUSE_ID", "")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 
 REQUIRED_FIELDS = {"id", "subreddit", "title", "created_utc"}
 
@@ -348,7 +337,7 @@ with DAG(
     dag_id="devradar_reddit_scheduled",
     default_args=DEFAULT_ARGS,
     description="[PROD] Extrai Reddit a cada 6h — subreddits via Variable",
-    schedule=timedelta(hours=6),  # Era 2h30, ajustado para free tier Astronomer
+    schedule=timedelta(hours=6),
     start_date=datetime(2025, 1, 1),
     catchup=False,
     tags=["devradar", "reddit", "scheduled", "prod"],
@@ -362,8 +351,6 @@ with DAG(
     saved_results = save_local.expand(result=validated_results)
     comment_results = extract_and_save_comments.expand(save_result=saved_results)
     uploads = upload_to_s3.expand(file_info=comment_results)
-    
-    # Nova task: gera insights via LLM e escreve em gold_ai_insights (Databricks)
-    # Roda APÓS todos os uploads S3 (Databricks processa S3 → Silver → depois insights Gold)
+
     insights_task = generate_insights()
     uploads >> insights_task
