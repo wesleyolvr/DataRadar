@@ -1,15 +1,18 @@
 """
-DataRadar — Módulo de extração da API pública do Reddit.
+DataRadar — Extração Reddit (JSON público ou API OAuth).
 
-Extrai posts e comentários. Retorna dados em memória (lista de dicts)
-para que o caller decida onde persistir (S3, disco, etc.).
-Nenhum I/O local é feito aqui.
+- ``www.reddit.com/.../*.json`` exige User-Agent descritivo; UA de browser ou vazio → 403/429.
+  Ver discussão: https://www.reddit.com/r/redditdev/comments/1e74vlo/
+- PRAW usa ``oauth.reddit.com`` + Bearer (ver ``praw/reddit.py`` + ``USER_AGENT_FORMAT``).
+  Opcional: defina ``REDDIT_CLIENT_ID`` + ``REDDIT_CLIENT_SECRET`` para ``client_credentials``
+  (somente leitura), mesmo fluxo que bibliotecas oficiais usam.
 """
 
 from __future__ import annotations
 
 import logging
 import os
+import threading
 import time
 from datetime import UTC, datetime
 from typing import Any
@@ -18,27 +21,97 @@ import requests
 
 logger = logging.getLogger(__name__)
 
+REQUEST_TIMEOUT = 15
+
+# Mesma ideia que PRAW: ``USER_AGENT_FORMAT = "{} PRAW/{version}"`` (praw/const.py)
+_DATARADAR_CLIENT_VERSION = "1.0"
+
 
 def _default_headers() -> dict[str, str]:
-    """Reddit exige User-Agent único e descritivo (não imitar browser — isso gera 403).
-
-    Formato recomendado: ``platform:app:version (by /u/username)``.
-    Ver: https://github.com/reddit-archive/reddit/wiki/API
-    """
+    """User-Agent obrigatório e único (wiki API Reddit + thread r/redditdev sobre 403)."""
     user = os.getenv("REDDIT_USERNAME", "DataRadarBot").strip() or "DataRadarBot"
+    base = f"python:DataRadar:{_DATARADAR_CLIENT_VERSION} (by /u/{user})"
     return {
-        "User-Agent": f"python:DataRadar:1.0 (by /u/{user})",
+        "User-Agent": f"{base} DataRadarClient/{_DATARADAR_CLIENT_VERSION}",
         "Accept": "application/json",
     }
 
-REQUEST_TIMEOUT = 15
+
+_oauth_lock = threading.Lock()
+_oauth_token: str | None = None
+_oauth_expires_at: float = 0.0
+
+
+def _has_oauth_creds() -> bool:
+    cid = os.getenv("REDDIT_CLIENT_ID", "").strip()
+    csec = os.getenv("REDDIT_CLIENT_SECRET", "").strip()
+    return bool(cid and csec)
+
+
+def _fetch_oauth_token_unlocked() -> None:
+    """POST /api/v1/access_token — grant_type=client_credentials (read-only)."""
+    global _oauth_token, _oauth_expires_at
+    cid = os.getenv("REDDIT_CLIENT_ID", "").strip()
+    csec = os.getenv("REDDIT_CLIENT_SECRET", "").strip()
+    resp = requests.post(
+        "https://www.reddit.com/api/v1/access_token",
+        auth=(cid, csec),
+        data={"grant_type": "client_credentials"},
+        headers=_default_headers(),
+        timeout=REQUEST_TIMEOUT,
+    )
+    resp.raise_for_status()
+    data = resp.json()
+    _oauth_token = data["access_token"]
+    expires_in = float(data.get("expires_in", 3600))
+    _oauth_expires_at = time.time() + max(60.0, expires_in - 120.0)
+
+
+def _ensure_oauth_token() -> str:
+    global _oauth_token, _oauth_expires_at
+    with _oauth_lock:
+        if _oauth_token and time.time() < _oauth_expires_at:
+            return _oauth_token
+        _fetch_oauth_token_unlocked()
+        if _oauth_token is None:
+            msg = "OAuth token missing after fetch"
+            raise RuntimeError(msg)
+        return _oauth_token
+
+
+def _request_headers() -> dict[str, str]:
+    h = _default_headers()
+    if _has_oauth_creds():
+        h["Authorization"] = f"Bearer {_ensure_oauth_token()}"
+    return h
+
+
+def _invalidate_oauth_token() -> None:
+    global _oauth_token, _oauth_expires_at
+    with _oauth_lock:
+        _oauth_token = None
+        _oauth_expires_at = 0.0
+
+
+def _listing_url(subreddit: str, sort: str) -> str:
+    if _has_oauth_creds():
+        return f"https://oauth.reddit.com/r/{subreddit}/{sort}"
+    return f"https://www.reddit.com/r/{subreddit}/{sort}.json"
+
+
+def _comments_url(subreddit: str, post_id: str) -> str:
+    if _has_oauth_creds():
+        return f"https://oauth.reddit.com/r/{subreddit}/comments/{post_id}"
+    return f"https://www.reddit.com/r/{subreddit}/comments/{post_id}.json"
+
+
 RATE_LIMIT_SLEEP = 3.0
 MAX_RETRIES = 6
 RETRY_BACKOFF = 5
 MIN_429_WAIT = 10
 
 
-def _get_with_retry(url: str, params: dict, retries: int = MAX_RETRIES) -> dict | None:
+def _get_with_retry(url: str, params: dict, retries: int = MAX_RETRIES) -> dict | list | None:
     """GET com retry exponencial e tratamento de rate-limit (429).
 
     Respeita o header ``Retry-After`` quando presente; caso contrário usa
@@ -48,10 +121,19 @@ def _get_with_retry(url: str, params: dict, retries: int = MAX_RETRIES) -> dict 
         try:
             resp = requests.get(
                 url,
-                headers=_default_headers(),
+                headers=_request_headers(),
                 params=params,
                 timeout=REQUEST_TIMEOUT,
             )
+            if resp.status_code == 401 and _has_oauth_creds():
+                logger.warning("Reddit OAuth 401 — renovando token")
+                _invalidate_oauth_token()
+                resp = requests.get(
+                    url,
+                    headers=_request_headers(),
+                    params=params,
+                    timeout=REQUEST_TIMEOUT,
+                )
 
             if resp.status_code == 429:
                 retry_after = resp.headers.get("Retry-After")
@@ -67,7 +149,7 @@ def _get_with_retry(url: str, params: dict, retries: int = MAX_RETRIES) -> dict 
                 continue
 
             resp.raise_for_status()
-            return resp.json()
+            return resp.json()  # list ou dict conforme endpoint
 
         except requests.exceptions.RequestException as exc:
             logger.error(
@@ -134,7 +216,7 @@ def extract_subreddit(
     list[dict]
         Lista de posts normalizados. Retorna lista vazia em caso de falha total.
     """
-    base_url = f"https://www.reddit.com/r/{subreddit}/{sort}.json"
+    base_url = _listing_url(subreddit, sort)
     all_posts: list[dict[str, Any]] = []
     after: str | None = None
 
@@ -237,7 +319,7 @@ def extract_post_comments(
     sort: str = "top",
 ) -> list[dict[str, Any]]:
     """Extrai comentários de um post específico."""
-    url = f"https://www.reddit.com/r/{subreddit}/comments/{post_id}.json"
+    url = _comments_url(subreddit, post_id)
     params = {"limit": limit, "depth": depth, "sort": sort, "raw_json": 1}
 
     data = _get_with_retry(url, params)
