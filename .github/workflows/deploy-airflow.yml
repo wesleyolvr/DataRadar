@@ -23,5 +23,5 @@ jobs:
           ASTRONOMER_TOKEN: ${{ secrets.ASTRONOMER_TOKEN }}
         run: |
           cd airflow
-          echo "$ASTRONOMER_TOKEN" | astro login --token-stdin
+          astro login --token-login "$ASTRONOMER_TOKEN"
           astro deploy ${{ secrets.ASTRONOMER_DEPLOYMENT_ID }} --force
