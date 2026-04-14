@@ -44,7 +44,7 @@ terraform/crash.log
 terraform/iam-policy-*.json
 
 # Airflow/Astronomer
-airflow/.astro/
+airflow/.astro/dag_integrity_exceptions.txt
 airflow/astronomer-deploy.zip
 
 # Lambda artifacts

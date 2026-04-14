@@ -1,0 +1,3 @@
+# Astronomer project configuration
+project:
+  name: dataradar-airflow
