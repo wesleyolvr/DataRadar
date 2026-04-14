@@ -9,6 +9,7 @@ Nenhum I/O local é feito aqui.
 from __future__ import annotations
 
 import logging
+import os
 import time
 from datetime import UTC, datetime
 from typing import Any
@@ -17,16 +18,18 @@ import requests
 
 logger = logging.getLogger(__name__)
 
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/131.0.0.0 Safari/537.36 "
-        "DataRadar/1.0"
-    ),
-    "Accept": "application/json",
-    "Accept-Language": "en-US,en;q=0.9",
-}
+
+def _default_headers() -> dict[str, str]:
+    """Reddit exige User-Agent único e descritivo (não imitar browser — isso gera 403).
+
+    Formato recomendado: ``platform:app:version (by /u/username)``.
+    Ver: https://github.com/reddit-archive/reddit/wiki/API
+    """
+    user = os.getenv("REDDIT_USERNAME", "DataRadarBot").strip() or "DataRadarBot"
+    return {
+        "User-Agent": f"python:DataRadar:1.0 (by /u/{user})",
+        "Accept": "application/json",
+    }
 
 REQUEST_TIMEOUT = 15
 RATE_LIMIT_SLEEP = 3.0
@@ -44,7 +47,10 @@ def _get_with_retry(url: str, params: dict, retries: int = MAX_RETRIES) -> dict 
     for attempt in range(1, retries + 1):
         try:
             resp = requests.get(
-                url, headers=HEADERS, params=params, timeout=REQUEST_TIMEOUT,
+                url,
+                headers=_default_headers(),
+                params=params,
+                timeout=REQUEST_TIMEOUT,
             )
 
             if resp.status_code == 429:
