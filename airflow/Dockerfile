@@ -1,4 +1,4 @@
-FROM quay.io/astronomer/astro-runtime:3.1.14
+FROM astrocrpublic.azurecr.io/runtime:3.1-14
 
 COPY scripts/ /opt/airflow/scripts/
 
