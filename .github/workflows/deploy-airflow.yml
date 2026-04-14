@@ -1,0 +1,27 @@
+name: Deploy Airflow to Astronomer
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'airflow/**'
+      - '.github/workflows/deploy-airflow.yml'
+
+jobs:
+  deploy-airflow:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Astronomer
+        uses: astronomer/deploy-action@v0.3
+        with:
+          deployment-id: ${{ secrets.ASTRONOMER_DEPLOYMENT_ID }}
+          organization-id: ${{ secrets.ASTRONOMER_ORGANIZATION_ID }}
+          token: ${{ secrets.ASTRONOMER_TOKEN }}
+          root-folder: airflow
+          pytest: false
+          pytest-file: ''
+          force: true
