@@ -19,9 +19,6 @@ jobs:
         uses: astronomer/deploy-action@v0.3
         with:
           deployment-id: ${{ secrets.ASTRONOMER_DEPLOYMENT_ID }}
-          organization-id: ${{ secrets.ASTRONOMER_ORGANIZATION_ID }}
-          token: ${{ secrets.ASTRONOMER_TOKEN }}
+          workspace: ${{ secrets.ASTRONOMER_WORKSPACE_ID }}
           root-folder: airflow
-          pytest: false
-          pytest-file: ''
           force: true
