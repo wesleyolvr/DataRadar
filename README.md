@@ -119,11 +119,16 @@ DataRadar/
 │   ├── routers/        # Endpoints (bronze, ingest, pipeline)
 │   ├── services/       # Leitura Bronze + cliente Databricks
 │   └── static/         # Dashboard HTML/CSS/JS
-├── lambda/             # AWS Lambda (trigger Databricks via S3 event)
+├── databricks/         # Notebooks PySpark (Job) + SQL
+│   ├── notebooks/      # medallion_pipeline.py (entrada) + modulos %run
+│   └── sql/            # Scripts SQL (ex.: gold_ai_insights)
+├── lambda/             # AWS Lambda (run-now do Job ao subir raw_*.json no S3)
 ├── scripts/            # Utilitarios (generate_insights, replay Lambda)
 ├── tests/              # 55+ testes automatizados (pytest)
 └── docs/               # Arquitetura, setup, planos
 ```
+
+Para configurar o Job no Databricks (path no Repos, tabelas, secrets), veja [databricks/README.md](databricks/README.md).
 
 ## Agendamento
 
@@ -135,6 +140,7 @@ Extracao horaria dos subreddits cadastrados via DAG do Airflow.
 
 - [Arquitetura detalhada](docs/architecture.md)
 - [Setup completo](docs/setup.md)
+- [Databricks — notebooks, SQL e Job](databricks/README.md)
 - [Roadmap e melhorias](MELHORIAS.md)
 
 ## Licenca

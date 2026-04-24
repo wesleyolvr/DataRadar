@@ -221,8 +221,8 @@ DATABRICKS_TOKEN
 **Componentes:**
 - [x] Criar `databricks/notebooks/` no repo
 - [x] Conectar via Databricks Repos UI
-- [ ] Migrar código notebooks existentes
-- [ ] Atualizar Lambda: path para `/Repos/.../`
+- [x] Migrar código notebooks existentes (`medallion_pipeline.py` + módulos `%run`)
+- [x] Atualizar Job Databricks: task notebook apontando para `.../databricks/notebooks/medallion_pipeline` (o Lambda só envia `arquivo_novo`; path fica no Job)
 
 ---
 

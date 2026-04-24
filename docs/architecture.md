@@ -19,8 +19,9 @@ O DataRadar segue a **Medallion Architecture** (Bronze → Silver → Gold) sobr
 
 ### Silver / Gold (processamento)
 
-- **AWS Lambda** reage a novos objetos no S3 e dispara o job no **Databricks** (`run-now`).
-- **PySpark + Delta Lake**: tabelas Silver (posts/comentários limpos) e Gold (agregações por subreddit/semana, top commenters, etc.), com **MERGE** (regra “novo vence”).
+- **AWS Lambda** reage a novos objetos no S3 e dispara o **Job** no Databricks (`run-now`), passando o parâmetro de notebook `arquivo_novo` (key do objeto `raw_*.json` no S3).
+- **PySpark + Delta Lake** (notebooks em `databricks/notebooks/`): o notebook **`medallion_pipeline.py`** é o ponto de entrada do Job; ele carrega `medallion_schemas`, `medallion_helpers` e `medallion_transforms` via `%run`. Tabelas no schema `default` (`devradar_bronze_*`, `devradar_silver_*`, `devradar_gold_*`) com **MERGE** (regra “novo vence”).
+- Detalhes de paths no workspace, secrets (`aws_credentials`) e SQL auxiliar: [databricks/README.md](../databricks/README.md).
 
 ### Serving e insights
 
@@ -40,7 +41,8 @@ O DataRadar segue a **Medallion Architecture** (Bronze → Silver → Gold) sobr
 | Área | Onde está |
 |------|-----------|
 | DAGs e extração | `airflow/dags/`, `airflow/scripts/extract_reddit.py` |
-| Lambda S3 → Databricks | `lambda/handler.py` |
-| Pipeline medallion (referência) | `databricks/jobs/medallion_pipeline.py` |
+| Lambda S3 → Databricks Job | `lambda/handler.py` (parâmetro `arquivo_novo`; path do notebook fica na definição do Job) |
+| Pipeline medallion (entrada do Job) | `databricks/notebooks/medallion_pipeline.py` (+ `medallion_schemas.py`, `medallion_helpers.py`, `medallion_transforms.py`) |
+| SQL Databricks (ex.: `gold_ai_insights`) | `databricks/sql/` |
 | API e dashboard | `app/` |
 | Insights batch | `scripts/generate_insights.py` |

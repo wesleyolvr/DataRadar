@@ -39,6 +39,8 @@ uvicorn main:app --reload --port 8000
 - API: http://localhost:8000/api/health
 - Dashboard: http://localhost:8000
 
+Sem variáveis `DATABRICKS_*`, o endpoint de pipeline usa fallback em memória a partir do Bronze local; com elas, a API consulta o SQL Warehouse. Os notebooks PySpark rodam **no Databricks**, não via `uvicorn` — ver [databricks/README.md](../databricks/README.md).
+
 ## 4. Testes
 
 ```bash
