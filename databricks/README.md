@@ -2,118 +2,123 @@
 
 Notebooks e scripts SQL para processamento de dados no Databricks.
 
-## 📁 Estrutura
+## Estrutura
 
 ```
 databricks/
-├── notebooks/          # Notebooks Python (formato .py)
-│   ├── bronze_to_silver.py
-│   ├── silver_to_gold.py
-│   └── utils.py
-├── sql/                # Scripts SQL
+├── notebooks/                    # Notebooks Python (formato fonte .py)
+│   ├── medallion_pipeline.py    # Entrada do Job/Lambda — Bronze → Silver → Gold
+│   ├── medallion_schemas.py     # Schemas StructType (posts / comments)
+│   ├── medallion_helpers.py     # S3 (boto3 + secrets), parsing do path
+│   └── medallion_transforms.py # Transformações Silver / Gold (DataFrames)
+├── sql/
 │   ├── create_gold_ai_insights.sql
+│   ├── create_gold_ai_insights_v2.sql
 │   └── query_examples.sql
 └── README.md
 ```
 
-## 🔗 Git Sync (Databricks Repos)
+O `medallion_pipeline.py` usa `%run` para carregar os outros três arquivos na **mesma pasta** do Repo (`./medallion_schemas`, etc.).
 
-Este diretório está conectado ao Databricks via **Repos UI**:
+## Git Sync (Databricks Repos)
 
-1. Databricks Workspace → Repos → Add Repo
-2. URL: `https://github.com/seu-usuario/devradar`
-3. Path no workspace: `/Repos/wdodsg@gmail.com/DataRadar`
+Este diretório pode ser sincronizado via **Repos**:
 
-Quando você faz push no GitHub, pode fazer pull no Databricks Repos para atualizar.
+1. Databricks Workspace → Repos → Add Repo  
+2. URL: `https://github.com/<usuario>/devradar` (ou o remoto do seu fork)  
+3. Exemplo de path no workspace: `/Repos/wdodsg@gmail.com/DataRadar`
 
-## 📊 Tabelas e Schemas
+Após `git push` no GitHub, use **Pull** no Repos para atualizar o workspace.
 
-### Bronze (Raw Data)
-- Dados brutos do S3 (`s3://devradar-raw/{env}/reddit/`)
-- Lidos diretamente via boto3 ou spark.read.json
+## Tabelas e schemas
 
-### Silver (Cleaned)
-- `devradar_silver_posts`: posts limpos e deduplicated
-- `devradar_silver_comments`: comentários processados
+### Pipeline medallion (notebook)
 
-### Gold (Analytics)
-- `gold_ai_insights`: insights gerados por LLM ⬅️ **NOVO!**
-- `gold_subreddit_stats`: estatísticas agregadas por subreddit
+Tabelas Delta no schema `default`, atualizadas pelo `medallion_pipeline.py`:
 
-## 🚀 Executar SQL
+| Camada | Tabela |
+|--------|--------|
+| Bronze | `devradar_bronze_posts`, `devradar_bronze_comments` |
+| Silver | `devradar_silver_posts`, `devradar_silver_comments` |
+| Gold | `devradar_gold_subreddit_week`, `devradar_gold_top_commenters` |
+
+**Bronze:** dados lidos do S3 (`s3://devradar-raw/…`) via boto3 + `dbutils.secrets` (escopo `aws_credentials`).
+
+### SQL / LLM (scripts em `sql/`)
+
+- `gold_ai_insights` — definida pelos scripts `create_gold_ai_insights*.sql`; insights gerados por LLM (fluxo separado, ex.: Airflow).
+
+## Executar SQL
 
 ### Via Databricks SQL Warehouse (recomendado)
-```bash
-# Via CLI
-databricks sql -e "SELECT * FROM gold_ai_insights LIMIT 10"
 
-# Via notebook
-%sql
+```bash
+databricks sql -e "SELECT * FROM gold_ai_insights LIMIT 10"
+```
+
+No notebook:
+
+```sql
 SELECT * FROM gold_ai_insights;
 ```
 
 ### Via Workspace UI
-1. SQL Editor → New Query
-2. Copiar conteúdo de `sql/create_gold_ai_insights.sql`
-3. Run
 
-## 📝 Notebooks Python
+1. SQL Editor → New Query  
+2. Colar o conteúdo de `sql/create_gold_ai_insights.sql` (ou `_v2`)  
+3. Run  
 
-Notebooks no formato `.py` (Databricks source format):
+## Notebooks Python
+
+Formato **Databricks notebook source** (células separadas por `# COMMAND ----------`; magics com `# MAGIC`).
+
+Exemplo de composição (como no pipeline):
 
 ```python
 # Databricks notebook source
-# MAGIC %md
-# MAGIC # Bronze to Silver Pipeline
-
+# MAGIC %run ./medallion_schemas
 # COMMAND ----------
-
-import pyspark.sql.functions as F
-from delta.tables import DeltaTable
-
-# COMMAND ----------
-
-# Read Bronze data
-df = spark.read.json("s3://devradar-raw/prod/reddit/...")
+from pyspark.sql import functions as F
+# ...
 ```
 
-## 🔧 Lambda Trigger
+**Parâmetro do Job/Lambda:** widget `arquivo_novo` — key S3 do arquivo de posts (`raw_*.json`), por exemplo  
+`reddit/python/date=2026-03-29/raw_2026-03-29T01_00_50.json`.  
+O notebook resolve comentários `comments_*.json` no mesmo diretório.
 
-Lambda executa notebooks via path no Repos:
+## Lambda e Databricks Job
+
+O `lambda/handler.py` chama **Jobs Run Now** com `notebook_params.arquivo_novo`; o **caminho do notebook** fica na definição do Job no Databricks, não no Lambda.
+
+Configure o task do Job para apontar para o notebook no Repo. Se o Repo for o projeto **devradar** inteiro (raiz com `databricks/`), o path costuma ser:
+
+`/Repos/<email-ou-org>/<nome-do-repo>/databricks/notebooks/medallion_pipeline.py`
+
+Se você só sincronizar uma subpasta como raiz do Repo, o prefixo antes de `notebooks/` muda — use o caminho exibido no Workspace (botão direito no arquivo → Copy path).
+
+## Query na API (FastAPI)
+
+Exemplo de consulta a insights (ver `app/routers/insights.py`):
 
 ```python
-# lambda/handler.py
-notebook_path = "/Repos/wdodsg@gmail.com/DataRadar/notebooks/bronze_to_silver.py"
-```
-
-## 📊 Query API Endpoint
-
-FastAPI consulta `gold_ai_insights`:
-
-```python
-# app/routers/insights.py
 query = """
 SELECT * FROM gold_ai_insights
 WHERE subreddit = ? AND execution_date = CURRENT_DATE()
 """
 ```
 
-## 🔄 Workflow
+## Workflow (visão geral)
 
 ```
-S3 Event → Lambda → Databricks Job → Notebook Path
-                                       ↓
-                              /Repos/.../notebooks/bronze_to_silver.py
-                                       ↓
-                              Silver Tables (Delta)
-                                       ↓
-                      (Airflow task: generate_insights.py)
-                                       ↓
-                              gold_ai_insights (Delta)
+S3 (raw) → Lambda → Databricks Job → medallion_pipeline.py
+              │                              │
+              │                              ├→ Bronze / Silver / Gold (devradar_*)
+              │                              │
+Airflow / outros ────────────────────────────┴→ gold_ai_insights (SQL + LLM)
 ```
 
-## 📚 Referências
+## Referências
 
-- [Databricks Repos](https://docs.databricks.com/repos/index.html)
-- [Delta Lake](https://docs.delta.io/)
-- [Databricks SQL](https://docs.databricks.com/sql/index.html)
+- [Databricks Repos](https://docs.databricks.com/repos/index.html)  
+- [Delta Lake](https://docs.delta.io/)  
+- [Databricks SQL](https://docs.databricks.com/sql/index.html)  
