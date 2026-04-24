@@ -26,3 +26,7 @@ line-length = 120
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B", "SIM"]
 ignore = ["E501", "SIM105"]
+
+# Databricks injeta spark/dbutils; %run carrega schemas/helpers/transforms em runtime.
+[tool.ruff.lint.per-file-ignores]
+"databricks/notebooks/medallion_pipeline.py" = ["F821"]
