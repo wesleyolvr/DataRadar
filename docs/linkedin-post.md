@@ -36,7 +36,7 @@ Use o fluxo abaixo como **roteiro** no [Excalidraw](https://excalidraw.com/): co
 
 **Checklist visual (alinha ao repo real):**
 - Ingestao: Reddit → Airflow (`reddit_api` pool) → S3 Bronze `raw_*.json`.
-- Event-driven: S3 → Lambda (`run-now` job) → Databricks (MERGE Delta Silver/Gold).
+- Event-driven: S3 → Lambda (`run-now` job) → Databricks Job → `medallion_pipeline.py` (`%run` + MERGE Delta Silver/Gold).
 - Serving: Databricks **SQL Warehouse** → FastAPI (Silver/Gold ao vivo).
 - Insights IA: leitura **Silver** (SQL) → script batch + **Groq** → `data.json` → FastAPI → mesmo dashboard (e Vercel estatico).
 - Destaque azul: **Airflow** e **Databricks**.
@@ -56,22 +56,24 @@ flowchart LR
         Reddit["Reddit API\nJSON publico"] --> Airflow["Apache Airflow\nDAGs + Pool reddit_api"]
         Airflow --> S3["AWS S3\nBronze raw_*.json"]
         S3 --> Lambda["AWS Lambda\nS3 event → run-now"]
-        Lambda --> Databricks["Databricks\nPySpark + Delta Lake\nSilver / Gold"]
+        Lambda --> DbJob["Databricks Job"]
+        DbJob --> Notebook["medallion_pipeline.py\n%run → Delta MERGE"]
+        Notebook --> DatabricksOut["Silver / Gold\nDelta Lake"]
 
         %% Duas saidas do Databricks (como no codigo)
-        Databricks -->|SQL Warehouse| FastAPI["FastAPI\nDatabricks SQL + static"]
-        Databricks -->|generate_insights.py| Groq["Groq API\nLlama 3.1 insights"]
+        DatabricksOut -->|SQL Warehouse| FastAPI["FastAPI\nDatabricks SQL + static"]
+        DatabricksOut -->|generate_insights.py| Groq["Groq API\nLlama 3.1 insights"]
         Groq --> DataJSON["data.json\ninsights por subreddit"]
         DataJSON --> FastAPI
         FastAPI --> Dashboard["Dashboard\nHTML/CSS/JS\nVercel estatico opcional"]
     end
 
-    class Airflow,Databricks highlight;
+    class Airflow,DbJob,Notebook highlight;
 
     PoolsNote>"SOLUCAO RATE LIMIT:\nPool reddit_api + backoff\n+ Retry-After API Reddit"]
     Airflow -.-> PoolsNote
 
-    EventNote>"1. Novo arquivo no S3 (Bronze)\n2. Lambda dispara job Databricks\n3. MERGE Delta (Silver/Gold)\n4. Job na fila do workspace"]
+    EventNote>"1. Novo raw_*.json no S3\n2. Lambda run-now no Job\n3. medallion_pipeline.py + %run\n4. MERGE Delta Silver/Gold"]
     S3 -.-> EventNote
     Lambda -.-> EventNote
 

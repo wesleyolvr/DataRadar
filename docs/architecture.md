@@ -4,7 +4,7 @@
 
 ![Diagrama de arquitetura](assets/arquitetura_dataradar.png)
 
-*(Versão editável: export do Excalidraw em `docs/assets/`; ver também o diagrama em texto no [README](../README.md#arquitetura).)*
+*Fonte Mermaid: [`assets/arquitetura_dataradar.mmd`](assets/arquitetura_dataradar.mmd). Regenerar PNG: [`assets/DIAGRAMAS.md`](assets/DIAGRAMAS.md). Diagrama em texto no [README](../README.md#arquitetura).*
 
 ## Visão geral
 

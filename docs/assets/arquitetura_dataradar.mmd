@@ -1,0 +1,43 @@
+%% DataRadar — arquitetura (fonte para PNG)
+%% PNG: ver docs/assets/DIAGRAMAS.md (resolução alta + fonte grande)
+
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "fontSize": "28px",
+    "fontFamily": "Segoe UI, system-ui, -apple-system, sans-serif",
+    "primaryTextColor": "#1a1a1a",
+    "lineColor": "#333333",
+    "secondaryColor": "#f1f5f9",
+    "tertiaryColor": "#e7f5ff"
+  },
+  "flowchart": {
+    "nodeSpacing": 90,
+    "rankSpacing": 110,
+    "padding": 28,
+    "curve": "basis",
+    "useMaxWidth": false
+  }
+}}%%
+
+flowchart LR
+    Reddit["Reddit API"] --> Airflow["Airflow\npool reddit_api"]
+    Airflow --> S3["S3 Bronze\nraw_*.json"]
+    S3 --> Lambda["Lambda\nrun-now"]
+    Lambda --> DbJob["Databricks Job"]
+
+    subgraph Databricks["Databricks"]
+        DbJob --> Entry["medallion_pipeline.py"]
+        Entry --> Run["%run schemas · helpers · transforms"]
+        Run --> Delta["Delta default.devradar_*"]
+    end
+
+    Delta --> WH["SQL Warehouse"]
+    WH --> FastAPI["FastAPI"]
+    Delta --> Batch["generate_insights.py\n+ Groq"]
+    Batch --> DataJSON["data.json"]
+    DataJSON --> FastAPI
+    FastAPI --> UI["Dashboard"]
+
+    classDef highlight fill:#e7f5ff,stroke:#1971c2,stroke-width:3px
+    class Airflow,DbJob,Entry,Databricks highlight

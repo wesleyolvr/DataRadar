@@ -27,20 +27,26 @@ Aba do dashboard com insights por subreddit (ferramentas em alta, dores da comun
 
 ## Arquitetura
 
-Visão geral do fluxo de dados e da stack. O diagrama abaixo é um **PNG exportado do [Excalidraw](https://excalidraw.com/)** (`docs/assets/arquitetura_dataradar.png`). O GitHub renderiza PNG de forma confiável no README; o arquivo fonte `.excalidraw` pode ficar em `docs/assets/` (ex.: `arquitetura_dataradar.excalidraw`) para edições futuras.
+Visão geral do fluxo de dados e da stack. O diagrama abaixo é o **PNG** `docs/assets/arquitetura_dataradar.png`, gerado a partir da fonte Mermaid `docs/assets/arquitetura_dataradar.mmd` (Databricks Job → `medallion_pipeline.py` → `%run` → Delta). Para alterar o desenho, edite o `.mmd` e regenere o PNG (comandos em [`docs/assets/DIAGRAMAS.md`](docs/assets/DIAGRAMAS.md)). Um desenho em estilo sketch opcional pode ficar em `arquitetura_dataradar.excalidraw`.
 
 ![Arquitetura — pipeline e stack](docs/assets/arquitetura_dataradar.png)
 
 Diagrama equivalente em texto (útil para forks e diffs):
 
 ```mermaid
+%%{init: {'themeVariables': {'fontSize': '22px'}, 'flowchart': {'nodeSpacing': 72, 'rankSpacing': 88, 'padding': 20}}}%%
 flowchart LR
     Reddit["Reddit API"] --> Airflow["Apache Airflow\nPool reddit_api"]
     Airflow --> S3["AWS S3 Bronze\nraw_*.json"]
     S3 --> Lambda["AWS Lambda\nrun-now job"]
-    Lambda --> Databricks["Databricks\nPySpark + Delta\nSilver / Gold"]
-    Databricks -->|SQL Warehouse| FastAPI["FastAPI"]
-    Databricks -->|script + Groq| Groq["Groq API\nLlama 3.1"]
+    Lambda --> DbJob["Databricks Job"]
+    subgraph Databricks["Databricks"]
+        DbJob --> Entry["medallion_pipeline.py"]
+        Entry --> Run["%run · Delta MERGE"]
+        Run --> Delta["Silver / Gold\nDelta"]
+    end
+    Delta -->|SQL Warehouse| FastAPI["FastAPI"]
+    Delta -->|generate_insights + Groq| Groq["Groq API\nLlama 3.1"]
     Groq --> DataJSON["data.json\ninsights"]
     DataJSON --> FastAPI
     FastAPI --> UI["Dashboard"]
@@ -141,6 +147,7 @@ Extracao horaria dos subreddits cadastrados via DAG do Airflow.
 - [Arquitetura detalhada](docs/architecture.md)
 - [Setup completo](docs/setup.md)
 - [Databricks — notebooks, SQL e Job](databricks/README.md)
+- [Diagramas — regenerar PNG de arquitetura](docs/assets/DIAGRAMAS.md)
 - [Roadmap e melhorias](MELHORIAS.md)
 
 ## Licenca
